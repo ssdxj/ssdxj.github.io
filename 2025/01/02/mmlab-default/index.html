@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>ssdxj&#39;s blogs</title>
+  <title>mmlab 学习笔记 | ssdxj&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ssdxj&#39;s blogs">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="data pipeline CONFIG DATASET &amp; DATALOADER DATALOADER DATASET BASEDATASET   MODEL EVALUATION 自定义评测指标   OPTIMWRAPPER PARAMETER SCHEDULER HOOK Runnder REGISTRY RESUME 自动恢复训练 指定 checkpoint 路径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mmlab 学习笔记">
+<meta property="og:url" content="http://example.com/2025/01/02/mmlab-default/index.html">
 <meta property="og:site_name" content="ssdxj&#39;s blogs">
+<meta property="og:description" content="data pipeline CONFIG DATASET &amp; DATALOADER DATALOADER DATASET BASEDATASET   MODEL EVALUATION 自定义评测指标   OPTIMWRAPPER PARAMETER SCHEDULER HOOK Runnder REGISTRY RESUME 自动恢复训练 指定 checkpoint 路径">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-01-02T03:57:24.000Z">
+<meta property="article:modified_time" content="2025-01-02T06:49:11.385Z">
 <meta property="article:author" content="li">
+<meta property="article:tag" content="mmlab">
+<meta property="article:tag" content="deep learning">
+<meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="ssdxj's blogs" type="application/atom+xml">
@@ -71,9 +78,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-mmlab-default" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-mmlab-default" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/01/02/mmlab-default/" class="article-date">
   <time class="dt-published" datetime="2025-01-02T03:57:24.000Z" itemprop="datePublished">2025-01-02</time>
@@ -90,8 +95,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/02/mmlab-default/">mmlab 学习笔记</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      mmlab 学习笔记
     </h1>
   
 
@@ -389,197 +394,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-ubuntu-others" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/01/02/ubuntu-others/" class="article-date">
-  <time class="dt-published" datetime="2025-01-02T03:51:10.000Z" itemprop="datePublished">2025-01-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ubuntu/">ubuntu</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/02/ubuntu-others/">ubuntu 中奇奇怪怪的问题</a>
-    </h1>
+    <a href="/2025/01/02/ubuntu-others/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ubuntu 中奇奇怪怪的问题</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2><span id="amd-vi-event-logged-io-page-fault-domain-0x0015-address-0xffe00900"><code>amd_vi event logged io_page_fault domain=0x0015 address=0xffe00900</code></span><a href="#amd-vi-event-logged-io-page-fault-domain-0x0015-address-0xffe00900" class="header-anchor">#</a></h2><p>解决方案: 在<code>/etc/default/grub</code> 的 <code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash”</code> 这一行最后添加<code>iommu=off</code>参数, 然后执行<code>sudo update-grub</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">&quot;quiet splash iommu=off&quot;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/01/02/ubuntu-others/" data-id="cm5esliv5000d6lpjdk05f42i" data-title="ubuntu 中奇奇怪怪的问题" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/errors/" rel="tag">errors</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-ubuntu-setup-xrdp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/01/02/ubuntu-setup-xrdp/" class="article-date">
-  <time class="dt-published" datetime="2025-01-02T03:45:59.000Z" itemprop="datePublished">2025-01-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ubuntu/">ubuntu</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/02/ubuntu-setup-xrdp/">Ubuntu Setup xrdp</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新系统</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;更新系统包...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt upgrade -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 xrdp 和相关依赖</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;安装 xrdp 和依赖...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> apt install -y xrdp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 xrdp 用户到 ssl-cert 组</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;配置 xrdp 用户权限...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> adduser xrdp ssl-cert</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用并启动 xrdp 服务</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;启动并启用 xrdp 服务...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now xrdp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查桌面环境</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;检测桌面环境...&quot;</span></span><br><span class="line"><span class="keyword">if</span> ! <span class="built_in">command</span> -v gnome-session &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;未检测到 GNOME 桌面环境，安装中...&quot;</span></span><br><span class="line">    <span class="built_in">sudo</span> apt install -y ubuntu-desktop</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 xrdp 使用 GNOME 桌面</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;配置 GNOME 桌面环境为默认会话...&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;gnome-session&quot;</span> &gt;~/.xsession</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开防火墙端口（可选）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;检查并配置防火墙规则...&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">sudo</span> ufw status | grep -q <span class="string">&quot;inactive&quot;</span>; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;防火墙未激活，跳过配置。&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">sudo</span> ufw allow 3389/tcp</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;已打开 3389 端口。&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查服务状态</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;检查 xrdp 服务状态...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl status xrdp --no-pager</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;配置完成！可以通过 RDP 客户端连接到此机器，使用当前系统用户登录。&quot;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/01/02/ubuntu-setup-xrdp/" data-id="cm5esac2g000nu5pjetpv2lkd" data-title="Ubuntu Setup xrdp" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xrdp/" rel="tag">xrdp</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-remote-sensing-imagery-download" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/01/02/remote-sensing-imagery-download/" class="article-date">
-  <time class="dt-published" datetime="2025-01-02T03:41:17.000Z" itemprop="datePublished">2025-01-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/remote-sensing/">remote sensing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/02/remote-sensing-imagery-download/">Remote Sensing Imagery Download</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2><span id="sentinel">Sentinel</span><a href="#sentinel" class="header-anchor">#</a></h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://dataspace.copernicus.eu/">https://dataspace.copernicus.eu/</a></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/01/02/remote-sensing-imagery-download/" data-id="cm5es4ain0006u5pj6oh1ffmi" data-title="Remote Sensing Imagery Download" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Landsat/" rel="tag">Landsat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sentinel2/" rel="tag">Sentinel2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/download/" rel="tag">download</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/remote-sensing/" rel="tag">remote sensing</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-docker-proxy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/01/02/docker-proxy/" class="article-date">
-  <time class="dt-published" datetime="2025-01-02T03:28:11.000Z" itemprop="datePublished">2025-01-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/docker/">docker</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/02/docker-proxy/">docker_proxy</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1><span id="how-to-use-docker-in-synology-with-proxy">how to use docker in synology with proxy</span><a href="#how-to-use-docker-in-synology-with-proxy" class="header-anchor">#</a></h1><blockquote>
-<p><a target="_blank" rel="noopener" href="https://dockerproxy.link/">https://dockerproxy.link/</a></p>
-</blockquote>
-<p>Take <code>stilleshan/frpc:latest</code> for example</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull dockerproxy.net/stilleshan/frpc:latest <span class="comment">#代理拉取镜像</span></span><br><span class="line">docker tag dockerproxy.net/stilleshan/frpc:latest stilleshan/frpc:latest <span class="comment"># 重命名镜像</span></span><br><span class="line">docker rmi dockerproxy.net/stilleshan/frpc:latest <span class="comment"># 删除代理镜像</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/01/02/docker-proxy/" data-id="cm5ernfr900015xpjhm178lhv" data-title="docker_proxy" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/" rel="tag">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/synology/" rel="tag">synology</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
