@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="base#  the main API implemented by scikit-learn is that of the estimator.  An estimator is any object that learns from data; it may be a classification, regression or clustering algorithm or a transfo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sklearn 学习笔记">
+<meta property="og:url" content="http://example.com/2025/01/05/sklearn-note/index.html">
+<meta property="og:site_name" content="ssdxj&#39;s blogs">
+<meta property="og:description" content="base#  the main API implemented by scikit-learn is that of the estimator.  An estimator is any object that learns from data; it may be a classification, regression or clustering algorithm or a transfo">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-01-05T09:42:25.000Z">
+<meta property="article:modified_time" content="2025-01-05T09:44:53.392Z">
+<meta property="article:author" content="li">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="note">
+<meta property="article:tag" content="sklearn">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/01/05/sklearn-note/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>sklearn 学习笔记 | ssdxj's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ssdxj's blogs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">hello handsome!!!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/05/sklearn-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ssdxj's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          sklearn 学习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-01-05 17:42:25 / Modified: 17:44:53" itemprop="dateCreated datePublished" datetime="2025-01-05T17:42:25+08:00">2025-01-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2><span id="base">base</span><a href="#base" class="header-anchor">#</a></h2>
+<ul>
+<li>the main API implemented by <code>scikit-learn</code> is that of the
+<code>estimator</code>.
+<ul>
+<li>An estimator is any object that learns from data; it may be a
+classification, regression or clustering algorithm or a transformer that
+extracts/filters useful features from raw data.</li>
+<li>All <code>estimator</code> objects expose a <code>fit</code> method
+that takes a dataset (usually a 2-d array)</li>
+<li>All the parameters of an estimator can be set when it is
+instantiated or by modifying the corresponding attribute:</li>
+<li>All the <strong>estimated parameters</strong> are attributes of the
+estimator object <strong>ending by an underscore</strong>:</li>
+<li>Two generic approaches to parameter search are provided in
+scikit-learn:
+<ul>
+<li>for given values, <code>GridSearchCV</code> exhaustively considers
+all parameter combinations,</li>
+<li>while <code>RandomizedSearchCV</code> can sample a given number of
+candidates from a parameter space with a specified distribution.
+<ul>
+<li>use <code>scipy.stats</code> module</li>
+<li><code>loguniform()</code></li>
+</ul></li>
+<li>Both these tools have successive halving counterparts
+<code>HalvingGridSearchCV</code> and <code>HalvingRandomSearchCV</code>,
+which can be much faster at finding a good parameter combination.</li>
+</ul></li>
+</ul></li>
+<li>It is possible to save a model in scikit-learn by using Python’s
+built-in persistence model, <code>pickle</code></li>
+<li>In the specific case of <code>scikit-learn</code>, it may be more
+interesting to use joblib’s replacement for pickle
+(<code>joblib.dump &amp; joblib.load</code>), which is more efficient on
+big data but it can only pickle to the disk and not to a string:</li>
+<li>Unless otherwise specified, input will be cast to
+<code>float64</code></li>
+<li>Regression <strong>targets</strong> are cast to <code>float64</code>
+and classification targets are maintained</li>
+</ul>
+<h2><span id="cross-validaiton-base">cross-validaiton base</span><a href="#cross-validaiton-base" class="header-anchor">#</a></h2>
+<ul>
+<li>train/test split:
+<ul>
+<li><code>sklearn.model_selection.train_test_split()</code></li>
+</ul></li>
+<li>Computing cross-validated metrics:
+<ul>
+<li><code>sklearn.model_selection.cross_val_score()</code>
+<ul>
+<li>n_jobs = -1</li>
+<li>cv = ShuffleSplit(n_splits=5, test_size=0.3, random_state=0)</li>
+<li>cv = custom_cv_2folds</li>
+</ul></li>
+<li><code>sklearn.model_selection.cross_validate()</code></li>
+<li><code>sklearn.model_selection.cross_val_predict()</code></li>
+</ul></li>
+</ul>
+<h2><span id="corss-validation-data-split">corss-validation data split</span><a href="#corss-validation-data-split" class="header-anchor">#</a></h2>
+<ul>
+<li><code>sklearn.model_selection.KFold()</code></li>
+<li><code>sklearn.model_selection.RepeatedKFold()</code></li>
+<li><code>sklearn.model_selection.LeaveOneOut()</code></li>
+<li><code>sklearn.model_selection.LeavePOut()</code></li>
+<li><code>sklearn.model_selection.ShuffleSplit()</code></li>
+<li><code>sklearn.model_selection.StratifiedKFold()</code></li>
+<li><code>sklearn.model_selection.GroupKFold()</code></li>
+<li><code>sklearn.model_selection.LeaveOneGroupOut()</code></li>
+<li><code>sklearn.model_selection.LeavePGroupOut()</code></li>
+<li><code>sklearn.model_selection.PredefinedSplit()</code></li>
+<li><code>sklearn.model_selection.TimeSeriesSplit()</code></li>
+</ul>
+<h2><span id="tuning-the-hyper-parameters">Tuning the hyper-parameters</span><a href="#tuning-the-hyper-parameters" class="header-anchor">#</a></h2>
+<ul>
+<li>to find the names and current values for all parameters for a given
+estimator, use: <code>estimator.get_params()</code></li>
+<li>A <strong>search</strong> consists of:
+<ul>
+<li>an estimator (regressor or classifier such as
+sklearn.svm.SVC());</li>
+<li>a parameter space;</li>
+<li>a method for searching or sampling candidates;</li>
+<li>a cross-validation scheme; and</li>
+<li>a score function.</li>
+</ul></li>
+<li>exhaustively: <code>GridSearchCV</code></li>
+<li>Randomized: <code>RandomizedSearchCV</code>
+<ul>
+<li>For each parameter, either <strong>a distribution over possible
+values</strong> or a list of discrete choices (which will be sampled
+uniformly) can be specified:</li>
+<li><code>&#123;'C': scipy.stats.expon(scale=100), 'gamma': scipy.stats.expon(scale=.1), 'kernel': ['rbf'], 'class_weight':['balanced', None]&#125;</code></li>
+</ul></li>
+<li>default <code>score</code> function:
+<ul>
+<li><code>sklearn.metrics.accuracy_score</code> for classification</li>
+<li><code>sklearn.metrics.r2_score</code> for regression.</li>
+</ul></li>
+<li>Parallelism: <code>n_jobs=-1</code> in <code>GridSearchCV</code> and
+<code>RandomizedSearchCV</code></li>
+<li>Robustness to failure: error_score=0 (or =np.NaN)</li>
+<li>Model specific cross-validation:</li>
+</ul>
+<h2><span id="matrics-and-scoring">matrics and scoring</span><a href="#matrics-and-scoring" class="header-anchor">#</a></h2>
+<ul>
+<li>functions ending with <code>_score</code> return a value to
+maximize, the higher the better.</li>
+<li>functions ending with <code>_error</code> or <code>_loss</code>
+return a value to minimize, the lower the better. When converting into a
+scorer object using <code>make_scorer</code>, set the
+<code>greater_is_better</code> parameter to <code>False</code></li>
+</ul>
+<h2><span id="best-practices">best practices</span><a href="#best-practices" class="header-anchor">#</a></h2>
+<ul>
+<li><code>from sklearn.dummy import DummyClassifier</code></li>
+<li>suffle
+<ul>
+<li>If the <strong>data ordering</strong> is not arbitrary (e.g. samples
+with the same class label are contiguous), <strong>shuffling it
+first</strong> may be essential to get a <strong>meaningful
+cross-validation</strong> result. However, the opposite may be true if
+the samples are not independently and identically distributed.</li>
+<li>some cross validation iterators, such as KFold, have an inbuilt
+option to shuffle the data indices before splitting them.</li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/note/" rel="tag"># note</a>
+              <a href="/tags/sklearn/" rel="tag"># sklearn</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/01/05/rasterio-note/" rel="prev" title="rasterio 学习笔记">
+      <i class="fa fa-chevron-left"></i> rasterio 学习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/01/05/pytorch-note/" rel="next" title="Pytorch 学习笔记">
+      Pytorch 学习笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">base</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">cross-validaiton base</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">corss-validation data split</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Tuning the hyper-parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">matrics and scoring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">best practices</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Landsat8:#  Bands  Pan Band 1 Visible(0.43 - 0.45 µm) 30 m Band 2 Visible(0.450 - 0.51 µm) 30 m Band 3 Visible(0.53 - 0.59 µm) 30 m Band 4 Red(0.64 - 0.67 µm) 30 m Band 5 Near-Infrared(0.85 - 0.88 µm)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="satellites">
+<meta property="og:url" content="http://example.com/2025/01/07/satellites/index.html">
+<meta property="og:site_name" content="ssdxj&#39;s blogs">
+<meta property="og:description" content="Landsat8:#  Bands  Pan Band 1 Visible(0.43 - 0.45 µm) 30 m Band 2 Visible(0.450 - 0.51 µm) 30 m Band 3 Visible(0.53 - 0.59 µm) 30 m Band 4 Red(0.64 - 0.67 µm) 30 m Band 5 Near-Infrared(0.85 - 0.88 µm)">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-01-07T10:15:08.000Z">
+<meta property="article:modified_time" content="2025-01-07T10:17:28.081Z">
+<meta property="article:author" content="li">
+<meta property="article:tag" content="remote sensing">
+<meta property="article:tag" content="satellite">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/01/07/satellites/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>satellites | ssdxj's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ssdxj's blogs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">hello handsome!!!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/07/satellites/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ssdxj's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          satellites
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-01-07 18:15:08 / Modified: 18:17:28" itemprop="dateCreated datePublished" datetime="2025-01-07T18:15:08+08:00">2025-01-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/remote-sensing/" itemprop="url" rel="index"><span itemprop="name">remote sensing</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2><span id="landsat8">Landsat8:</span><a href="#landsat8" class="header-anchor">#</a></h2>
+<ul>
+<li>Bands
+<ul>
+<li>Pan</li>
+<li>Band 1 Visible(0.43 - 0.45 µm) 30 m</li>
+<li>Band 2 Visible(0.450 - 0.51 µm) 30 m</li>
+<li>Band 3 Visible(0.53 - 0.59 µm) 30 m</li>
+<li>Band 4 Red(0.64 - 0.67 µm) 30 m</li>
+<li>Band 5 Near-Infrared(0.85 - 0.88 µm) 30 m</li>
+<li>Band 6 SWIR 1(1.57 - 1.65 µm) 30 m</li>
+<li>Band 7 SWIR 2 (2.11 - 2.29 µm) 30 m</li>
+<li>Band 8 Panchromatic(PAN)(0.50 - 0.68 µm) 15 m</li>
+<li>Band 9 Cirrus(1.36 - 1.38 µm) 30 m</li>
+</ul></li>
+</ul>
+<h2><span id="landsat-7">Landsat 7</span><a href="#landsat-7" class="header-anchor">#</a></h2>
+<blockquote>
+<p>https://www.usgs.gov/core-science-systems/nli/landsat/landsat-7</p>
+<ul>
+<li>Landsat 7 carries the Enhanced <strong>Thematic Mapper Plus
+(ETM+)</strong> sensor, an improved version of the <strong>Thematic
+Mapper</strong> instruments that were onboard Landsat 4 and Landsat
+5.</li>
+<li>Landsat 7 products are delivered as 8-bit images with 256 grey
+levels.</li>
+<li>Enhanced Thematic Mapper Plus (ETM+), Eight spectral bands,
+including a pan and thermal band:</li>
+<li>Band 1 Visible (0.45 - 0.52 µm) 30 m</li>
+<li>Band 2 Visible (0.52 - 0.60 µm) 30 m</li>
+<li>Band 3 Visible (0.63 - 0.69 µm) 30 m</li>
+<li>Band 4 Near-Infrared (0.77 - 0.90 µm) 30 m</li>
+<li>Band 5 Short-wave Infrared (1.55 - 1.75 µm) 30 m</li>
+<li>Band 6 Thermal (10.40 - 12.50 µm) 60 m Low Gain / High Gain</li>
+<li>Band 7 Mid-Infrared (2.08 - 2.35 µm) 30 m</li>
+<li>Band 8 Panchromatic (PAN) (0.52 - 0.90 µm) 15 m</li>
+<li>Ground Sampling Interval (pixel size): 30 m reflective, 60 m
+thermal</li>
+<li>Added the Band 6 Low and High gain 60 m thermal bands</li>
+<li>On-board calibration was added to Landsat 7: a Full Aperture Solar
+Calibrator (FASC) and a Partial Aperture Solar Calibrator (PASC), in
+addition to the 2 calibration lamps</li>
+</ul>
+</blockquote>
+<h3><span id="landsat-7-scan-line-corrector-slc-failure">Landsat 7 Scan Line
+Corrector (SLC) Failure</span><a href="#landsat-7-scan-line-corrector-slc-failure" class="header-anchor">#</a></h3>
+<ul>
+<li>On May 31, 2003, the Scan Line Corrector (SLC), which compensates
+for the forward motion of the satellite, failed. Subsequent efforts to
+recover the SLC were not successful, and the failure is permanent.
+Without an operating SLC, the sensor’s line of sight traces a zig-zag
+pattern along the satellite ground track.</li>
+<li>As a result, the imaged area is duplicated, with a width that
+increases toward the edge of the scene. When the Level-1 data are
+processed, the duplicated areas are removed, leaving data gaps. Although
+these scenes only have 78 percent of their pixels remaining after the
+duplicated areas are removed, these data are still some of the most
+geometrically and radiometrically accurate of all civilian satellite
+data in the world</li>
+</ul>
+<h2><span id="landsat-5-instruments">Landsat 5 Instruments</span><a href="#landsat-5-instruments" class="header-anchor">#</a></h2>
+<blockquote>
+<p>https://www.usgs.gov/core-science-systems/nli/landsat/landsat-5?qt-science_support_page_related_con=0#qt-science_support_page_related_con</p>
+<ul>
+<li>Landsat 5 carried the Multispectral Scanner(MSS) and the Thematic
+Mapper(TM) sensors. MSS data acquisitions over the United States ceased
+in 1992 and global acquisitions ended in 1999. After the TM sensor
+failed in November 2011, the MSS instrument was brought back online.
+From June 2012 until January 2013, over 15, 000 MSS scenes were
+collected.</li>
+<li>Multispectral Scanner(MSS)</li>
+<li>Four spectral bands(identical to Landsat 1 and 2):</li>
+<li>Band 4 Visible green(0.5 to 0.6 µm) — powered off due to high
+current in August 1995</li>
+<li>Band 5 Visible red(0.6 to 0.7 µm)</li>
+<li>Band 6 Near-Infrared(0.7 to 0.8 µm)</li>
+<li>Band 7 Near-Infrared(0.8 to 1.1 µm)</li>
+<li>Six detectors for each spectral band provided six scan lines on each
+active scan</li>
+<li>Ground Sampling Interval(pixel size): 57 x 79 m</li>
+<li>Thematic Mapper (TM)</li>
+<li>Added the mid-range infrared to the data</li>
+<li>Seven spectral bands, including a thermal band:</li>
+<li>Band 1 Visible (0.45 - 0.52 µm) 30 m</li>
+<li>Band 2 Visible (0.52 - 0.60 µm) 30 m</li>
+<li>Band 3 Visible (0.63 - 0.69 µm) 30 m</li>
+<li>Band 4 Near-Infrared (0.76 - 0.90 µm) 30 m</li>
+<li>Band 5 Near-Infrared (1.55 - 1.75 µm) 30 m</li>
+<li>Band 6 Thermal (10.40 - 12.50 µm) 120 m</li>
+<li>Band 7 Mid-Infrared (2.08 - 2.35 µm) 30 m</li>
+<li>Ground Sampling Interval (pixel size): 30 m reflective, 120 m
+thermal</li>
+</ul>
+</blockquote>
+<h2><span id="landsat-naming">Landsat naming</span><a href="#landsat-naming" class="header-anchor">#</a></h2>
+<blockquote>
+<p>https://www.usgs.gov/faqs/what-naming-convention-landsat-collections-level-1-scenes?qt-news_science_products=0#qt-news_science_products</p>
+</blockquote>
+<p>The Landsat Collection 1 Level-1 product identifier includes the
+Collection processing levels, processing date, collection number, and
+collection iter category:</p>
+<p><code>LXSS_LLLL_PPPRRR_YYYYMMDD_yyyymmdd_CC_TX</code></p>
+<p>Where:</p>
+<ul>
+<li><code>L</code> = Landsat</li>
+<li><code>X</code> = Sensor
+<ul>
+<li>“C”=OLI/TIRS combined</li>
+<li>“O”=OLI-only</li>
+<li>“T”=TIRS-only</li>
+<li>“E”=ETM+,</li>
+<li>“T”=“TM,</li>
+<li>“M”=MSS</li>
+</ul></li>
+<li><code>SS</code> = Satellite (”07”=Landsat 7, “08”=Landsat 8)</li>
+<li><code>LLL</code> = Processing correction level (L1TP/L1GT/L1GS)</li>
+<li>PPP = WRS path</li>
+<li>RRR = WRS row</li>
+<li>YYYYMMDD = Acquisition year, month, day</li>
+<li>yyyymmdd - Processing year, month, day</li>
+<li>CC = Collection number (01, 02, …)</li>
+<li>TX = Collection category (“RT”=Real-Time, “T1”=Tier 1, “T2”=Tier
+2)</li>
+</ul>
+<p>Example: LC08_L1GT_029030_20151209_20160131_01_RT</p>
+<p>Means: Landsat 8; OLI/TIRS combined; processing correction level
+L1GT; path 029; row 030; acquired December 9, 2015; processed January
+31, 2016; Collection 1; Real-Time</p>
+<h2><span id="landsat-processing-level">Landsat Processing level</span><a href="#landsat-processing-level" class="header-anchor">#</a></h2>
+<blockquote>
+<p>https://www.usgs.gov/core-science-systems/nli/landsat/landsat-levels-processing#:~:text=Landsat%20scenes%20are%20processed%20to,product%20will%20be%20created%20instead.</p>
+<ul>
+<li><code>L1PT</code>: Landsat scenes are processed to a Level-1
+precision and terrain corrected product (L1TP) if possible. In the case
+of insufficient reference data, a systematic and terrain corrected L1GT
+or a systematic L1GS product will be created instead.</li>
+<li><code>L1GT</code> products are created when the systematic product
+has consistent and sufficient locational accuracy to permit the
+application of a terrain model.</li>
+<li><code>L1GS</code> products are created when the locational accuracy
+is not sufficient to apply terrain correction, such as:</li>
+<li>Insufficient number of ground control points, such as small islands
+or Antarctic</li>
+<li>Opaque clouds that obscure the ground</li>
+<li>Locational errors greater than the search distance for ground
+control</li>
+</ul>
+</blockquote>
+<h2><span id="ers-1-ers-2"><del>ERS-1, ERS-2</del></span><a href="#ers-1-ers-2" class="header-anchor">#</a></h2>
+<p>ERS-1、ERS-2、ENVISAT-1三颗对地观测雷达卫星是由欧空局（ESA，European
+Space
+Agency）研制、发射并管理的。ERS-1卫星是欧空局的第一颗对地观测卫星。它于1991年7月17日发射升空，卫星高度在782-785千米。ERS-1卫星的后继星ERS-2卫星于1995年4月21日发射。ENVISAT-1卫星于2002年3月1日发射升空，ENVISAT-1卫星的ASAR传感器与ERS-1
+/
+2卫星的SAR相比，有了较大的改进，可以使用多种侧视角、两种不同极化方式进行对地观测。</p>
+<p>ERS-1 /
+2卫星在相同轨道运行，它们的主要有效载荷的SAR传感器基本相同。中国科学院遥感与数字地球研究所自1995年10月开始接收欧空局ERS-1卫星数据，2003年7月开始接收ERS-2卫星数据，并保存着ERS-1
+/
+2卫星自1995年至今接收的卫星原始数据，能够处理多种级别的数据产品，产品格式为CEOS、ENVISAT等。如需ERS-1
+/ 2卫星数据，请与遥感地球所数据服务部联系。</p>
+<table>
+<thead>
+<tr>
+<th>发射时间</th>
+<th>ERS-1：1991-07-17 ERS-2：1995-04-21</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>失效时间</td>
+<td>ERS-1：2000-03-10 ERS-2：2010-07-01</td>
+</tr>
+<tr>
+<td>轨道倾角（°）</td>
+<td>98.2</td>
+</tr>
+<tr>
+<td>运行周期（分钟）</td>
+<td>100</td>
+</tr>
+<tr>
+<td>轨道重复周期（天）</td>
+<td>35</td>
+</tr>
+<tr>
+<td>工作波段</td>
+<td><em>C</em></td>
+</tr>
+<tr>
+<td>极化方式</td>
+<td><em>VV</em></td>
+</tr>
+<tr>
+<td>空间分辨率(米)</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="envisat-1"><del>ENVISAT-1</del></span><a href="#envisat-1" class="header-anchor">#</a></h2>
+<p>ENVISAT-1卫星是欧洲迄今建造的最大的环境卫星，也是费用最高的地球观测卫星（总研制成本约25亿美元）。星上载有10种探测设备，其中4种是ERS-1/2所载设备的改进型，所载最大设备是先进的合成孔径雷达（ASAR），可生成海洋、海岸、极地冰冠和陆地的高质量图像，为科学家提供更高分辨率的图像来研究海洋的变化。其他设备将提供更高精度的数据，用于研究地球大气层及大气密度。作为ERS-1/2合成孔径雷达卫星的延续，Envisat-1数据主要用于监视环境，即对地球表面和大气层进行连续的观测，供制图、资源勘查、气象及灾害判断之用。中国科学院遥感与数字地球研究所自2003年11月开始接收欧空局ENVISAT-1卫星数据，并保存着ENVISAT-1卫星自2003年至今接收的卫星原始数据，能够提供多种产品级别的数据，数据产品的输出格式是ENVISAT格式。</p>
+<p>在科技部“国家科技基础条件平台”专项支持下，
+Envisat数据共享平台现在开始投入运行。请登录ENVISAT雷达卫星数据共享网站查询下载ENVISAT-1卫星数据。</p>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr>
+<th>所属国家</th>
+<th>欧空局</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>发射时间</td>
+<td>2002-03-01</td>
+</tr>
+<tr>
+<td>失效时间</td>
+<td>2012-04-08</td>
+</tr>
+<tr>
+<td>运行周期（分钟）</td>
+<td>101</td>
+</tr>
+<tr>
+<td>每天绕地球圈数</td>
+<td>14.4</td>
+</tr>
+<tr>
+<td>轨道重复周期（天）</td>
+<td>30</td>
+</tr>
+<tr>
+<td>工作波段</td>
+<td>C</td>
+</tr>
+<tr>
+<td>工作频率（GHz）</td>
+<td>5.3</td>
+</tr>
+<tr>
+<td>极化方式</td>
+<td>HH、VV（成像模式、宽模式）；VV/HH、VV/VH、HH/HV（交叉极化模式）</td>
+</tr>
+<tr>
+<td>空间分辨率（米）</td>
+<td>30（成像模式、交叉极化模式）；150（宽模式）</td>
+</tr>
+<tr>
+<td>幅宽（千米）</td>
+<td>56～105（成像模式、交叉极化模式）；400（宽模式）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2><span id="modis-1999">MODIS(1999)</span><a href="#modis-1999" class="header-anchor">#</a></h2>
+<ul>
+<li>MODIS: MODerate-resolution Imaging Spectroradiometer</li>
+<li>launched 1999 on board the <strong>Terra (EOS AM)</strong>
+Satellite, and in <strong>2002</strong> on board the <strong>Aqua (EOS
+PM)</strong> satellite.</li>
+<li>The instruments capture data in <strong>36 spectral bands</strong>
+ranging in wavelength from <strong>0.4 µm to 14.4 µm</strong> and at
+varying spatial resolutions (<strong>2 bands at 250 m, 5 bands at 500 m
+and 29 bands at 1 km</strong>).</li>
+<li>Together the instruments image the entire Earth <strong>every 1 to 2
+days</strong>.</li>
+<li>They are designed to <strong>provide measurements in large-scale
+global dynamics including changes in Earth’s cloud cover</strong>,
+radiation budget and processes occurring in the oceans, on land, and in
+the lower atmosphere.</li>
+</ul>
+<hr>
+<h2><span id="rapideye-2008">RapidEye(2008)</span><a href="#rapideye-2008" class="header-anchor">#</a></h2>
+<ul>
+<li>The company <strong>operated a five-satellite constellation
+producing 5 meter resolution imagery</strong></li>
+<li>Today, <strong>RapidEye refers to the constellation of 5 earth
+observation satellites owned and operated by Planet Labs</strong>.</li>
+<li>Five Identical Satellites: Each of RapidEye’s five satellites
+contain identical sensors, are equally calibrated and travel on the same
+orbital plane (at an altitude of 630 km).</li>
+<li><strong>Blue (440-510 nm), Green (520-590 nm), Red (630-690 nm),
+Red-Edge (690-730 nm) and Near-Infrared (760-880 nm)</strong>. The
+nominal resolution on the ground is <strong>6.5 meters</strong>,
+corresponding to NIIRS 2.</li>
+<li>RapidEye’s satellites <strong>are the first commercial satellites to
+include the Red-Edge band</strong>, <strong>which is sensitive to
+changes in chlorophyll content</strong>. Studies show that this band can
+assist in monitoring vegetation health, improve species separation and
+help in measuring protein and nitrogen content in biomass.</li>
+</ul>
+<hr>
+<h2><span id="meris">MERIS</span><a href="#meris" class="header-anchor">#</a></h2>
+<ul>
+<li>The MEdium resolution Imaging Spectrometer (MERIS),</li>
+<li>one of the payloads on the European Space Agency’s Envisat,</li>
+<li>is radiometrically the most accurate imaging spectrometer in space
+(Curran and Steele 2004).</li>
+<li>It has 15 programmable (2.5–20nm wide) wavebands in the 390–1040nm
+region</li>
+<li>and a spatial resolution of 300 m.</li>
+<li>three-day repeat cycle,</li>
+<li>MERIS is a potentially valuable sensor for the measurement and
+monitoring of terrestrial environments at regional to global scales
+(Verstraete et al. 1999).</li>
+<li>In the standard band setting, it has five discontinuous wavebands in
+red and near-infrared (NIR) wavelengths with band centres at 665 nm,
+681.25 nm, 708.75 nm, 753.75nm and 760.625 nm.</li>
+</ul>
+<hr>
+<h2><span id="digitalglobe">DigitalGlobe</span><a href="#digitalglobe" class="header-anchor">#</a></h2>
+<p>DigitalGlobe is an American commercial vendor of space imagery and
+geospatial content, and operator of civilian remote sensing
+spacecraft.</p>
+<h3><span id="earlybird-1"><del>EarlyBird-1</del></span><a href="#earlybird-1" class="header-anchor">#</a></h3>
+<h3><span id="ikonos"><del>IKONOS</del></span><a href="#ikonos" class="header-anchor">#</a></h3>
+<p>IKONOS was launched September 24, 1999. It was the world’s first
+high-resolution commercial imaging satellite to collect panchromatic
+(black-and-white) images with .80 m resolution and multispectral (color)
+imagery with 3.2-meter resolution.[11] On March 31, 2015, IKONOS was
+officially decommissioned after more than doubling her mission design
+life, spending 5,680 days in orbit and making 83,131 trips around the
+earth.[12]</p>
+<h3><span id="quickbird"><del>QuickBird</del></span><a href="#quickbird" class="header-anchor">#</a></h3>
+<p>QuickBird, launched on October 18, 2001,[5] was DigitalGlobe’s
+primary satellite until early 2015. It was built by Ball Aerospace, and
+launched by a Boeing Delta II. It is in a 450 km altitude, −98 degree
+inclination sun-synchronous orbit. An earlier launch attempt resulted in
+the loss of QuickBird-1. It included a panchromatic camera with a 60 cm
+(24 in) resolution and a multispectral camera with a 2.4 m (7 ft 10 in)
+resolution. On January 27, 2015, QuickBird was de-orbited, exceeding her
+initial life expectancy by nearly 300%.[12]</p>
+<h3><span id="geoeye-1">GeoEye-1</span><a href="#geoeye-1" class="header-anchor">#</a></h3>
+<ul>
+<li><strong>0.41-meter panchromatic</strong></li>
+<li><strong>1.65-meter multispectral resolution</strong>.</li>
+<li>revisit any point on Earth <strong>once every three days</strong> or
+sooner.</li>
+</ul>
+<h3><span id="worldview-1">WorldView-1</span><a href="#worldview-1" class="header-anchor">#</a></h3>
+<ul>
+<li>Launched on September 18, 2007.</li>
+<li>It included a panchromatic only camera with a <strong>50 cm</strong>
+(20 in) maximum resolution.</li>
+</ul>
+<h3><span id="worldview-2">WorldView-2</span><a href="#worldview-2" class="header-anchor">#</a></h3>
+<ul>
+<li>lanuch at October 8, 2009.</li>
+<li>a panchromatic sensor with a 46 cm (18 in) maximum resolution
+and</li>
+<li>a multispectral sensor of 184 cm</li>
+</ul>
+<h3><span id="worldview-3">WorldView-3</span><a href="#worldview-3" class="header-anchor">#</a></h3>
+<ul>
+<li>launched on August 13, 2014.</li>
+<li>25 cm (9.8 in).</li>
+<li>average revisit time of less than once per day</li>
+</ul>
+<p>Previously, DigitalGlobe was only licensed to sell images with a
+resolution below 50 cm (20 in) to the US military.[19] However,
+DigitalGlobe obtained permission, in June 2014, from the U.S. Department
+of Commerce, to allow the company to more widely exploit its
+highest-quality and industry-leading commercial satellite imagery. The
+company was permitted to offer customers the highest resolution imagery
+available from their constellation. Additionally, the updated approvals
+allowed the sale of imagery to customers at up to 25 cm panchromatic and
+100 cm (39 in) multispectral ground sample distance (GSD), beginning six
+months after WorldView-3 became operational.</p>
+<h3><span id="worldview-4">WorldView-4</span><a href="#worldview-4" class="header-anchor">#</a></h3>
+<p>The WorldView-4 satellite is designed to provide panchromatic images
+at a highest resolution of 0.31 meters per pixel (12.2 in/px), and
+multispectral images at 1.24 meters per pixel (48.8 in/px).[22]
+Originally named GeoEye-2, the spacecraft was designed and built by
+Lockheed Martin,[23] while the camera payload was provided by ITT
+Corporation.[24]</p>
+<p>Following the merger of GeoEye and DigitalGlobe, DigitalGlobe
+announced that GeoEye-2 would be completed as a ground spare to be
+launched if or when required.[25][26] It was renamed to WorldView-4 in
+July 2014, when the company announced that it would be launched in Fall
+2016.[27][28]</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/remote-sensing/" rel="tag"># remote sensing</a>
+              <a href="/tags/satellite/" rel="tag"># satellite</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/01/07/git-note/" rel="prev" title="git 学习笔记">
+      <i class="fa fa-chevron-left"></i> git 学习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/01/07/cool/" rel="next" title="cool">
+      cool <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Landsat8:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Landsat 7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">Landsat 7 Scan Line
+Corrector (SLC) Failure</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Landsat 5 Instruments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Landsat naming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">Landsat Processing level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">ERS-1, ERS-2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">ENVISAT-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">MODIS(1999)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">RapidEye(2008)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">MERIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text">DigitalGlobe</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.1.</span> <span class="nav-text">EarlyBird-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.2.</span> <span class="nav-text">IKONOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.3.</span> <span class="nav-text">QuickBird</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.4.</span> <span class="nav-text">GeoEye-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.5.</span> <span class="nav-text">WorldView-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.6.</span> <span class="nav-text">WorldView-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.7.</span> <span class="nav-text">WorldView-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.8.</span> <span class="nav-text">WorldView-4</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
