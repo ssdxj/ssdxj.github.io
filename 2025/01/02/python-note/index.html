@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Python base Control flow Functions classes Modules packages Input and Output Looping Techniques Data Struture Conditions Strings imports      Python base#  When known to the interpreter, the scri">
+  <meta name="description" content="Python base Control flow Functions classes Modules packages Input and Output Looping Techniques Data Struture Conditions Strings imports     Python base#  When known to the interpreter, the script">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 学习笔记">
 <meta property="og:url" content="http://example.com/2025/01/02/python-note/index.html">
 <meta property="og:site_name" content="ssdxj&#39;s blogs">
-<meta property="og:description" content="Python base Control flow Functions classes Modules packages Input and Output Looping Techniques Data Struture Conditions Strings imports      Python base#  When known to the interpreter, the scri">
+<meta property="og:description" content="Python base Control flow Functions classes Modules packages Input and Output Looping Techniques Data Struture Conditions Strings imports     Python base#  When known to the interpreter, the script">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/2025/01/02/python-note/import_demo.png">
 <meta property="article:published_time" content="2025-01-01T22:54:52.000Z">
 <meta property="article:modified_time" content="2025-01-02T08:32:53.162Z">
 <meta property="article:author" content="li">
-<meta property="article:tag" content="python">
 <meta property="article:tag" content="note">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2025/01/02/python-note/import_demo.png">
 
@@ -240,9 +240,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="tocStart">
-
-</div>
+        <div class="toc">
 <!-- toc -->
 <ul>
 <li><a href="#python-base">Python base</a></li>
@@ -259,413 +257,228 @@
 <li><a href="#imports">imports</a></li>
 </ul>
 <!-- tocstop -->
-<div class="tocEnd">
-
 </div>
-<h2><span id="python-base">Python base</span><a href="#python-base" class="header-anchor">#</a></h2>
+<h2><span id="python-base"> Python base</span><a href="#python-base" class="header-anchor">#</a></h2>
 <ul>
-<li>When known to the interpreter, the script name and additional
-arguments thereafter are turned into a list of strings and assigned to
-the <code>argv</code> variable in the <code>sys</code> module.</li>
-<li>the built-in function <code>vars()</code>, which returns a
-dictionary containing all local variables.</li>
-<li><strong>multiple assignment</strong>: the expressions on the
-right-hand side are all evaluated first before any of the assignments
-take place. The right-hand side expressions are evaluated from the left
-to the right.</li>
-<li><strong>condition</strong>: The condition may also be a string or
-list value, in fact any sequence; anything with a non-zero length is
-true, empty sequences are false</li>
+<li>When known to the interpreter, the script name and additional arguments thereafter are turned into a list of strings and assigned to the <code>argv</code> variable in the <code>sys</code> module.</li>
+<li>the built-in function <code>vars()</code>, which returns a dictionary containing all local variables.</li>
+<li><strong>multiple assignment</strong>: the expressions on the right-hand side are all evaluated first before any of the assignments take place. The right-hand side expressions are evaluated from the left to the right.</li>
+<li><strong>condition</strong>: The condition may also be a string or list value, in fact any sequence; anything with a non-zero length is true, empty sequences are false</li>
 </ul>
-<h2><span id="control-flow">Control flow</span><a href="#control-flow" class="header-anchor">#</a></h2>
+<h2><span id="control-flow"> Control flow</span><a href="#control-flow" class="header-anchor">#</a></h2>
 <ul>
-<li><p>The <code>for</code> statement in Python differs a bit from what
-you may be used to in <code>C</code> or <code>Pascal</code>. Rather than
-<strong>always</strong> iterating over an arithmetic progression of
-numbers (like in <code>Pascal</code>), or giving the user the ability to
-define both the iteration step and halting condition (as
-<code>C</code>), Python’s <code>for</code> statement iterates over the
-items <strong>of any sequence</strong> (a list or a string), in the
-order that they appear in the sequence.</p>
+<li>
+<p>The <code>for</code> statement in Python differs a bit from what you may be used to in <code>C</code> or <code>Pascal</code>. Rather than <strong>always</strong> iterating over an arithmetic progression of numbers (like in <code>Pascal</code>), or giving the user the ability to define both the iteration step and halting condition (as <code>C</code>), Python’s <code>for</code> statement iterates over the items <strong>of any sequence</strong> (a list or a string), in the order that they appear in the sequence.</p>
 <ul>
-<li>Code that modifies a collection while iterating over that same
-collection can be tricky to get right. Instead, it is usually more
-straight-forward to loop <strong>over a copy</strong> of the collection
-or to create a new collection:</li>
+<li>Code that modifies a collection while iterating over that same collection can be tricky to get right. Instead, it is usually more straight-forward to loop <strong>over a copy</strong> of the collection or to create a new collection:</li>
 </ul>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> user, status <span class="keyword">in</span> users.copy.items():</span><br><span class="line">    <span class="keyword">if</span> status == <span class="string">&#x27;inactive&#x27;</span>:</span><br><span class="line">        <span class="keyword">del</span> users[user]</span><br></pre></td></tr></table></figure></p></li>
-<li><p>In many ways the object returned by <code>range()</code> behaves
-as if it is a <code>list</code>, but in fact it isn’t. It is an object
-which returns the successive items of the desired sequence when you
-iterate over it, but it doesn’t really make the <code>list</code>, thus
-saving space.</p></li>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> user, status <span class="keyword">in</span> users.copy.items():</span><br><span class="line">    <span class="keyword">if</span> status == <span class="string">&#x27;inactive&#x27;</span>:</span><br><span class="line">        <span class="keyword">del</span> users[user]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>In many ways the object returned by <code>range()</code> behaves as if it is a <code>list</code>, but in fact it isn’t. It is an object which returns the successive items of the desired sequence when you iterate over it, but it doesn’t really make the <code>list</code>, thus saving space.</p>
+</li>
 </ul>
-<h2><span id="functions">Functions</span><a href="#functions" class="header-anchor">#</a></h2>
+<h2><span id="functions"> Functions</span><a href="#functions" class="header-anchor">#</a></h2>
 <ul>
-<li>The <code>execution</code> of a function introduces a new symbol
-table used for the local variables of the function.
+<li>The <code>execution</code> of a function introduces a new symbol table used for the local variables of the function.
 <ul>
-<li>More precisely, all variable assignments in a function store the
-value in the local symbol table;</li>
-<li>whereas variable references first look in the local symbol table,
-then in the local symbol tables of enclosing functions, then in the
-global symbol table, and finally in the table of built-in names.</li>
-<li>Thus, <strong>global variables and variables of enclosing
-functions</strong> cannot be directly assigned a value within a function
-(unless, for global variables, named in a global statement, or, for
-variables of enclosing functions, named in a nonlocal statement),
-although they may be referenced.</li>
-<li>When a function calls another function, a new local symbol table is
-created for that call.</li>
-</ul></li>
-<li>thus, <strong>arguments</strong> are passed using call by value
-(<strong>where the value is always an object reference, not the value of
-the object</strong>).</li>
-<li>A function definition introduces the function name in the current
-symbol table. The value of the function name has a type that is
-recognized by the interpreter as a user-defined function. This value can
-be assigned to another name which can then also be used as a function.
-This serves as a general renaming mechanism</li>
-<li>By default, arguments may be passed to a Python function either
-<strong>by position</strong> or <strong>explicitly by
-keyword</strong>.</li>
-<li>The <code>default values</code> are evaluated at the point of
-<strong>function definition</strong> in the defining scope</li>
+<li>More precisely, all variable assignments in a function store the value in the local symbol table;</li>
+<li>whereas variable references first look in the local symbol table, then in the local symbol tables of enclosing functions, then in the global symbol table, and finally in the table of built-in names.</li>
+<li>Thus, <strong>global variables and variables of enclosing functions</strong> cannot be directly assigned a value within a function (unless, for global variables, named in a global statement, or, for variables of enclosing functions, named in a nonlocal statement), although they may be referenced.</li>
+<li>When a function calls another function, a new local symbol table is created for that call.</li>
+</ul>
+</li>
+<li>thus, <strong>arguments</strong> are passed using call by value (<strong>where the value is always an object reference, not the value of the object</strong>).</li>
+<li>A function definition introduces the function name in the current symbol table. The value of the function name has a type that is recognized by the interpreter as a user-defined function. This value can be assigned to another name which can then also be used as a function. This serves as a general renaming mechanism</li>
+<li>By default, arguments may be passed to a Python function either <strong>by position</strong> or <strong>explicitly by keyword</strong>.</li>
+<li>The <code>default values</code> are evaluated at the point of <strong>function definition</strong> in the defining scope</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">arg=i</span>):</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line">i = <span class="number">6</span></span><br><span class="line">f()</span><br><span class="line"><span class="number">5</span> <span class="comment"># output</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>Important warning: The <code>default value</code> is
-evaluated only once. This makes a difference when the default is a
-mutable object such as a list, dictionary, or instances of most classes.
-For example, the following function accumulates the arguments passed to
-it on subsequent calls</strong>:</li>
+<li><strong>Important warning: The <code>default value</code> is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls</strong>:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">a, L=[]</span>):</span><br><span class="line">    L.append(a)</span><br><span class="line">    <span class="keyword">return</span> L</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(f(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(f(<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(f(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
 <p>This will print</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-<p>If you don’t want the default to be shared between subsequent calls,
-you can write the function like this instead:</p>
+<p>If you don’t want the default to be shared between subsequent calls, you can write the function like this instead:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">a, L=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">if</span> L <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        L = []</span><br><span class="line">    L.append(a)</span><br><span class="line">    <span class="keyword">return</span> L</span><br></pre></td></tr></table></figure>
 <ul>
-<li>When a final formal parameter of the form <code>*name</code> is
-present, it receives a dictionary containing all keyword arguments
-except for those corresponding to a formal parameter. This may be
-combined with a formal parameter of the form <code>name</code> which
-receives a tuple containing the positional arguments beyond the formal
-parameter list. (<code>name</code> must occur before
-<code>*name</code>.)</li>
+<li>When a final formal parameter of the form <code>*name</code> is present, it receives a dictionary containing all keyword arguments except for those corresponding to a formal parameter. This may be combined with a formal parameter of the form <code>name</code> which receives a tuple containing the positional arguments beyond the formal parameter list. (<code>name</code> must occur before <code>*name</code>.)</li>
 </ul>
-<h2><span id="classes">classes</span><a href="#classes" class="header-anchor">#</a></h2>
+<h2><span id="classes"> classes</span><a href="#classes" class="header-anchor">#</a></h2>
 <ul>
-<li>Classes provide a means of bundling data and functionality
-together.</li>
-<li>Each class instance can have
-<strong><code>attributes</code></strong> attached to it for
-<code>maintaining</code> its <strong>state</strong>.</li>
-<li>Class instances can also have <code>methods</code> (defined by its
-class) for <code>modifying</code> its state.</li>
-<li>In practice, the statements inside a class definition will usually
-be function definitions, but other statements are allowed, and sometimes
-useful</li>
-<li>The function definitions inside a class normally have a peculiar
-form of argument list, dictated by the calling conventions for
-methods</li>
-<li>Class objects support two kinds of <strong>operations</strong>:
-<strong>attribute references</strong> and
-<strong>instantiation</strong>.
+<li>Classes provide a means of bundling data and functionality together.</li>
+<li>Each class instance can have <strong><code>attributes</code></strong> attached to it for <code>maintaining</code> its <strong>state</strong>.</li>
+<li>Class instances can also have <code>methods</code> (defined by its class) for <code>modifying</code> its state.</li>
+<li>In practice, the statements inside a class definition will usually be function definitions, but other statements are allowed, and sometimes useful</li>
+<li>The function definitions inside a class normally have a peculiar form of argument list, dictated by the calling conventions for methods</li>
+<li>Class objects support two kinds of <strong>operations</strong>: <strong>attribute references</strong> and <strong>instantiation</strong>.
 <ul>
-<li><strong>Attribute references</strong> use the standard syntax used
-for all attribute references in Python: <code>obj.name</code>. Valid
-attribute names are all the names that were in the class’s namespace
-when the class object was created.
+<li><strong>Attribute references</strong> use the standard syntax used for all attribute references in Python: <code>obj.name</code>. Valid attribute names are all the names that were in the class’s namespace when the class object was created.
 <ul>
-<li><code>__doc__</code> is also a valid attribute, returning the
-docstring belonging to the class</li>
-</ul></li>
+<li><code>__doc__</code> is also a valid attribute, returning the docstring belonging to the class</li>
+</ul>
+</li>
 <li><strong>A method is a function that “belongs to” an object.</strong>
 <ul>
-<li>(In Python, the term method is not unique to class instances: other
-object types can have methods as well. For example, list objects have
-methods called append, insert, remove, sort, and so on.</li>
-</ul></li>
-</ul></li>
-<li>In fact, nothing in Python makes it possible to enforce data hiding
-— it is all based upon convention.
-<ul>
-<li>(On the other hand, the Python implementation, written in C, can
-completely hide implementation details and control access to an object
-if necessary; this can be used by extensions to Python written in
-C.)</li>
-</ul></li>
+<li>(In Python, the term method is not unique to class instances: other object types can have methods as well. For example, list objects have methods called append, insert, remove, sort, and so on.</li>
 </ul>
-<h2><span id="modules">Modules</span><a href="#modules" class="header-anchor">#</a></h2>
+</li>
+</ul>
+</li>
+<li>In fact, nothing in Python makes it possible to enforce data hiding — it is all based upon convention.
+<ul>
+<li>(On the other hand, the Python implementation, written in C, can completely hide implementation details and control access to an object if necessary; this can be used by extensions to Python written in C.)</li>
+</ul>
+</li>
+</ul>
+<h2><span id="modules"> Modules</span><a href="#modules" class="header-anchor">#</a></h2>
 <blockquote>
-<p>An object that serves as an organizational unit of Python code.
-Modules have a namespace containing arbitrary Python objects. Modules
-are loaded into Python by the process of importing. (<a target="_blank" rel="noopener" href="https://docs.python.org/glossary.html#term-module">Source</a>)</p>
-<ul>
-<li><strong>In practice, a module usually corresponds to
-one <code>.py</code> file containing Python code.</strong></li>
-<li><strong>The true power of modules is that they can be imported and
-reused in other code.</strong></li>
-<li>Within a module, the module’s name (as a string) is available as the
-value of the global variable <code>__name__</code>.</li>
-<li>A module can contain <code>executable statements</code> as well as
-<strong>function definitions.</strong> These statements are
-<strong>intended to</strong> <code>initialize the module</code>. They
-are executed only the first time the module name is encountered in an
-import statement. (They are also run if the file is executed as a
-script.)</li>
-<li>Each module has its own <strong>private symbol table</strong>, which
-is used as the global symbol table by all functions defined in the
-module. Thus, the author of a module can use global variables in the
-module without worrying about accidental clashes with a user’s global
-variables. On the other hand, if you know what you are doing you can
-touch a module’s global variables with the same notation used to refer
-to its functions, <code>modname.itemname</code>.</li>
-<li>For efficiency reasons, each module is only imported once per
-interpreter session. Therefore, if you change your modules, you must
-restart the interpreter – or, if it’s just one module you want to test
-interactively, use <code>importlib.reload()</code>,
-e.g. <code>import importlib; importlib.reload(modulename)</code>.</li>
-<li>When a module named <code>spam</code> is imported, the interpreter
-first searches for a built-in module with that name. If not found, it
-then searches for a file named spam.py in a list of directories given by
-the variable <code>sys.path</code>. <code>sys.path</code> is initialized
-from these locations:</li>
-<li>After initialization, Python programs can modify
-<code>sys.path</code>. The directory containing the script being run is
-placed at the beginning of the search path, ahead of the standard
-library path. This means that scripts in that directory will be loaded
-instead of modules of the same name in the library directory. This is an
-error unless the replacement is intended.</li>
-<li>The built-in function <code>dir()</code> is used to find out which
-names a module defines <code>dir(foo)</code>. Without arguments,
-<code>dir()</code> lists the names you have defined currently:</li>
-<li><code>dir()</code> does not list the names of built-in functions and
-variables. If you want a list of those, they are defined in the standard
-module <code>builtins</code>:</li>
-</ul>
+<p>An object that serves as an organizational unit of Python code. Modules have a namespace containing arbitrary Python objects. Modules are loaded into Python by the process of importing. (<a target="_blank" rel="noopener" href="https://docs.python.org/glossary.html#term-module">Source</a>)</p>
 </blockquote>
-<h2><span id="packages">packages</span><a href="#packages" class="header-anchor">#</a></h2>
+<ul>
+<li><strong>In practice, a module usually corresponds to one <code>.py</code> file containing Python code.</strong></li>
+<li><strong>The true power of modules is that they can be imported and reused in other code.</strong></li>
+<li>Within a module, the module’s name (as a string) is available as the value of the global variable <code>__name__</code>.</li>
+<li>A module can contain <code>executable statements</code> as well as <strong>function definitions.</strong> These statements are <strong>intended to</strong> <code>initialize the module</code>. They are executed only the first time the module name is encountered in an import statement. (They are also run if the file is executed as a script.)</li>
+<li>Each module has its own <strong>private symbol table</strong>, which is used as the global symbol table by all functions defined in the module. Thus, the author of a module can use global variables in the module without worrying about accidental clashes with a user’s global variables. On the other hand, if you know what you are doing you can touch a module’s global variables with the same notation used to refer to its functions, <code>modname.itemname</code>.</li>
+<li>For efficiency reasons, each module is only imported once per interpreter session. Therefore, if you change your modules, you must restart the interpreter – or, if it’s just one module you want to test interactively, use <code>importlib.reload()</code>, e.g. <code>import importlib; importlib.reload(modulename)</code>.</li>
+<li>When a module named <code>spam</code> is imported, the interpreter first searches for a built-in module with that name. If not found, it then searches for a file named <a target="_blank" rel="noopener" href="http://spam.py">spam.py</a> in a list of directories given by the variable <code>sys.path</code>. <code>sys.path</code> is initialized from these locations:</li>
+<li>After initialization, Python programs can modify <code>sys.path</code>. The directory containing the script being run is placed at the beginning of the search path, ahead of the standard library path. This means that scripts in that directory will be loaded instead of modules of the same name in the library directory. This is an error unless the replacement is intended.</li>
+<li>The built-in function <code>dir()</code> is used to find out which names a module defines <code>dir(foo)</code>. Without arguments, <code>dir()</code> lists the names you have defined currently:</li>
+<li><code>dir()</code> does not list the names of built-in functions and variables. If you want a list of those, they are defined in the standard module <code>builtins</code>:</li>
+</ul>
+<h2><span id="packages"> packages</span><a href="#packages" class="header-anchor">#</a></h2>
 <blockquote>
-<p>A Python module which can contain submodules or recursively,
-subpackages. Technically, a package <strong>is a Python module with
-an <code>__path__</code> attribute</strong>.</p>
-<ul>
-<li>Note that a package is still a module. As a user, you usually don’t
-need to worry about whether you’re importing a module or a package.</li>
-<li>In practice, a package typically corresponds to a file directory
-containing Python files and other directories. To create a Python
-package yourself, you create a directory and a <a target="_blank" rel="noopener" href="https://docs.python.org/reference/import.html#regular-packages">file
-named <code>__init__.py</code></a> inside it.
-The <code>__init__.py</code> file contains the contents of the package
-when it’s treated as a module. It can be left empty.</li>
-<li>The <code>__init__.py</code> files are required to make Python treat
-directories containing the file as packages. This prevents directories
-with a common name, such as string, unintentionally hiding valid modules
-that occur later on the module search path. In the simplest case,
-<code>__init__.py</code> can just be an empty file, but it can also
-execute initialization code for the package or set the
-<code>__all__</code> variable, described later.</li>
-<li>Note that when using <code>from package import item</code>, the
-<code>item</code> can be either a <code>submodule (or subpackage)</code>
-of the package, or some other name defined in the package, like a
-function, class or variable.</li>
-<li>The import statement first tests whether the item is defined in the
-package; if not, it assumes it is a module and attempts to load it. If
-it fails to find it, an <code>ImportError</code> exception is
-raised.</li>
-<li>Contrarily, when using syntax like
-<code>import item.subitem.subsubitem</code>, each item except for the
-last must be a package; the last item can be a module or a package but
-can’t be a class or function or variable defined in the previous
-item.</li>
-</ul>
+<p>A Python module which can contain submodules or recursively, subpackages. Technically, a package <strong>is a Python module with an <code>__path__</code> attribute</strong>.</p>
 </blockquote>
-<h2><span id="input-and-output">Input and Output</span><a href="#input-and-output" class="header-anchor">#</a></h2>
 <ul>
-<li>It is good practice to use the <code>with</code> keyword when
-dealing with file objects. The advantage is that the file is properly
-closed after its suite finishes, even if an exception is raised at some
-point. Using with is also much shorter than writing equivalent
-try-finally blocks:</li>
-<li>For reading lines from a file, you can loop over the file object.
-This is memory efficient, fast, and leads to simple code:</li>
+<li>Note that a package is still a module. As a user, you usually don’t need to worry about whether you’re importing a module or a package.</li>
+<li>In practice, a package typically corresponds to a file directory containing Python files and other directories. To create a Python package yourself, you create a directory and a <a target="_blank" rel="noopener" href="https://docs.python.org/reference/import.html#regular-packages">file named <code>__init__.py</code></a> inside it. The <code>__init__.py</code> file contains the contents of the package when it’s treated as a module. It can be left empty.</li>
+<li>The <code>__init__.py</code> files are required to make Python treat directories containing the file as packages. This prevents directories with a common name, such as string, unintentionally hiding valid modules that occur later on the module search path. In the simplest case, <code>__init__.py</code> can just be an empty file, but it can also execute initialization code for the package or set the <code>__all__</code> variable, described later.</li>
+<li>Note that when using <code>from package import item</code>, the <code>item</code> can be either a <code>submodule (or subpackage)</code> of the package, or some other name defined in the package, like a function, class or variable.
+<ul>
+<li>The import statement first tests whether the item is defined in the package; if not, it assumes it is a module and attempts to load it. If it fails to find it, an <code>ImportError</code> exception is raised.</li>
+<li>Contrarily, when using syntax like <code>import item.subitem.subsubitem</code>, each item except for the last must be a package; the last item can be a module or a package but can’t be a class or function or variable defined in the previous item.</li>
+</ul>
+</li>
+</ul>
+<h2><span id="input-and-output"> Input and Output</span><a href="#input-and-output" class="header-anchor">#</a></h2>
+<ul>
+<li>It is good practice to use the <code>with</code> keyword when dealing with file objects. The advantage is that the file is properly closed after its suite finishes, even if an exception is raised at some point. Using with is also much shorter than writing equivalent try-finally blocks:</li>
+<li>For reading lines from a file, you can loop over the file object. This is memory efficient, fast, and leads to simple code:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(line, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">...</span><br><span class="line">This <span class="keyword">is</span> the first line of the file.</span><br><span class="line">Second line of the file</span><br></pre></td></tr></table></figure>
 <ul>
-<li>If you want to read all the lines of a file in a list you can also
-use <code>list(f)</code> or <code>f.readlines()</code>.</li>
-<li><code>f.write(string)</code> writes the contents of string to the
-file, returning the number of characters written.</li>
-<li>Contrary to <code>JSON</code>, <code>pickle</code> is a protocol
-which allows the serialization of arbitrarily complex Python objects. As
-such, it is specific to Python and cannot be used to communicate with
-applications written in other languages. It is also insecure by default:
-deserializing pickle data coming from an untrusted source can execute
-arbitrary code, if the data was crafted by a skilled attacker.</li>
+<li>If you want to read all the lines of a file in a list you can also use <code>list(f)</code> or <code>f.readlines()</code>.</li>
+<li><code>f.write(string)</code> writes the contents of string to the file, returning the number of characters written.</li>
+<li>Contrary to <code>JSON</code>, <code>pickle</code> is a protocol which allows the serialization of arbitrarily complex Python objects. As such, it is specific to Python and cannot be used to communicate with applications written in other languages. It is also insecure by default: deserializing pickle data coming from an untrusted source can execute arbitrary code, if the data was crafted by a skilled attacker.</li>
 </ul>
-<h2><span id="looping-techniques">Looping Techniques</span><a href="#looping-techniques" class="header-anchor">#</a></h2>
+<h2><span id="looping-techniques"> Looping Techniques</span><a href="#looping-techniques" class="header-anchor">#</a></h2>
 <ul>
-<li>When looping through dictionaries, the key and corresponding value
-can be retrieved at the same time using the <code>items()</code>
-method.</li>
-<li>When looping through a sequence, the position index and
-corresponding value can be retrieved at the same time using the
-<code>enumerate()</code> function.</li>
-<li>To loop over two or more sequences at the same time, the entries can
-be paired with the <code>zip()</code> function.</li>
-<li>To loop over a sequence in reverse, first specify the sequence in a
-forward direction and then call the <code>reversed()</code>
-function.</li>
-<li>To loop over a sequence in sorted order, use the
-<code>sorted()</code> function which returns a new sorted list while
-leaving the source unaltered.</li>
-<li>The <code>for</code> statement calls <code>iter()</code> on the
-container object. The function returns an iterator object that defines
-the method <code>__next__()</code> which accesses elements in the
-container one at a time. When there are no more elements,
-<code>__next__()</code> raises a <code>StopIteration</code> exception
-which tells the for loop to terminate. You can call the
-<code>__next__()</code> method using the <code>next()</code> built-in
-function;</li>
-<li>Define an <code>__iter__()</code> method which returns an object
-with a <code>__next__()</code> method. If the class defines
-<code>__next__()</code>, then <code>__iter__()</code> can just return
-self:</li>
+<li>When looping through dictionaries, the key and corresponding value can be retrieved at the same time using the <code>items()</code> method.</li>
+<li>When looping through a sequence, the position index and corresponding value can be retrieved at the same time using the <code>enumerate()</code> function.</li>
+<li>To loop over two or more sequences at the same time, the entries can be paired with the <code>zip()</code> function.</li>
+<li>To loop over a sequence in reverse, first specify the sequence in a forward direction and then call the <code>reversed()</code> function.</li>
+<li>To loop over a sequence in sorted order, use the <code>sorted()</code> function which returns a new sorted list while leaving the source unaltered.</li>
+<li>The <code>for</code> statement calls <code>iter()</code> on the container object. The function returns an iterator object that defines the method <code>__next__()</code> which accesses elements in the container one at a time. When there are no more elements, <code>__next__()</code> raises a <code>StopIteration</code> exception which tells the for loop to terminate. You can call the <code>__next__()</code> method using the <code>next()</code> built-in function;</li>
+<li>Define an <code>__iter__()</code> method which returns an object with a <code>__next__()</code> method. If the class defines <code>__next__()</code>, then <code>__iter__()</code> can just return self:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Reverse</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Iterator for looping over a sequence backwards.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="variable language_">self</span>.data = data</span><br><span class="line">        <span class="variable language_">self</span>.index = <span class="built_in">len</span>(data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.index == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        <span class="variable language_">self</span>.index = <span class="variable language_">self</span>.index - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.data[<span class="variable language_">self</span>.index]</span><br></pre></td></tr></table></figure>
-<h2><span id="data-struture">Data Struture</span><a href="#data-struture" class="header-anchor">#</a></h2>
+<h2><span id="data-struture"> Data Struture</span><a href="#data-struture" class="header-anchor">#</a></h2>
 <ul>
-<li><p><code>list.entend()</code></p></li>
-<li><p>Though <code>tuple</code>s may seem similar to
-<code>list</code>s, they are often used in different situations and for
-different purposes.</p>
+<li>
+<p><code>list.entend()</code></p>
+</li>
+<li>
+<p>Though <code>tuple</code>s may seem similar to <code>list</code>s, they are often used in different situations and for different purposes.</p>
 <ul>
-<li><code>tuple</code>s are immutable, and usually contain a
-<strong>heterogeneous</strong> sequence of elements that are accessed
-via unpacking or indexing (or even by attribute in the case of
-namedtuples).</li>
-<li><code>list</code>s are mutable, and their elements are usually
-homogeneous and are accessed by iterating over the list.</li>
-</ul></li>
-<li><p>Empty <code>tuples</code> are constructed by an empty pair of
-parentheses;</p></li>
-<li><p>a <code>tuple</code> with one item is constructed by following a
-value with a comma (it is not sufficient to enclose a single value in
-parentheses). Ugly, but effective.</p></li>
-<li><p>A <code>set</code> is an unordered collection with no duplicate
-elements.</p>
+<li><code>tuple</code>s are immutable, and usually contain a <strong>heterogeneous</strong> sequence of elements that are accessed via unpacking or indexing (or even by attribute in the case of namedtuples).</li>
+<li><code>list</code>s are mutable, and their elements are usually homogeneous and are accessed by iterating over the list.</li>
+</ul>
+</li>
+<li>
+<p>Empty <code>tuples</code> are constructed by an empty pair of parentheses;</p>
+</li>
+<li>
+<p>a <code>tuple</code> with one item is constructed by following a value with a comma (it is not sufficient to enclose a single value in parentheses). Ugly, but effective.</p>
+</li>
+<li>
+<p>A <code>set</code> is an unordered collection with no duplicate elements.</p>
 <ul>
-<li>Basic uses include membership testing and eliminating duplicate
-entries.</li>
-<li>Set objects also support mathematical operations like union,
-intersection, difference, and symmetric difference.</li>
-</ul></li>
-<li><p>Curly braces or the <code>set()</code> function can be used to
-create sets.</p>
+<li>Basic uses include membership testing and eliminating duplicate entries.</li>
+<li>Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.</li>
+</ul>
+</li>
+<li>
+<p>Curly braces or the <code>set()</code> function can be used to create sets.</p>
 <ul>
-<li>Note: to create an empty set you have to use <code>set()</code>, not
-<code>&#123;&#125;</code>; the latter creates an empty dictionary</li>
-</ul></li>
-<li><p>Similarly to list comprehensions, set comprehensions are also
-supported:</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;abracadabra&#x27;</span> <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">&#x27;abc&#x27;</span>&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>dictionaries are indexed by keys, which can be any
-<strong>immutable</strong> type;</p>
+<li>Note: to create an empty set you have to use <code>set()</code>, not <code>&#123;&#125;</code>; the latter creates an empty dictionary</li>
+</ul>
+</li>
+<li>
+<p>Similarly to list comprehensions, set comprehensions are also supported:</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;abracadabra&#x27;</span> <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">&#x27;abc&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>dictionaries are indexed by keys, which can be any <strong>immutable</strong> type;</p>
 <ul>
 <li>strings and numbers can always be keys.</li>
-<li>Tuples can be used as keys if they contain only strings, numbers, or
-tuples; if a tuple contains any mutable object either directly or
-indirectly, it cannot be used as a key.</li>
-<li><strong>You can’t use lists as keys</strong>, since lists can be
-modified in place using index assignments, slice assignments, or methods
-like <code>append()</code> and <code>extend()</code>.</li>
-</ul></li>
-<li><p>The main operations on a dictionary are storing a value with some
-key and extracting the value given the key.</p></li>
-<li><p>It is also possible to delete a <strong>key:value</strong> pair
-with <code>del</code>.</p></li>
-<li><p>dict comprehensions can be used to create dictionaries from
-arbitrary key and value expressions</p></li>
+<li>Tuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key.</li>
+<li><strong>You can’t use lists as keys</strong>, since lists can be modified in place using index assignments, slice assignments, or methods like <code>append()</code> and <code>extend()</code>.</li>
+</ul>
+</li>
+<li>
+<p>The main operations on a dictionary are storing a value with some key and extracting the value given the key.</p>
+</li>
+<li>
+<p>It is also possible to delete a <strong>key:value</strong> pair with <code>del</code>.</p>
+</li>
+<li>
+<p>dict comprehensions can be used to create dictionaries from arbitrary key and value expressions</p>
+</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;x: x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> (<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>)&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Lists might contain items of different types, but usually the items
-all have the same type.</li>
-<li>All slice operations return a <strong>new list</strong> containing
-the requested elements.</li>
-<li>Lists also support operations like concatenation: Unlike strings,
-which are immutable, lists are a <strong>mutable type</strong>, i.e. it
-is possible to change their content:</li>
-<li>You can also add new <strong>items</strong> at the end of the list,
-by using the <code>append()</code> method</li>
-<li>Assignment to slices is also possible, and this can <strong>even
-change the size of the list or clear it entirely</strong>:</li>
+<li>Lists might contain items of different types, but usually the items all have the same type.</li>
+<li>All slice operations return a <strong>new list</strong> containing the requested elements.</li>
+<li>Lists also support operations like concatenation: Unlike strings, which are immutable, lists are a <strong>mutable type</strong>, i.e. it is possible to change their content:</li>
+<li>You can also add new <strong>items</strong> at the end of the list, by using the <code>append()</code> method</li>
+<li>Assignment to slices is also possible, and this can <strong>even change the size of the list or clear it entirely</strong>:</li>
 <li>The built-in function <code>len()</code> also applies to lists:</li>
-<li>It is possible to nest lists (create lists containing other
-lists)</li>
+<li>It is possible to nest lists (create lists containing other lists)</li>
 </ul>
-<h2><span id="conditions">Conditions</span><a href="#conditions" class="header-anchor">#</a></h2>
+<h2><span id="conditions"> Conditions</span><a href="#conditions" class="header-anchor">#</a></h2>
 <ul>
-<li><code>in</code> and <code>not in</code> check whether a value occurs
-(does not occur) in a sequence.</li>
-<li>The operators <code>is</code> and <code>is not</code> compare
-whether two objects are really the <strong>same object</strong>; this
-only matters for mutable objects like lists.</li>
-<li>All comparison operators have the same priority, which is lower than
-that of all numerical operators.</li>
-<li>(<code>not and or</code>) have lower priorities than comparison
-operators; between them, <code>not</code> has the highest priority and
-<code>or</code> the lowest, so that <code>A and not B or C</code> is
-equivalent to <code>(A and (not B)) or C</code>.</li>
-<li>The Boolean operators and and or are so-called short-circuit
-operators: their arguments are evaluated from left to right, and
-evaluation stops as soon as the outcome is determined.</li>
+<li><code>in</code> and <code>not in</code> check whether a value occurs (does not occur) in a sequence.</li>
+<li>The operators <code>is</code> and <code>is not</code> compare whether two objects are really the <strong>same object</strong>; this only matters for mutable objects like lists.</li>
+<li>All comparison operators have the same priority, which is lower than that of all numerical operators.</li>
+<li>(<code>not and or</code>) have lower priorities than comparison operators; between them, <code>not</code> has the highest priority and <code>or</code> the lowest, so that <code>A and not B or C</code> is equivalent to <code>(A and (not B)) or C</code>.</li>
+<li>The Boolean operators and and or are so-called short-circuit operators: their arguments are evaluated from left to right, and evaluation stops as soon as the outcome is determined.</li>
 </ul>
-<h2><span id="strings">Strings</span><a href="#strings" class="header-anchor">#</a></h2>
+<h2><span id="strings"> Strings</span><a href="#strings" class="header-anchor">#</a></h2>
 <ul>
-<li>Strings can be concatenated (glued together) with the <code>+</code>
-operator, and repeated with <code>*</code>，</li>
-<li>Two or more string literals next to each other are automatically
-concatenated.This only works with two <strong>literals</strong> though,
-not with <strong>variables or expressions</strong>. If you want to
-concatenate variables or a variable and a literal, use
-<code>+</code></li>
+<li>Strings can be concatenated (glued together) with the <code>+</code> operator, and repeated with <code>*</code>，</li>
+<li>Two or more string literals next to each other are automatically concatenated.This only works with two <strong>literals</strong> though, not with <strong>variables or expressions</strong>. If you want to concatenate variables or a variable and a literal, use <code>+</code></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;abc&#x27;</span><span class="string">&#x27;efg&#x27;</span></span><br><span class="line"><span class="string">&#x27;abcefg&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str1 = <span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str2 = <span class="string">&#x27;efg&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str1 + str2</span><br><span class="line"><span class="string">&#x27;abcefg&#x27;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>Strings can be indexed (subscripted), with the first character
-having index 0. <strong>There is no separate character type</strong>; a
-character is simply a string of size one:</li>
-<li>Indices may also be negative numbers, to start counting from the
-right:</li>
-<li>Note that since -0 is the same as 0, negative indices start from
--1.</li>
-<li>Python strings cannot be changed — they are
-<strong>immutable</strong>. Therefore, assigning to an indexed position
-in the string results in an error: If you need a different string, you
-should create a new one:</li>
-<li>The built-in function <code>len()</code> returns the length of a
-string:</li>
+<li>Strings can be indexed (subscripted), with the first character having index 0. <strong>There is no separate character type</strong>; a character is simply a string of size one:</li>
+<li>Indices may also be negative numbers, to start counting from the right:</li>
+<li>Note that since -0 is the same as 0, negative indices start from -1.</li>
+<li>Python strings cannot be changed — they are <strong>immutable</strong>. Therefore, assigning to an indexed position in the string results in an error: If you need a different string, you should create a new one:</li>
+<li>The built-in function <code>len()</code> returns the length of a string:</li>
 </ul>
-<h2><span id="imports">imports</span><a href="#imports" class="header-anchor">#</a></h2>
+<h2><span id="imports"> imports</span><a href="#imports" class="header-anchor">#</a></h2>
 <ul>
-<li>A <strong>Python module</strong> is a file that has
-a <code>.py</code> extension, and a <strong>Python package</strong> is
-any folder that has modules inside it</li>
+<li>A <strong>Python module</strong> is a file that has a <code>.py</code> extension, and a <strong>Python package</strong> is any folder that has modules inside it</li>
 <li>You can import both packages and modules.</li>
-<li>Importing a package essentially imports the
-package’s <code>__init__.py</code>  file as a module</li>
+<li>Importing a package essentially imports the package’s <code>__init__.py</code><br>
+ file as a module</li>
 <li>You can also import specific objects from a package or module.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> abc</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="import_demo.png" alt="demo of package import process">
-<figcaption aria-hidden="true">demo of package import
-process</figcaption>
-</figure>
+<p><img src="import_demo.png" alt="demo of package import process"></p>
 
     </div>
 
@@ -675,8 +488,8 @@ process</figcaption>
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/python/" rel="tag"># python</a>
               <a href="/tags/note/" rel="tag"># note</a>
+              <a href="/tags/python/" rel="tag"># python</a>
           </div>
 
         
@@ -747,7 +560,7 @@ process</figcaption>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Python base</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Control flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">Modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Input and Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">Looping Techniques</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">Data Struture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">Conditions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text">Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">12.</span> <span class="nav-text">imports</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"> Python base</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"> Control flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text"> Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text"> classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text"> Modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text"> packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text"> Input and Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text"> Looping Techniques</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text"> Data Struture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text"> Conditions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text"> Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">12.</span> <span class="nav-text"> imports</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

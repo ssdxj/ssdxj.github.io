@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="墨卡托投影（Mercator Projection）是一种圆柱投影# 原理#  墨卡托投影将地球的经纬网投影到一个圆柱面上。 圆柱切于赤道，赤道为投影的标准线。 投影中保持了  经线和纬线互相垂直， 经线等距排列， 纬线间距随纬度增大而增加。   特点#  等角特性（角度保持性）: 墨卡托投影是一种正形投影，即在投影后，角度关系保持不变。 面积失真: 纬度越高，投影的面积失真越大。高纬地区的面积被">
+  <meta name="description" content="墨卡托投影（Mercator Projection）是一种圆柱投影#  原理#  墨卡托投影将地球的经纬网投影到一个圆柱面上。 圆柱切于赤道，赤道为投影的标准线。 投影中保持了  经线和纬线互相垂直， 经线等距排列， 纬线间距随纬度增大而增加。     特点#   等角特性（角度保持性）: 墨卡托投影是一种正形投影，即在投影后，角度关系保持不变。   面积失真: 纬度越高，投影的面积失真越大。高">
 <meta property="og:type" content="article">
 <meta property="og:title" content="projection">
 <meta property="og:url" content="http://example.com/2025/01/07/projection/index.html">
 <meta property="og:site_name" content="ssdxj&#39;s blogs">
-<meta property="og:description" content="墨卡托投影（Mercator Projection）是一种圆柱投影# 原理#  墨卡托投影将地球的经纬网投影到一个圆柱面上。 圆柱切于赤道，赤道为投影的标准线。 投影中保持了  经线和纬线互相垂直， 经线等距排列， 纬线间距随纬度增大而增加。   特点#  等角特性（角度保持性）: 墨卡托投影是一种正形投影，即在投影后，角度关系保持不变。 面积失真: 纬度越高，投影的面积失真越大。高纬地区的面积被">
+<meta property="og:description" content="墨卡托投影（Mercator Projection）是一种圆柱投影#  原理#  墨卡托投影将地球的经纬网投影到一个圆柱面上。 圆柱切于赤道，赤道为投影的标准线。 投影中保持了  经线和纬线互相垂直， 经线等距排列， 纬线间距随纬度增大而增加。     特点#   等角特性（角度保持性）: 墨卡托投影是一种正形投影，即在投影后，角度关系保持不变。   面积失真: 纬度越高，投影的面积失真越大。高">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-01-07T12:00:07.000Z">
-<meta property="article:modified_time" content="2025-01-07T12:11:53.737Z">
+<meta property="article:modified_time" content="2025-01-15T02:56:01.705Z">
 <meta property="article:author" content="li">
 <meta property="article:tag" content="projection">
 <meta property="article:tag" content="GIS">
@@ -213,10 +213,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2025-01-07 20:00:07 / Modified: 20:11:53" itemprop="dateCreated datePublished" datetime="2025-01-07T20:00:07+08:00">2025-01-07</time>
+              <time title="Created: 2025-01-07 20:00:07" itemprop="dateCreated datePublished" datetime="2025-01-07T20:00:07+08:00">2025-01-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-01-15 10:56:01" itemprop="dateModified" datetime="2025-01-15T10:56:01+08:00">2025-01-15</time>
+              </span>
 
           
 
@@ -229,9 +235,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2><span id="mo-qia-tuo-tou-ying-mercator-projection-shi-yi-chong-yuan-zhu-tou-ying">墨卡托投影（Mercator
-Projection）是一种圆柱投影</span><a href="#mo-qia-tuo-tou-ying-mercator-projection-shi-yi-chong-yuan-zhu-tou-ying" class="header-anchor">#</a></h2>
-<h3><span id="yuan-li">原理</span><a href="#yuan-li" class="header-anchor">#</a></h3>
+        <h2><span id="mo-qia-tuo-tou-ying-mercator-projection-shi-yi-chong-yuan-zhu-tou-ying"> 墨卡托投影（Mercator Projection）是一种圆柱投影</span><a href="#mo-qia-tuo-tou-ying-mercator-projection-shi-yi-chong-yuan-zhu-tou-ying" class="header-anchor">#</a></h2>
+<h3><span id="yuan-li"> 原理</span><a href="#yuan-li" class="header-anchor">#</a></h3>
 <ul>
 <li>墨卡托投影将地球的经纬网投影到一个圆柱面上。</li>
 <li>圆柱切于赤道，赤道为投影的标准线。</li>
@@ -240,19 +245,57 @@ Projection）是一种圆柱投影</span><a href="#mo-qia-tuo-tou-ying-mercator-
 <li>经线和纬线互相垂直，</li>
 <li>经线等距排列，</li>
 <li>纬线间距随纬度增大而增加。</li>
-</ul></li>
 </ul>
-<h3><span id="te-dian">特点</span><a href="#te-dian" class="header-anchor">#</a></h3>
+</li>
+</ul>
+<h3><span id="te-dian"> 特点</span><a href="#te-dian" class="header-anchor">#</a></h3>
 <ul>
-<li>等角特性（角度保持性）:
-墨卡托投影是一种正形投影，即在投影后，角度关系保持不变。</li>
-<li>面积失真:
-纬度越高，投影的面积失真越大。高纬地区的面积被显著放大，例如，格陵兰岛在墨卡托投影中看起来与非洲大陆差不多大，但实际面积远小于非洲。</li>
-<li>方向正确:
-任意两点之间的直线（恒向线）表示恒定方向，方便导航，但不代表两点间最短距离（大圆航线）。</li>
+<li>
+<p>等角特性（角度保持性）: 墨卡托投影是一种正形投影，即在投影后，角度关系保持不变。</p>
+</li>
+<li>
+<p>面积失真: 纬度越高，投影的面积失真越大。高纬地区的面积被显著放大，例如，格陵兰岛在墨卡托投影中看起来与非洲大陆差不多大，但实际面积远小于非洲。</p>
+</li>
+<li>
+<p>方向正确: 任意两点之间的直线（恒向线）表示恒定方向，方便导航，但不代表两点间最短距离（大圆航线）。</p>
+</li>
+<li>
+<p>优点</p>
+<ol>
+<li>保持角度精确，方便航线规划。</li>
+<li>经纬网呈直线，便于制图。</li>
+</ol>
+</li>
+<li>
+<p>缺点</p>
+<ol>
+<li>高纬地区严重失真，无法正确反映面积大小。</li>
+<li>不适合表示全球地理分布。</li>
+</ol>
+</li>
 </ul>
-<h3><span id="gong-shi">公式</span><a href="#gong-shi" class="header-anchor">#</a></h3>
-<p>y = R ( + ) - ()</p>
+<h3><span id="gong-shi"> 公式</span><a href="#gong-shi" class="header-anchor">#</a></h3>
+<p>R为地球半径，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\lambda_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>为经度零点（以弧度表示），<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ϕ</span></span></span></span>为纬度（以弧度表示）。</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>x</mi><mo>=</mo><mi>R</mi><mo stretchy="false">(</mo><mi>λ</mi><mo>−</mo><msub><mi>λ</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mi>y</mi><mo>=</mo><mi>R</mi><mi>ln</mi><mo>⁡</mo><mi>tan</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mi>π</mi><mn>4</mn></mfrac><mo>+</mo><mfrac><mi>ϕ</mi><mn>2</mn></mfrac><mo fence="true">)</mo></mrow><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">x = R (\lambda - \lambda_0) \\
+y = R \ln \tan\left(\frac{\pi}{4} + \frac{\phi}{2}\right) \\
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">tan</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span><span class="mspace newline"></span></span></span></span></p>
+<p>注意：上述公式中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>的计算是假设地球为球体。</p>
+<h2><span id="heng-zhou-mo-qia-tuo-tou-ying-transverse-mercator-projection"> 横轴墨卡托投影（Transverse Mercator Projection）</span><a href="#heng-zhou-mo-qia-tuo-tou-ying-transverse-mercator-projection" class="header-anchor">#</a></h2>
+<ul>
+<li>标准轴从赤道改为某一经线（称为中央子午线）</li>
+<li>计算公式十分复杂</li>
+<li>特点
+<ol>
+<li>变形特性<br>
+-	中央子午线附近区域变形最小，适用于狭长区域，如国家、州、省等。<br>
+-	离中央子午线越远，距离和形状的变形越显著。</li>
+<li>局部精度高<br>
+-	对于狭长地带，可以达到较高的测绘精度。</li>
+<li>正形投影<br>
+-	保持角度关系，但面积和距离可能会有误差。</li>
+</ol>
+</li>
+</ul>
 
     </div>
 
@@ -334,8 +377,7 @@ Projection）是一种圆柱投影</span><a href="#mo-qia-tuo-tou-ying-mercator-
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">墨卡托投影（Mercator
-Projection）是一种圆柱投影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">公式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"> 墨卡托投影（Mercator Projection）是一种圆柱投影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text"> 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text"> 特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text"> 公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"> 横轴墨卡托投影（Transverse Mercator Projection）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

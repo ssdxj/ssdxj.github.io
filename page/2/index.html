@@ -232,56 +232,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="base">base</span><a href="#base" class="header-anchor">#</a></h2>
+          <h2><span id="base"> base</span><a href="#base" class="header-anchor">#</a></h2>
 <ul>
-<li>The <code>Axes</code> class and it’s member functions are
-<strong>the primary entry point</strong> to working with the
-<code>OO</code> interface.</li>
-<li>All of plotting functions expect <code>np.array</code> or
-<code>np.ma.masked_array</code> as input.
+<li>The <code>Axes</code> class and it’s member functions are <strong>the primary entry point</strong> to working with the <code>OO</code> interface.</li>
+<li>All of plotting functions expect <code>np.array</code> or <code>np.ma.masked_array</code> as input.
 <ul>
-<li>Classes that are ‘array-like’ such as <code>pandas</code> data
-objects and <code>np.matrix</code> may or may not work as intended.</li>
-<li>It is best to convert these to <code>np.array</code> objects prior
-to plotting.</li>
-</ul></li>
-<li>For functions in the <code>pyplot</code> module, there is always a
-“current” figure and axes (which is created automatically on request).
+<li>Classes that are ‘array-like’ such as <code>pandas</code> data objects and <code>np.matrix</code> may or may not work as intended.</li>
+<li>It is best to convert these to <code>np.array</code> objects prior to plotting.</li>
+</ul>
+</li>
+<li>For functions in the <code>pyplot</code> module, there is always a “current” figure and axes (which is created automatically on request).
 <ul>
 <li>get current axes in pyplot: <code>ax = plt.gca()</code></li>
-</ul></li>
+</ul>
+</li>
 <li><code>pyplot</code>
 <ul>
-<li>For every <code>x, y</code> pair of arguments, there is an optional
-third argument which is the format string that indicates the color and
-line type of the plot.</li>
-<li>to get a list of settable line properties, call the setp() function
-with a line or lines as argument</li>
-</ul></li>
+<li>For every <code>x, y</code> pair of arguments, there is an optional third argument which is the format string that indicates the color and line type of the plot.</li>
+<li>to get a list of settable line properties, call the setp() function with a line or lines as argument</li>
+</ul>
+</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_plotter</span>(<span class="params">ax, data1, data2, param_dict</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    A helper function to make a graph</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Parameters</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    ax : Axes</span></span><br><span class="line"><span class="string">        The axes to draw to</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    data1 : array</span></span><br><span class="line"><span class="string">       The x data</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    data2 : array</span></span><br><span class="line"><span class="string">       The y data</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    param_dict : dict</span></span><br><span class="line"><span class="string">       Dictionary of kwargs to pass to ax.plot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">    -------</span></span><br><span class="line"><span class="string">    out : list</span></span><br><span class="line"><span class="string">        list of artists added</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    out = ax.plot(data1, data2, **param_dict)</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">data1, data2, data3, data4 = np.random.randn(<span class="number">4</span>, <span class="number">100</span>)</span><br><span class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">my_plotter(ax1, data1, data2, &#123;<span class="string">&#x27;marker&#x27;</span>: <span class="string">&#x27;x&#x27;</span>&#125;)</span><br><span class="line">my_plotter(ax2, data3, data4, &#123;<span class="string">&#x27;marker&#x27;</span>: <span class="string">&#x27;o&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>ipympl Agg</strong> rendering embedded in a Jupyter widget.
-(requires <code>ipympl</code>). This backend can be enabled in a Jupyter
-notebook with <code>%matplotlib ipympl</code>.</li>
+<li><strong>ipympl Agg</strong> rendering embedded in a Jupyter widget. (requires <code>ipympl</code>). This backend can be enabled in a Jupyter notebook with <code>%matplotlib ipympl</code>.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install ipympl</span><br><span class="line">jupyter nbextension enable --py --sys-prefix ipympl</span><br></pre></td></tr></table></figure>
-<h2><span id="oop">oop</span><a href="#oop" class="header-anchor">#</a></h2>
+<h2><span id="oop"> oop</span><a href="#oop" class="header-anchor">#</a></h2>
 <ul>
 <li>Matplotlib has two interfaces.
 <ul>
-<li>The first is an object-oriented (OO) interface. In this case, we
-utilize an instance of <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes"><code>axes.Axes</code></a>
-in order to render visualizations on an instance of <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure"><code>figure.Figure</code></a>.</li>
-<li>The second is based on MATLAB and uses a state-based interface. This
-is encapsulated in the <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot"><code>pyplot</code></a>module.
-See the <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html">pyplot
-tutorials</a> for a more in-depth look at the pyplot interface</li>
-</ul></li>
-<li>we first generate an instance of <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure"><code>figure.Figure</code></a>
-and <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes"><code>axes.Axes</code></a>.
-The Figure is like a canvas, and the Axes is a part of that canvas on
-which we will make a particular visualization.</li>
+<li>The first is an object-oriented (OO) interface. In this case, we utilize an instance of <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes"><code>axes.Axes</code></a> in order to render visualizations on an instance of <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure"><code>figure.Figure</code></a>.</li>
+<li>The second is based on MATLAB and uses a state-based interface. This is encapsulated in the <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot"><code>pyplot</code></a>module. See the <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html">pyplot tutorials</a> for a more in-depth look at the pyplot interface</li>
+</ul>
+</li>
+<li>we first generate an instance of <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure"><code>figure.Figure</code></a> and <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes"><code>axes.Axes</code></a>. The Figure is like a canvas, and the Axes is a part of that canvas on which we will make a particular visualization.</li>
 <li><code>fig, ax = plt.subplots()</code></li>
 </ul>
 
@@ -351,111 +336,66 @@ which we will make a particular visualization.</li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="base">base</span><a href="#base" class="header-anchor">#</a></h2>
+          <h2><span id="base"> base</span><a href="#base" class="header-anchor">#</a></h2>
 <ul>
-<li>Here is a basic tenet to keep in mind: <strong>data alignment is
-intrinsic</strong>. The link between labels and data will not be broken
-unless done so explicitly by you.</li>
-<li>All <code>pandas</code> data structures are value-mutable (the
-values they contain can be altered) but not always size-mutable.</li>
-<li>The length of a <code>Series</code> cannot be changed, but, for
-example, columns can be inserted into a <code>DataFrame</code>.</li>
-<li><strong>However, the vast majority of methods produce new objects
-and leave the input data untouched.</strong>
+<li>Here is a basic tenet to keep in mind: <strong>data alignment is intrinsic</strong>. The link between labels and data will not be broken unless done so explicitly by you.</li>
+<li>All <code>pandas</code> data structures are value-mutable (the values they contain can be altered) but not always size-mutable.</li>
+<li>The length of a <code>Series</code> cannot be changed, but, for example, columns can be inserted into a <code>DataFrame</code>.</li>
+<li><strong>However, the vast majority of methods produce new objects and leave the input data untouched.</strong>
 <ul>
 <li>In general we like to favor immutability where sensible.</li>
-</ul></li>
-<li>Pandas objects (<code>Index, Series, DataFrame</code>) can be
-thought of as <strong>containers</strong> for arrays, which hold the
-actual data and do the actual computation. For many types, the
-underlying array is a <code>numpy.ndarray</code>. However, pandas and
-3rd party libraries may extend NumPy’s type system to add support for
-custom arrays (see dtypes). <strong>To get the actual data inside a
-<code>Index</code> or <code>Series</code>, use the <code>.array</code>
-property</strong>.</li>
-<li><strong>If you know you need a <code>NumPy</code>array, use
-<code>to_numpy()</code> or <code>numpy.asarray()</code></strong>.</li>
-<li><code>pandas</code>has support for accelerating certain types of
-binary numerical and boolean operations using the <code>numexpr</code>
-library and the <code>bottleneck</code> libraries. You are highly
-encouraged to install both libraries.</li>
-<li><code>Series</code>and <code>DataFrame</code>have the binary
-comparison methods <code>eq, ne, lt, gt, le</code>, and <code>ge</code>
-whose behavior is analogous to the binary arithmetic operations
-described above:</li>
-<li>You can apply the reductions:
-<code>empty(), any(), all(), and bool()</code> to provide a way to
-summarize a boolean result.</li>
-<li><code>equals()</code> method for testing equality (Note that the
-<code>Series</code>or <code>DataFrame</code>index needs to be in the
-same order for equality to be True:
-<code>df1.equals(df2.sort_index())</code>)</li>
-<li>the <code>drop()</code> function. It removes a set of labels from an
-axis:</li>
-<li>Series is equipped with a set of <strong>string processing
-methods</strong> that make it easy to operate on each element of the
-array.
+</ul>
+</li>
+<li>Pandas objects (<code>Index, Series, DataFrame</code>) can be thought of as <strong>containers</strong> for arrays, which hold the actual data and do the actual computation. For many types, the underlying array is a <code>numpy.ndarray</code>. However, pandas and 3rd party libraries may extend NumPy’s type system to add support for custom arrays (see dtypes). <strong>To get the actual data inside a <code>Index</code> or <code>Series</code>, use the <code>.array</code> property</strong>.</li>
+<li><strong>If you know you need a <code>NumPy</code>array, use <code>to_numpy()</code> or <code>numpy.asarray()</code></strong>.</li>
+<li><code>pandas</code>has support for accelerating certain types of binary numerical and boolean operations using the <code>numexpr</code> library and the <code>bottleneck</code> libraries. You are highly encouraged to install both libraries.</li>
+<li><code>Series</code>and <code>DataFrame</code>have the binary comparison methods <code>eq, ne, lt, gt, le</code>, and <code>ge</code> whose behavior is analogous to the binary arithmetic operations described above:</li>
+<li>You can apply the reductions: <code>empty(), any(), all(), and bool()</code> to provide a way to summarize a boolean result.</li>
+<li><code>equals()</code> method for testing equality (Note that the <code>Series</code>or <code>DataFrame</code>index needs to be in the same order for equality to be True: <code>df1.equals(df2.sort_index())</code>)</li>
+<li>the <code>drop()</code> function. It removes a set of labels from an axis:</li>
+<li>Series is equipped with a set of <strong>string processing methods</strong> that make it easy to operate on each element of the array.
 <ul>
-<li>Perhaps most importantly, these methods <strong>exclude missing/NA
-values</strong> automatically.</li>
-<li>These are accessed via the Series’s <code>str</code> attribute and
-generally have names matching the equivalent (scalar) built-in string
-methods.</li>
-</ul></li>
+<li>Perhaps most importantly, these methods <strong>exclude missing/NA values</strong> automatically.</li>
+<li>These are accessed via the Series’s <code>str</code> attribute and generally have names matching the equivalent (scalar) built-in string methods.</li>
+</ul>
+</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df.at[]</span><br><span class="line">df.iat[]</span><br><span class="line">df.loc[]</span><br><span class="line">df.iloc[]</span><br><span class="line">df.A</span><br><span class="line">df.columns</span><br><span class="line">df.sort_index(axis=<span class="number">1</span>, ascending=<span class="literal">False</span>)</span><br><span class="line">df.sort_values(by=<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line">df.idxmax()</span><br><span class="line">df.idxmin()</span><br><span class="line">df.select_dtypes(include=[<span class="built_in">bool</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,np.nan,<span class="number">6</span>,<span class="number">7</span>])</span><br><span class="line">dates = pd.date_range(<span class="string">&#x27;20130101&#x27;</span>, periods = <span class="number">6</span>)</span><br><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">6</span>, <span class="number">4</span>), index=dates, columns=<span class="built_in">list</span>(<span class="string">&#x27;ABCD&#x27;</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: df2 = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: <span class="number">1.</span>,</span><br><span class="line">   ...:                     <span class="string">&#x27;B&#x27;</span>: pd.Timestamp(<span class="string">&#x27;20130102&#x27;</span>),</span><br><span class="line">   ...:                     <span class="string">&#x27;C&#x27;</span>: pd.Series(<span class="number">1</span>, index=<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">4</span>)), dtype=<span class="string">&#x27;float32&#x27;</span>),</span><br><span class="line">   ...:                     <span class="string">&#x27;D&#x27;</span>: np.array([<span class="number">3</span>] * <span class="number">4</span>, dtype=<span class="string">&#x27;int32&#x27;</span>),</span><br><span class="line">   ...:                     <span class="string">&#x27;E&#x27;</span>: pd.Categorical([<span class="string">&quot;test&quot;</span>, <span class="string">&quot;train&quot;</span>, <span class="string">&quot;test&quot;</span>, <span class="string">&quot;train&quot;</span>]),</span><br><span class="line">   ...:                     <span class="string">&#x27;F&#x27;</span>: <span class="string">&#x27;foo&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: df2</span><br><span class="line">Out[<span class="number">10</span>]:</span><br><span class="line">     A          B    C  D      E    F</span><br><span class="line"><span class="number">0</span>  <span class="number">1.0</span> <span class="number">2013</span>-01-02  <span class="number">1.0</span>  <span class="number">3</span>   test  foo</span><br><span class="line"><span class="number">1</span>  <span class="number">1.0</span> <span class="number">2013</span>-01-02  <span class="number">1.0</span>  <span class="number">3</span>  train  foo</span><br><span class="line"><span class="number">2</span>  <span class="number">1.0</span> <span class="number">2013</span>-01-02  <span class="number">1.0</span>  <span class="number">3</span>   test  foo</span><br><span class="line"><span class="number">3</span>  <span class="number">1.0</span> <span class="number">2013</span>-01-02  <span class="number">1.0</span>  <span class="number">3</span>  train  foo</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df2.A  <span class="comment"># &#x27;A&#x27; column name</span></span><br><span class="line"></span><br><span class="line">df2.index</span><br><span class="line">df2.columns</span><br><span class="line">df2.describe()</span><br><span class="line">df2.T</span><br><span class="line">df.sort_index(axis=<span class="number">1</span>, ascending=<span class="literal">False</span>)</span><br><span class="line">df.sort_values(by=<span class="string">&#x27;B&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>DataFrame.to_numpy()</code> gives a <code>NumPy</code>
-representation of the underlying data. Note that this can be an
-expensive operation when your DataFrame has columns with different data
-types, which comes down to a fundamental difference between pandas and
-NumPy: NumPy arrays have one dtype for the entire array, while pandas
-DataFrames have one dtype per column. When you call
-<code>DataFrame.to_numpy()</code>, pandas will find the NumPy dtype that
-can hold all of the dtypes in the DataFrame. This may end up being
-object, which requires casting every value to a Python object.</li>
-<li>While standard Python / Numpy expressions for selecting and setting
-are intuitive and come in handy for interactive work, for production
-code, we recommend the optimized pandas data access methods,
-<code>.at, .iat, .loc</code> and <code>.iloc</code>.</li>
+<li><code>DataFrame.to_numpy()</code> gives a <code>NumPy</code> representation of the underlying data. Note that this can be an expensive operation when your DataFrame has columns with different data types, which comes down to a fundamental difference between pandas and NumPy: NumPy arrays have one dtype for the entire array, while pandas DataFrames have one dtype per column. When you call <code>DataFrame.to_numpy()</code>, pandas will find the NumPy dtype that can hold all of the dtypes in the DataFrame. This may end up being object, which requires casting every value to a Python object.</li>
+<li>While standard Python / Numpy expressions for selecting and setting are intuitive and come in handy for interactive work, for production code, we recommend the optimized pandas data access methods, <code>.at, .iat, .loc</code> and <code>.iloc</code>.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;A&#x27;</span>]</span><br><span class="line">df[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">df[<span class="string">&#x27;20130102&#x27;</span>:<span class="string">&#x27;20130104&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<ol type="1">
+<ol>
 <li>Selection by label</li>
 </ol>
 <ul>
-<li><strong>Note that contrary to usual python slices, both the start
-and the stop are included</strong></li>
+<li><strong>Note that contrary to usual python slices, both the start and the stop are included</strong></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df.loc[dates[<span class="number">0</span>]]</span><br><span class="line">df.loc[dates[<span class="number">0</span>]]</span><br><span class="line">df.loc[<span class="string">&#x27;20130102&#x27;</span>:<span class="string">&#x27;20130104&#x27;</span>, [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>]]</span><br><span class="line">df.loc[<span class="string">&#x27;20130102&#x27;</span>, [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>]] <span class="comment"># Reduction in the dimensions of the returned object:</span></span><br><span class="line">df.loc[dates[<span class="number">0</span>], <span class="string">&#x27;A&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li>For getting fast access to a scalar (equivalent to the prior
-method):</li>
+<ol>
+<li>For getting fast access to a scalar (equivalent to the prior method):</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.at[dates[<span class="number">0</span>], <span class="string">&#x27;A&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<ol type="1">
+<ol>
 <li>Selection by position</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[<span class="number">3</span>]</span><br><span class="line">df.iloc[<span class="number">3</span>:<span class="number">5</span>, <span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">df.iloc[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>], [<span class="number">0</span>, <span class="number">2</span>]]</span><br></pre></td></tr></table></figure>
-<ol type="1">
+<ol>
 <li>Boolean indexing</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[df.A &gt; <span class="number">0</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df2 = df.copy()</span><br><span class="line">df2[<span class="string">&#x27;E&#x27;</span>] = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>, <span class="string">&#x27;four&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line">df2[df2[<span class="string">&#x27;E&#x27;</span>].isin([<span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;four&#x27;</span>])]</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Setting a new column automatically aligns the data by the
-indexes.</li>
+<li>Setting a new column automatically aligns the data by the indexes.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s1 = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], index=pd.date_range(<span class="string">&#x27;20130102&#x27;</span>, periods=<span class="number">6</span>))</span><br><span class="line">df[<span class="string">&#x27;F&#x27;</span>] = s1</span><br><span class="line">df.at[dates[<span class="number">0</span>], <span class="string">&#x27;A&#x27;</span>] = <span class="number">0</span></span><br><span class="line">df.iat[<span class="number">0</span>, <span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">df.loc[:, <span class="string">&#x27;D&#x27;</span>] = np.array([<span class="number">5</span>] * <span class="built_in">len</span>(df))</span><br><span class="line"></span><br><span class="line">df2 = df.copy()</span><br><span class="line">df2[df2 &gt; <span class="number">0</span>] = -df2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>pandas</code> aligns all AXES when setting Series and
-DataFrame from <code>.loc</code>, and <code>.iloc</code>.</li>
-<li>pandas primarily uses the value <code>np.nan</code>to represent
-missing data.</li>
-<li><strong>Reindexing</strong> allows you to change/add/delete the
-index on a specified axis. This returns a copy of the data.</li>
+<li><code>pandas</code> aligns all AXES when setting Series and DataFrame from <code>.loc</code>, and <code>.iloc</code>.</li>
+<li>pandas primarily uses the value <code>np.nan</code>to represent missing data.</li>
+<li><strong>Reindexing</strong> allows you to change/add/delete the index on a specified axis. This returns a copy of the data.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1 = df.reindex(index=dates[<span class="number">0</span>:<span class="number">4</span>], columns=<span class="built_in">list</span>(df.columns) + [<span class="string">&#x27;E&#x27;</span>])df1.dropna(how=<span class="string">&#x27;any&#x27;</span>)df1.fillna(value=<span class="number">5</span>)pd.isna(df1)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.mean()df.apply(np.cumsum)df.apply(<span class="keyword">lambda</span> x: x.<span class="built_in">max</span>() - x.<span class="built_in">min</span>())s = pd.Series(np.random.randint(<span class="number">0</span>, <span class="number">7</span>, size=<span class="number">10</span>))s.value_counts()s = pd.Series([<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;Aaba&#x27;</span>, <span class="string">&#x27;Baca&#x27;</span>, np.nan, <span class="string">&#x27;CABA&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>, <span class="string">&#x27;cat&#x27;</span>])s.str_lower()</span><br></pre></td></tr></table></figure>
@@ -463,57 +403,36 @@ index on a specified axis. This returns a copy of the data.</li>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [<span class="string">&#x27;foo&#x27;</span>, <span class="string">&#x27;bar&#x27;</span>, <span class="string">&#x27;foo&#x27;</span>, <span class="string">&#x27;bar&#x27;</span>,   ....:                          <span class="string">&#x27;foo&#x27;</span>, <span class="string">&#x27;bar&#x27;</span>, <span class="string">&#x27;foo&#x27;</span>, <span class="string">&#x27;foo&#x27;</span>],   ....:                    <span class="string">&#x27;B&#x27;</span>: [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>,   ....:                          <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;three&#x27;</span>],   ....:                    <span class="string">&#x27;C&#x27;</span>: np.random.randn(<span class="number">8</span>),   ....:                    <span class="string">&#x27;D&#x27;</span>: np.random.randn(<span class="number">8</span>)&#125;)df.groupby(<span class="string">&#x27;A&#x27;</span>).<span class="built_in">sum</span>()df.groupby([<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>]).<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ts = pd.Series(np.random.randn(<span class="built_in">len</span>(rng)), rng)</span><br><span class="line">ts_utc = ts.tz_localize(<span class="string">&#x27;UTC&#x27;</span>)</span><br><span class="line">ts_utc.tz_convert(<span class="string">&#x27;US/Eastern&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&quot;id&quot;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</span><br><span class="line">    <span class="string">&quot;raw_grade&quot;</span>: [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;e&#x27;</span>]&#125;)</span><br><span class="line"></span><br><span class="line">df[<span class="string">&quot;grade&quot;</span>] = df[<span class="string">&quot;raw_grade&quot;</span>].astype(<span class="string">&quot;category&quot;</span>)</span><br><span class="line">df[<span class="string">&quot;grade&quot;</span>].cat.categories = [<span class="string">&quot;very good&quot;</span>, <span class="string">&quot;good&quot;</span>, <span class="string">&quot;very bad&quot;</span>]</span><br><span class="line">df[<span class="string">&quot;grade&quot;</span>] = df[<span class="string">&quot;grade&quot;</span>].cat.set_categories([<span class="string">&quot;very bad&quot;</span>, <span class="string">&quot;bad&quot;</span>, <span class="string">&quot;medium&quot;</span>,</span><br><span class="line">            <span class="string">&quot;good&quot;</span>, <span class="string">&quot;very good&quot;</span>])</span><br></pre></td></tr></table></figure>
-<h2><span id="function-application">function application</span><a href="#function-application" class="header-anchor">#</a></h2>
-<ol type="1">
-<li><strong>Tablewise</strong> Function Application:
-<code>pipe()</code></li>
-<li><strong>Row or Column-wise</strong> Function Application:
-<code>apply()</code></li>
-<li><strong>Aggregation</strong> API: <code>agg()</code> and
-<code>transform()</code></li>
-<li>Applying <strong>Elementwise</strong> Functions:
-<code>applymap()</code></li>
+<h2><span id="function-application"> function application</span><a href="#function-application" class="header-anchor">#</a></h2>
+<ol>
+<li><strong>Tablewise</strong> Function Application: <code>pipe()</code></li>
+<li><strong>Row or Column-wise</strong> Function Application: <code>apply()</code></li>
+<li><strong>Aggregation</strong> API: <code>agg()</code> and <code>transform()</code></li>
+<li>Applying <strong>Elementwise</strong> Functions: <code>applymap()</code></li>
 </ol>
-<h2><span id="iteration">iteration</span><a href="#iteration" class="header-anchor">#</a></h2>
+<h2><span id="iteration"> iteration</span><a href="#iteration" class="header-anchor">#</a></h2>
 <ul>
 <li>In short, basic iteration <code>(for i in object)</code> produces:
 <ul>
 <li><code>Series</code>: value</li>
 <li><code>DataFrame</code>: column labels</li>
-</ul></li>
-<li>Pandas objects also have the dict-like <code>items()</code> method
-to iterate over the (key, value) pairs.</li>
-<li>To iterate over the rows of a DataFrame, you can use the following
-methods:
+</ul>
+</li>
+<li>Pandas objects also have the dict-like <code>items()</code> method to iterate over the (key, value) pairs.</li>
+<li>To iterate over the rows of a DataFrame, you can use the following methods:
 <ul>
-<li><code>iterrows()</code>: Iterate over the rows of a DataFrame as
-(index, Series) pairs. This converts the rows to Series objects, which
-can change the dtypes and has some performance implications.</li>
-<li><code>itertuples()</code>: Iterate over the rows of a DataFrame as
-named tuples of the values. This is a lot faster than
-<code>iterrows()</code>, and is in most cases preferable to use to
-iterate over the values of a DataFrame.</li>
-</ul></li>
-<li><strong>Iterating through pandas objects is generally slow. In many
-cases, iterating manually over the rows is not needed and can be avoided
-with one of the following approaches:</strong>
+<li><code>iterrows()</code>: Iterate over the rows of a DataFrame as (index, Series) pairs. This converts the rows to Series objects, which can change the dtypes and has some performance implications.</li>
+<li><code>itertuples()</code>: Iterate over the rows of a DataFrame as named tuples of the values. This is a lot faster than <code>iterrows()</code>, and is in most cases preferable to use to iterate over the values of a DataFrame.</li>
+</ul>
+</li>
+<li><strong>Iterating through pandas objects is generally slow. In many cases, iterating manually over the rows is not needed and can be avoided with one of the following approaches:</strong>
 <ul>
-<li>Look for a vectorized solution: many operations can be performed
-using built-in methods or <code>NumPy</code>functions, (boolean)
-indexing, …</li>
-<li>When you have a function that cannot work on the full
-<code>DataFrame/Series</code> at once, it is better to use
-<code>apply()</code> instead of iterating over the values. See the docs
-on function application.</li>
-<li>If you need to do iterative manipulations on the values but
-performance is important, consider writing the inner loop with cython or
-numba. See the enhancing performance section for some examples of this
-approach.</li>
-<li>You should never modify something you are iterating over. This is
-not guaranteed to work in all cases. Depending on the data types, the
-iterator returns a copy and not a view, and writing to it will have no
-effect!</li>
-</ul></li>
+<li>Look for a vectorized solution: many operations can be performed using built-in methods or <code>NumPy</code>functions, (boolean) indexing, …</li>
+<li>When you have a function that cannot work on the full <code>DataFrame/Series</code> at once, it is better to use <code>apply()</code> instead of iterating over the values. See the docs on function application.</li>
+<li>If you need to do iterative manipulations on the values but performance is important, consider writing the inner loop with cython or numba. See the enhancing performance section for some examples of this approach.</li>
+<li>You should never modify something you are iterating over. This is not guaranteed to work in all cases. Depending on the data types, the iterator returns a copy and not a view, and writing to it will have no effect!</li>
+</ul>
+</li>
 </ul>
 
       
@@ -582,203 +501,131 @@ effect!</li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <div class="tocStart">
-
-</div>
+          <div class="toc">
 <!-- toc -->
 <ul>
 <li><a href="#intro">intro</a></li>
 <li><a href="#basic">basic</a></li>
 <li><a href="#attributes-of-ndarray">attributes of ndarray</a></li>
 <li><a href="#creation">creation</a></li>
-<li><a href="#indexing-slicing-and-iterating">Indexing, Slicing and
-Iterating</a></li>
+<li><a href="#indexing-slicing-and-iterating">Indexing, Slicing and Iterating</a></li>
 <li><a href="#shape-manipulation">Shape Manipulation</a></li>
 <li><a href="#copies-and-views">Copies and Views</a></li>
 <li><a href="#broadcasting-rules">Broadcasting rules</a></li>
 </ul>
 <!-- tocstop -->
-<div class="tocEnd">
-
 </div>
-<h2><span id="intro">intro</span><a href="#intro" class="header-anchor">#</a></h2>
+<h2><span id="intro"> intro</span><a href="#intro" class="header-anchor">#</a></h2>
 <ul>
-<li>At the core of the <code>NumPy</code> package, is the
-<code>ndarray</code> object.</li>
-<li><code>NumPy</code> arrays have a <strong>fixed size</strong> at
-creation, unlike Python lists (which can grow dynamically).
-<strong>Changing the size of an ndarray will create a new array and
-delete the original</strong>.</li>
-<li>The elements in a <code>NumPy</code> array are all required to be of
-the same data type, and thus will be the same size in memory.
+<li>At the core of the <code>NumPy</code> package, is the <code>ndarray</code> object.</li>
+<li><code>NumPy</code> arrays have a <strong>fixed size</strong> at creation, unlike Python lists (which can grow dynamically). <strong>Changing the size of an ndarray will create a new array and delete the original</strong>.</li>
+<li>The elements in a <code>NumPy</code> array are all required to be of the same data type, and thus will be the same size in memory.
 <ul>
-<li>The <strong>exception</strong>: one can have arrays of (Python,
-including <code>NumPy</code>) <strong>objects</strong>, thereby allowing
-for arrays of different sized elements.</li>
-</ul></li>
-<li><code>NumPy</code>arrays facilitate advanced mathematical and other
-types of operations on large numbers of data. Typically, such operations
-are executed <strong>more efficiently</strong> and with less code than
-is possible using Python’s built-in sequences.</li>
-<li><code>numpy.array</code> is not the same as the Standard Python
-Library class <code>array.array</code>, which only handles
-one-dimensional arrays and offers less functionality.</li>
+<li>The <strong>exception</strong>: one can have arrays of (Python, including <code>NumPy</code>) <strong>objects</strong>, thereby allowing for arrays of different sized elements.</li>
 </ul>
-<h2><span id="basic">basic</span><a href="#basic" class="header-anchor">#</a></h2>
+</li>
+<li><code>NumPy</code>arrays facilitate advanced mathematical and other types of operations on large numbers of data. Typically, such operations are executed <strong>more efficiently</strong> and with less code than is possible using Python’s built-in sequences.</li>
+<li><code>numpy.array</code> is not the same as the Standard Python Library class <code>array.array</code>, which only handles one-dimensional arrays and offers less functionality.</li>
+</ul>
+<h2><span id="basic"> basic</span><a href="#basic" class="header-anchor">#</a></h2>
 <ul>
-<li>In the example pictured below, the array has 2 axes. The first axis
-has a length of 2, the second axis has a length of 3. <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[ <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</span><br><span class="line">[ <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">2.</span>]]</span><br></pre></td></tr></table></figure></li>
-<li>When you print an array, <code>NumPy</code> displays it in a similar
-way to nested lists, but with the following layout:
+<li>In the example pictured below, the array has 2 axes. The first axis has a length of 2, the second axis has a length of 3.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[ <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</span><br><span class="line">[ <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">2.</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>When you print an array, <code>NumPy</code> displays it in a similar way to nested lists, but with the following layout:
 <ul>
 <li>the last axis is printed from left to right,</li>
 <li>the second-to-last is printed from top to bottom,</li>
-<li>the rest are also printed from top to bottom, with each slice
-separated from the next by an empty line.</li>
-<li>(<strong>Thus,</strong>) One-dimensional arrays are then printed as
-rows, bidimensionals as matrices and tridimensionals as lists of
-matrices.</li>
-</ul></li>
-<li>Arithmetic operators on arrays apply elementwise. A new array is
-created and filled with the result.</li>
-<li>Unlike in many matrix languages, the product operator operates
-<strong>elementwise</strong> in <code>NumPy</code>arrays. The matrix
-product can be performed using the <code>@</code> operator (in python
-&gt;=3.5) or the <code>dot</code> function or method</li>
-<li>Some operations, such as <code>+=</code> and <code>=</code>, act in
-place to modify an existing array rather than create a new one.</li>
-<li>When operating with arrays of different types, the type of the
-resulting array corresponds to the more general or precise one (a
-behavior known as <strong>upcasting</strong>).</li>
-<li>Many <strong>unary</strong> operations, such as computing the sum of
-all the elements in the array, are implemented as methods of the ndarray
-class.</li>
+<li>the rest are also printed from top to bottom, with each slice separated from the next by an empty line.</li>
+<li>(<strong>Thus,</strong>) One-dimensional arrays are then printed as rows, bidimensionals as matrices and tridimensionals as lists of matrices.</li>
+</ul>
+</li>
+<li>Arithmetic operators on arrays apply elementwise. A new array is created and filled with the result.</li>
+<li>Unlike in many matrix languages, the product operator  operates <strong>elementwise</strong> in <code>NumPy</code>arrays. The matrix product can be performed using the <code>@</code> operator (in python &gt;=3.5) or the <code>dot</code> function or method</li>
+<li>Some operations, such as <code>+=</code> and <code>=</code>, act in place to modify an existing array rather than create a new one.</li>
+<li>When operating with arrays of different types, the type of the resulting array corresponds to the more general or precise one (a behavior known as <strong>upcasting</strong>).</li>
+<li>Many <strong>unary</strong> operations, such as computing the sum of all the elements in the array, are implemented as methods of the ndarray class.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.random.random((<span class="number">2</span>,<span class="number">3</span>))   </span><br><span class="line">a.<span class="built_in">sum</span>()   </span><br><span class="line">a.comsum()   </span><br><span class="line">a.<span class="built_in">min</span>()</span><br></pre></td></tr></table></figure>
-<p>-Universal Functions: Within <code>NumPy</code>, these functions
-operate elementwise on an array, producing an array as output</p>
+<p>-Universal Functions: Within <code>NumPy</code>, these functions operate elementwise on an array, producing an array as output</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.exp()</span><br><span class="line">a.sqrt()</span><br><span class="line">np.add(B, C)</span><br><span class="line"><span class="comment"># all, any, apply_along_axis, argmax, argmin, argsort, average, bincount, ceil,# clip, conj, corrcoef, cov, cross, cumprod, cumsum, diff, dot, floor, inner,# inv, lexsort, max, maximum, mean, median, min, minimum, nonzero, outer, prod,# re, round, sort, std, sum, trace, transpose, var, vdot, vectorize, where</span></span><br></pre></td></tr></table></figure>
-<h2><span id="attributes-of-ndarray">attributes of ndarray</span><a href="#attributes-of-ndarray" class="header-anchor">#</a></h2>
+<h2><span id="attributes-of-ndarray"> attributes of ndarray</span><a href="#attributes-of-ndarray" class="header-anchor">#</a></h2>
 <ul>
-<li><code>ndarray.ndim</code> : the number of axes (dimensions) of the
-array.</li>
+<li><code>ndarray.ndim</code> : the number of axes (dimensions) of the array.</li>
 <li><code>ndarray.shape</code> : the dimensions of the array</li>
 <li><code>ndarray.size</code></li>
-<li><code>ndarray.dtype</code>: an object describing the type of the
-elements in the array. One can create or specify dtype’s using standard
-Python types. Additionally NumPy provides types of its own.
-<code>numpy.int32</code>, <code>numpy.int16</code>, and
-<code>numpy.float64</code> are some examples</li>
+<li><code>ndarray.dtype</code>: an object describing the type of the elements in the array. One can create or specify dtype’s using standard Python types. Additionally NumPy provides types of its own. <code>numpy.int32</code>, <code>numpy.int16</code>, and <code>numpy.float64</code> are some examples</li>
 <li><code>ndarray.itemsize</code></li>
 <li><code>ndarray.data</code></li>
 </ul>
-<h2><span id="creation">creation</span><a href="#creation" class="header-anchor">#</a></h2>
+<h2><span id="creation"> creation</span><a href="#creation" class="header-anchor">#</a></h2>
 <ul>
 <li>from a regular Python list or tuple</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">c = np.array([[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>] ], dtype=<span class="built_in">complex</span> )<span class="comment"># </span></span><br></pre></td></tr></table></figure>
-<p><strong>A frequent error consists in calling array with multiple
-numeric arguments, rather than providing a single list of numbers as an
-argument.</strong></p>
+<p><strong>A frequent error consists in calling array with multiple numeric arguments, rather than providing a single list of numbers as an argument.</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = np.array(1,2,3,4)    # WRONG# </span><br></pre></td></tr></table></figure>
 <ul>
-<li>Often, the elements of an array are originally unknown, but its size
-is known. Hence, NumPy offers several functions to create arrays with
-initial placeholder content. These minimize the necessity of growing
-arrays, an expensive operation.</li>
+<li>Often, the elements of an array are originally unknown, but its size is known. Hence, NumPy offers several functions to create arrays with initial placeholder content. These minimize the necessity of growing arrays, an expensive operation.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.zeros((<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">a = np.ones((<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>), dtype = np.int16)</span><br><span class="line">a = np.empty((<span class="number">2</span>, <span class="number">3</span>)) <span class="comment"># uninitialized</span></span><br><span class="line">a = np.arange(<span class="number">15</span>).reshape(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">a = np.arange( <span class="number">0</span>, <span class="number">2</span>, <span class="number">0.3</span> ) </span><br><span class="line"><span class="comment"># also, zeros, zeros_like, ones, ones_like, empty, empty_like, arange,</span></span><br><span class="line"><span class="comment"># also: linspace, numpy.random.mtrand.RandomState.rand</span></span><br><span class="line"><span class="comment"># also: numpy.random.mtrand.RandomState.randn, fromfunction, fromfile</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>When <code>arange</code>is used with floating point arguments, it is
-generally not possible to predict the number of elements obtained, due
-to the finite floating point precision. For this reason, it is usually
-better to use the function <code>linspace</code>that receives as an
-argument the number of elements that we want, instead of the step:</li>
+<li>When <code>arange</code>is used with floating point arguments, it is generally not possible to predict the number of elements obtained, due to the finite floating point precision. For this reason, it is usually better to use the function <code>linspace</code>that receives as an argument the number of elements that we want, instead of the step:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> pi</span><br><span class="line">x = np.linspace( <span class="number">0</span>, <span class="number">2</span>*pi, <span class="number">100</span> )</span><br></pre></td></tr></table></figure>
-<h2><span id="indexing-slicing-and-iterating">Indexing, Slicing and
-Iterating</span><a href="#indexing-slicing-and-iterating" class="header-anchor">#</a></h2>
+<h2><span id="indexing-slicing-and-iterating"> Indexing, Slicing and Iterating</span><a href="#indexing-slicing-and-iterating" class="header-anchor">#</a></h2>
 <ul>
-<li>arrays can have one index per axis. These indices are given in a
-tuple separated by commas:</li>
-<li>When fewer indices are provided than the number of axes, the missing
-indices are considered complete slices:</li>
-<li><code>:</code> as needed to represent the remaining axes.
-<code>NumPy</code>also allows you to write this using dots as
-<code>b[i,...]</code>. The dots (<code>...</code>) represent as many
-colons as needed to produce a complete indexing tuple.</li>
+<li>arrays can have one index per axis. These indices are given in a tuple separated by commas:</li>
+<li>When fewer indices are provided than the number of axes, the missing indices are considered complete slices:</li>
+<li><code>:</code> as needed to represent the remaining axes. <code>NumPy</code>also allows you to write this using dots as <code>b[i,...]</code>. The dots (<code>...</code>) represent as many colons as needed to produce a complete indexing tuple.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">15</span>).reshape(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">a[-<span class="number">1</span>] <span class="comment"># # the last row. Equivalent to b[-1,:]</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>Iterating over multidimensional arrays is done with respect to the
-<strong>first axis</strong>:</li>
-<li>However, if one wants to perform an operation on each element in the
-array, one can use the flat attribute which is an iterator over all the
-elements of the array:</li>
+<li>Iterating over multidimensional arrays is done with respect to the <strong>first axis</strong>:</li>
+<li>However, if one wants to perform an operation on each element in the array, one can use the flat attribute which is an iterator over all the elements of the array:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> b.flat:</span><br><span class="line">    <span class="built_in">print</span>(element)</span><br></pre></td></tr></table></figure>
-<h2><span id="shape-manipulation">Shape Manipulation</span><a href="#shape-manipulation" class="header-anchor">#</a></h2>
+<h2><span id="shape-manipulation"> Shape Manipulation</span><a href="#shape-manipulation" class="header-anchor">#</a></h2>
 <ul>
-<li>The <code>reshape</code> function returns its argument with a
-modified shape, whereas the <code>ndarray.resize</code> method modifies
-the array itself:</li>
-<li>If a dimension is given as <code>-1</code> in a reshaping operation,
-the other dimensions are automatically calculated:</li>
+<li>The <code>reshape</code> function returns its argument with a modified shape, whereas the <code>ndarray.resize</code> method modifies the array itself:</li>
+<li>If a dimension is given as <code>-1</code> in a reshaping operation, the other dimensions are automatically calculated:</li>
 <li>Stacking together different arrays</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.vstack(a, b)</span><br><span class="line">np.hstack(a, b)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>The function <code>column_stack</code>stacks 1D arrays as columns
-into a 2D array. It is equivalent to <code>hstack</code>only for 2D
-arrays:</li>
-<li>Using <code>hsplit</code>, you can split an array along its
-horizontal axis, either by specifying the number of equally shaped
-arrays to return, or by specifying the columns after which the division
-should occur:</li>
+<li>The function <code>column_stack</code>stacks 1D arrays as columns into a 2D array. It is equivalent to <code>hstack</code>only for 2D arrays:</li>
+<li>Using <code>hsplit</code>, you can split an array along its horizontal axis, either by specifying the number of equally shaped arrays to return, or by specifying the columns after which the division should occur:</li>
 </ul>
-<h2><span id="copies-and-views">Copies and Views</span><a href="#copies-and-views" class="header-anchor">#</a></h2>
-<ol type="1">
+<h2><span id="copies-and-views"> Copies and Views</span><a href="#copies-and-views" class="header-anchor">#</a></h2>
+<ol>
 <li>No Copy at All</li>
 </ol>
 <ul>
-<li>Simple assignments make no copy of array objects or of their
-data.</li>
+<li>Simple assignments make no copy of array objects or of their data.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.arange(<span class="number">12</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = a            <span class="comment"># no new object is created</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b <span class="keyword">is</span> a           <span class="comment"># a and b are two names for the same ndarray object</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.shape = <span class="number">3</span>,<span class="number">4</span>    <span class="comment"># changes the shape of a</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.shape(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Python passes mutable objects as references, so function calls make
-no copy.</li>
+<li>Python passes mutable objects as references, so function calls make no copy.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(<span class="built_in">id</span>(x))</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(a)                           <span class="comment"># id is a unique identifier of an object</span></span><br><span class="line"><span class="number">148293216</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(a)</span><br><span class="line"><span class="number">148293216</span></span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
+<ol start="2">
 <li>View or Shallow Copy</li>
 </ol>
 <ul>
-<li>Different array objects can share the same data. The
-<code>view</code>method creates a new array object that looks at the
-same data.</li>
+<li>Different array objects can share the same data. The <code>view</code>method creates a new array object that looks at the same data.</li>
 <li><strong>Slicing an array returns a view of it</strong>:</li>
 </ul>
-<ol start="3" type="1">
+<ol start="3">
 <li>Deep Copy</li>
 </ol>
-<p>The <code>copy</code> method makes a complete copy of the array and
-its data.</p>
-<p>Sometimes <strong>copy should be called after slicing if the original
-array is not required anymore</strong>. For example, suppose a is a huge
-intermediate result and the final result b only contains a small
-fraction of a, a deep copy should be made when constructing b with
-slicing:</p>
+<p>The <code>copy</code> method makes a complete copy of the array and its data.</p>
+<p>Sometimes <strong>copy should be called after slicing if the original array is not required anymore</strong>. For example, suppose a is a huge intermediate result and the final result b only contains a small fraction of a, a deep copy should be made when constructing b with slicing:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.arange(<span class="built_in">int</span>(<span class="number">1e8</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = a[:<span class="number">100</span>].copy()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> a  <span class="comment"># the memory of ``a`` can be released.</span></span><br></pre></td></tr></table></figure>
-<h2><span id="broadcasting-rules">Broadcasting rules</span><a href="#broadcasting-rules" class="header-anchor">#</a></h2>
+<h2><span id="broadcasting-rules"> Broadcasting rules</span><a href="#broadcasting-rules" class="header-anchor">#</a></h2>
 <ul>
-<li>if all input arrays do not have the same number of dimensions, a
-<code>1</code> will be repeatedly prepended to the shapes of the smaller
-arrays until all the arrays have the same number of dimensions.</li>
-<li>arrays with a size of <code>1</code> along a particular dimension
-act as if they had the size of the array with the largest shape along
-that dimension. The value of the array element is assumed to be the same
-along that dimension for the “broadcast” array.</li>
+<li>if all input arrays do not have the same number of dimensions, a <code>1</code> will be repeatedly prepended to the shapes of the smaller arrays until all the arrays have the same number of dimensions.</li>
+<li>arrays with a size of <code>1</code> along a particular dimension act as if they had the size of the array with the largest shape along that dimension. The value of the array element is assumed to be the same along that dimension for the “broadcast” array.</li>
 </ul>
 
       
@@ -853,9 +700,8 @@ along that dimension for the “broadcast” array.</li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jupyter-extensions">Jupyter extensions</span><a href="#jupyter-extensions" class="header-anchor">#</a></h2>
+          <h2><span id="jupyter-extensions"> Jupyter extensions</span><a href="#jupyter-extensions" class="header-anchor">#</a></h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_contrib_nbextensions</span><br><span class="line">jupyter contrib nbextension install</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -928,9 +774,7 @@ along that dimension for the “broadcast” array.</li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <div class="tocStart">
-
-</div>
+          <div class="toc">
 <!-- toc -->
 <ul>
 <li><a href="#data-pipeline">data pipeline</a></li>
@@ -940,12 +784,14 @@ along that dimension for the “broadcast” array.</li>
 <li><a href="#dataloader">DATALOADER</a></li>
 <li><a href="#dataset">DATASET</a></li>
 <li><a href="#basedataset">BASEDATASET</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#model">MODEL</a></li>
 <li><a href="#evaluation">EVALUATION</a>
 <ul>
 <li><a href="#zi-ding-yi-ping-ce-zhi-biao">自定义评测指标</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#optimwrapper">OPTIMWRAPPER</a></li>
 <li><a href="#parameter-scheduler">PARAMETER SCHEDULER</a></li>
 <li><a href="#hook">HOOK</a></li>
@@ -954,310 +800,304 @@ along that dimension for the “broadcast” array.</li>
 <li><a href="#resume">RESUME</a>
 <ul>
 <li><a href="#zi-dong-hui-fu-xun-lian"><strong>自动恢复训练</strong></a></li>
-<li><a href="#zhi-ding-checkpoint-lu-jing"><strong>指定 checkpoint
-路径</strong></a></li>
-</ul></li>
+<li><a href="#zhi-ding-checkpoint-lu-jing"><strong>指定 checkpoint 路径</strong></a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
-<div class="tocEnd">
-
 </div>
-<h2><span id="data-pipeline">data pipeline</span><a href="#data-pipeline" class="header-anchor">#</a></h2>
+<h2><span id="data-pipeline"> data pipeline</span><a href="#data-pipeline" class="header-anchor">#</a></h2>
 <p>数据传递伪代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练过程</span></span><br><span class="line"><span class="keyword">for</span> data_batch <span class="keyword">in</span> train_dataloader:</span><br><span class="line">    data_batch = data_preprocessor(data_batch)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(data_batch, <span class="built_in">dict</span>):</span><br><span class="line">        losses = model.forward(**data_batch, mode=<span class="string">&#x27;loss&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data_batch, (<span class="built_in">list</span>, <span class="built_in">tuple</span>)):</span><br><span class="line">        losses = model.forward(*data_batch, mode=<span class="string">&#x27;loss&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">raise</span> TypeError()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证过程</span></span><br><span class="line"><span class="keyword">for</span> data_batch <span class="keyword">in</span> val_dataloader:</span><br><span class="line">    data_batch = data_preprocessor(data_batch)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(data_batch, <span class="built_in">dict</span>):</span><br><span class="line">        outputs = model.forward(**data_batch, mode=<span class="string">&#x27;predict&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(data_batch, (<span class="built_in">list</span>, <span class="built_in">tuple</span>)):</span><br><span class="line">        outputs = model.forward(**data_batch, mode=<span class="string">&#x27;predict&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">raise</span> TypeError()</span><br><span class="line">    evaluator.process(data_samples=outputs, data_batch=data_batch)</span><br><span class="line">metrics = evaluator.evaluate(<span class="built_in">len</span>(val_dataloader.dataset))</span><br></pre></td></tr></table></figure>
 <ul>
 <li>默认的 <code>train_step</code>、<code>val_step</code>、<code>test_step</code> 的行为，覆盖了从数据进入 <code>data preprocessor</code> 到 <code>model</code> 输出 <code>loss</code>、<code>predict</code> 结果的这一段流程，不影响其余部分。</li>
-<li>虽然在上面的图中分开绘制了数据预处理器和模型，但数据预处理器是模型的一部分(在
-<strong>config中的</strong><code>model</code> 里面定义）</li>
+<li>虽然在上面的图中分开绘制了数据预处理器和模型，但数据预处理器是模型的一部分(在 <strong>config中的</strong><code>model</code> 里面定义）</li>
 <li>模型的前向传播有 3 种模式，由输入参数 <code>mode</code> 控制</li>
 </ul>
-<h2><span id="config">CONFIG</span><a href="#config" class="header-anchor">#</a></h2>
+<h2><span id="config"> CONFIG</span><a href="#config" class="header-anchor">#</a></h2>
 <ul>
-<li><code>MMEngine</code>
-实现了抽象的配置类（<code>Config</code>），为用户提供统一的配置访问接口。
+<li><code>MMEngine</code> 实现了抽象的配置类（<code>Config</code>），为用户提供统一的配置访问接口。
 <ul>
 <li>配置类能够支持不同格式的配置文件，包括 <code>python</code>，<code>json</code>，<code>yaml</code></li>
-<li>配置类提供了类似字典或者 Python
-对象属性的访问接口（读取和修改）</li>
+<li>配置类提供了类似字典或者 Python 对象属性的访问接口（读取和修改）</li>
 <li>配置类也实现了一些特性，例如配置文件的字段继承等。</li>
 <li>配置类提供了统一的接口 <code>Config.fromfile()</code>，来读取和解析配置文件</li>
-</ul></li>
+</ul>
+</li>
 <li>合法的配置文件应该定义一系列键值对</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test_int = <span class="number">1</span></span><br><span class="line">test_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">test_dict = <span class="built_in">dict</span>(key1=<span class="string">&#x27;value1&#x27;</span>, key2=<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p><strong>通过读取配置文件来初始化配置对象后</strong>，就可以像使用普通字典或者
-Python 类一样来使用这个变量了。</p></li>
-<li><p>我们提供了两种访问接口，即类似字典的接口 <code>cfg['key']</code> 或者类似
-Python
-对象属性的接口 <code>cfg.key</code>。这两种接口都支持读写。</p></li>
-<li><p>注意，配置文件中定义的嵌套字段（即类似字典的字段），在
-<code>Config</code> 中会将其转化为 <code>ConfigDict</code>
-类，该类继承了 <code>Python</code>
-内置字典类型的全部接口，同时也支持以对象属性的方式访问数据。</p></li>
-<li><p><strong>配置文件的继承</strong></p>
+<li>
+<p><strong>通过读取配置文件来初始化配置对象后</strong>，就可以像使用普通字典或者 Python 类一样来使用这个变量了。</p>
+</li>
+<li>
+<p>我们提供了两种访问接口，即类似字典的接口 <code>cfg['key']</code> 或者类似 Python 对象属性的接口 <code>cfg.key</code>。这两种接口都支持读写。</p>
+</li>
+<li>
+<p>注意，配置文件中定义的嵌套字段（即类似字典的字段），在 <code>Config</code> 中会将其转化为 <code>ConfigDict</code> 类，该类继承了 <code>Python</code> 内置字典类型的全部接口，同时也支持以对象属性的方式访问数据。</p>
+</li>
+<li>
+<p><strong>配置文件的继承</strong></p>
 <ul>
 <li><strong><code>_base_</code> 是配置文件的保留字段，指定了该配置文件的继承来源。支持继承多个文件，将同</strong>时获得这多个文件中的所有字段，但是要求继承的多个文件中没有相同名称的字段，否则会报错。</li>
 <li>通过这种方式，我们可以将配置文件进行拆分，定义一些通用配置文件，在实际配置文件中继承各种通用配置文件，可以减少具体任务的配置流程。</li>
-</ul></li>
-<li><p>配置文件（字段）的修改</p>
+</ul>
+</li>
+<li>
+<p>配置文件（字段）的修改</p>
 <ul>
 <li>只需要在新的配置文件中，重新定义一下需要修改的字段即可</li>
 <li>规则也适用于增加一些下级字段（使用 dict）</li>
-</ul></li>
-<li><p><strong>配置文件（字典字段中 key）的删除</strong></p>
-<ul>
-<li>有时候我们对于继承过来的<strong>字典类型字段</strong>，不仅仅是想修改其中某些
-key，可能还需要删除其中的一些
-key。这时候在重新定义这个字典时，需要指定 <code>_delete_=True</code>，表示将没有在新定义的字典中出现的
-key 全部删除。</li>
 </ul>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_base_=[<span class="string">&#x27;optimizer_cfg.py&#x27;</span>, <span class="string">&#x27;runtime_cfg.py&#x27;</span>]</span><br><span class="line">model= <span class="built_in">dict</span>(<span class="built_in">type</span>=<span class="string">&#x27;ResNet&#x27;</span>,depth=<span class="number">50</span>)</span><br><span class="line">optimizer= <span class="built_in">dict</span>(_delete_=<span class="literal">True</span>, <span class="built_in">type</span>=<span class="string">&#x27;SGD&#x27;</span>,lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure></p></li>
-<li><p>有时我们想重复利用 <code>_base_</code> 中定义的字段内容，就可以通过 <code>&#123;&#123;_base_.xxxx&#125;&#125;</code> 获取来获取对应变量的拷贝。</p></li>
-<li><p>在启动训练脚本时，用户可能通过传参的方式来修改配置文件的部分字段，为此我们提供了 <code>dump</code> 接口来导出更改后的配置文件。与读取配置文件类似，用户可以通过 <code>cfg.dump('config.xxx')</code> 来选择导出文件的格式。<code>dump</code> 同样可以导出有继承关系的配置文件，导出的文件可以被独立使用，不再依赖于 <code>_base_</code> 中定义的文件。</p></li>
-<li><p>自定义字段</p>
+</li>
+<li>
+<p><strong>配置文件（字典字段中 key）的删除</strong></p>
+<ul>
+<li>有时候我们对于继承过来的<strong>字典类型字段</strong>，不仅仅是想修改其中某些 key，可能还需要删除其中的一些 key。这时候在重新定义这个字典时，需要指定 <code>_delete_=True</code>，表示将没有在新定义的字典中出现的 key 全部删除。</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_base_=[<span class="string">&#x27;optimizer_cfg.py&#x27;</span>, <span class="string">&#x27;runtime_cfg.py&#x27;</span>]</span><br><span class="line">model= <span class="built_in">dict</span>(<span class="built_in">type</span>=<span class="string">&#x27;ResNet&#x27;</span>,depth=<span class="number">50</span>)</span><br><span class="line">optimizer= <span class="built_in">dict</span>(_delete_=<span class="literal">True</span>, <span class="built_in">type</span>=<span class="string">&#x27;SGD&#x27;</span>,lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>有时我们想重复利用 <code>_base_</code> 中定义的字段内容，就可以通过 <code>&#123;&#123;_base_.xxxx&#125;&#125;</code> 获取来获取对应变量的拷贝。</p>
+</li>
+<li>
+<p>在启动训练脚本时，用户可能通过传参的方式来修改配置文件的部分字段，为此我们提供了 <code>dump</code> 接口来导出更改后的配置文件。与读取配置文件类似，用户可以通过 <code>cfg.dump('config.xxx')</code> 来选择导出文件的格式。<code>dump</code> 同样可以导出有继承关系的配置文件，导出的文件可以被独立使用，不再依赖于 <code>_base_</code> 中定义的文件。</p>
+</li>
+<li>
+<p>自定义字段</p>
 <ul>
 <li>有时候我们希望配置文件中的一些字段和当前路径或者文件名等相关</li>
 <li>目前支持的预定义字段有以下四种：
 <ul>
-<li><code>&#123;&#123;fileDirname&#125;&#125;</code> -
-当前文件的目录名，例如 <code>/home/your-username/your-project/folder</code></li>
-<li><code>&#123;&#123;fileBasename&#125;&#125;</code> -
-当前文件的文件名，例如 <code>file.py</code></li>
-<li><code>&#123;&#123;fileBasenameNoExtension&#125;&#125;</code> -
-当前文件不包含扩展名的文件名，例如 <code>file</code></li>
-<li><code>&#123;&#123;fileExtname&#125;&#125;</code> -
-当前文件的扩展名，例如 <code>.py</code></li>
-</ul></li>
-</ul></li>
-<li><p><strong>通常，我们使用 <code>type</code>字段 来指定组件的类，并使用其他字段来传递类的初始化参数。<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh_CN/latest/advanced_tutorials/registry.html">注册器教程</a> 对其进行了详细描述。</strong></p></li>
-<li><p>预处理配置（<code>data_preprocessor</code>）既可以作为 <code>model</code> 的一个子字段，也可以定义在外部的 <code>data_preprocessor</code> 字段，
-同时配置时，优先使用 <code>model.data_preprocessor</code> 的配置。</p></li>
+<li><code>&#123;&#123;fileDirname&#125;&#125;</code> - 当前文件的目录名，例如 <code>/home/your-username/your-project/folder</code></li>
+<li><code>&#123;&#123;fileBasename&#125;&#125;</code> - 当前文件的文件名，例如 <code>file.py</code></li>
+<li><code>&#123;&#123;fileBasenameNoExtension&#125;&#125;</code> - 当前文件不包含扩展名的文件名，例如 <code>file</code></li>
+<li><code>&#123;&#123;fileExtname&#125;&#125;</code> - 当前文件的扩展名，例如 <code>.py</code></li>
 </ul>
-<h2><span id="dataset-amp-dataloader">DATASET &amp; DATALOADER</span><a href="#dataset-amp-dataloader" class="header-anchor">#</a></h2>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>通常，我们使用 <code>type</code>字段 来指定组件的类，并使用其他字段来传递类的初始化参数。<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh_CN/latest/advanced_tutorials/registry.html">注册器教程</a> 对其进行了详细描述。</strong></p>
+</li>
+<li>
+<p>预处理配置（<code>data_preprocessor</code>）既可以作为 <code>model</code> 的一个子字段，也可以定义在外部的 <code>data_preprocessor</code> 字段， 同时配置时，优先使用 <code>model.data_preprocessor</code> 的配置。</p>
+</li>
+</ul>
+<h2><span id="dataset-amp-dataloader"> DATASET &amp; DATALOADER</span><a href="#dataset-amp-dataloader" class="header-anchor">#</a></h2>
 <ul>
-<li>数据加载器（<strong>DataLoader</strong>）是
-<strong>MMEngine</strong> 的训练和测试流程中的一个重要组件。
-从概念上讲，它源于 <a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch</a> 并保持一致。<strong>DataLoader</strong>
-从文件系统加载数据，原始数据通过数据准备流程后被发送给数据预处理器。</li>
+<li>数据加载器（<strong>DataLoader</strong>）是 <strong>MMEngine</strong> 的训练和测试流程中的一个重要组件。 从概念上讲，它源于 <a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch</a> 并保持一致。<strong>DataLoader</strong> 从文件系统加载数据，原始数据通过数据准备流程后被发送给数据预处理器。</li>
 <li>通常来说，
 <ul>
-<li><strong>数据集(dataset)</strong>
-定义了数据的总体数量、读取方式以及预处理，</li>
-<li><strong>数据加载器(dataloader)</strong>
-则在不同的设置下迭代地加载数据，如批次大小（<code>batch_size</code>）、随机乱序（<code>shuffle</code>）、并行（<code>num_workers</code>）等。</li>
+<li><strong>数据集(dataset)</strong> 定义了数据的总体数量、读取方式以及预处理，</li>
+<li><strong>数据加载器(dataloader)</strong> 则在不同的设置下迭代地加载数据，如批次大小（<code>batch_size</code>）、随机乱序（<code>shuffle</code>）、并行（<code>num_workers</code>）等。</li>
 <li>数据集经过数据加载器封装后构成了<strong>数据源</strong>。</li>
-</ul></li>
 </ul>
-<h3><span id="dataloader">DATALOADER</span><a href="#dataloader" class="header-anchor">#</a></h3>
+</li>
+</ul>
+<h3><span id="dataloader"> DATALOADER</span><a href="#dataloader" class="header-anchor">#</a></h3>
 <ul>
-<li>在执行器（<code>Runner</code>）中，你可以分别配置以下 3
-个参数来指定对应的数据加载器
+<li>在执行器（<code>Runner</code>）中，你可以分别配置以下 3 个参数来指定对应的数据加载器
 <ul>
 <li><code>train_dataloader</code>：在 <code>Runner.train()</code> 中被使用，为模型提供训练数据</li>
 <li><code>val_dataloader</code>：在 <code>Runner.val()</code> 中被使用，也会在 <code>Runner.train()</code> 中每间隔一段时间被使用，用于模型的验证评测</li>
 <li><code>test_dataloader</code>：在 <code>Runner.test()</code> 中被使用，用于模型的测试</li>
-</ul></li>
-<li>MMEngine 完全支持 PyTorch 的原生 <code>DataLoader</code>，因此上述 3
-个参数均可以直接传入构建好的 <code>DataLoader</code>。同时，借助
-MMEngine 的<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/advanced_tutorials/registry.html">注册机制</a>，以上参数也可以传入 <code>dict</code>，dict中的键值与 <code>DataLoader</code> 的构造参数一一对应。</li>
+</ul>
+</li>
+<li>MMEngine 完全支持 PyTorch 的原生 <code>DataLoader</code>，因此上述 3 个参数均可以直接传入构建好的 <code>DataLoader</code>。同时，借助 MMEngine 的<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/advanced_tutorials/registry.html">注册机制</a>，以上参数也可以传入 <code>dict</code>，dict中的键值与 <code>DataLoader</code> 的构造参数一一对应。</li>
 <li><strong>sampler 与 shuffle</strong>
 <ul>
-<li>在 MMEngine
-中我们要求通过 <code>dict</code> 传入的数据加载器的配置必须包含 <code>sampler</code> 参数。同时，<code>shuffle</code> 参数也从 <code>DataLoader</code> 中移除，这是由于在
-PyTorch
-中 <code>sampler</code> 与 <code>shuffle</code> 参数是互斥的</li>
-<li>事实上，在 PyTorch
-的实现中，<code>shuffle</code> 只是一个便利记号。当设置为 <code>True</code> 时 <code>DataLoader</code> 会自动在内部使用 <code>RandomSampler</code></li>
-<li><code>DefaultSampler</code> 是 MMEngine
-内置的一种采样器，它屏蔽了单进程训练与多进程训练的细节差异，使得单卡与多卡训练可以无缝切换</li>
+<li>在 MMEngine 中我们要求通过 <code>dict</code> 传入的数据加载器的配置必须包含 <code>sampler</code> 参数。同时，<code>shuffle</code> 参数也从 <code>DataLoader</code> 中移除，这是由于在 PyTorch 中 <code>sampler</code> 与 <code>shuffle</code> 参数是互斥的</li>
+<li>事实上，在 PyTorch 的实现中，<code>shuffle</code> 只是一个便利记号。当设置为 <code>True</code> 时 <code>DataLoader</code> 会自动在内部使用 <code>RandomSampler</code></li>
+<li><code>DefaultSampler</code> 是 MMEngine 内置的一种采样器，它屏蔽了单进程训练与多进程训练的细节差异，使得单卡与多卡训练可以无缝切换</li>
 <li><code>DefaultSampler</code> 适用于绝大部分情况，并且我们保证在执行器中使用它时，随机数等容易出错的细节都被正确地处理，防止你陷入多进程训练的常见陷阱。</li>
-</ul></li>
-<li><code>collate_fn</code> 这一参数常常被使用者忽略，但在 MMEngine
-中你需要额外注意：当你传入 <code>dict</code> 来构造数据加载器时，MMEngine
-会默认使用内置的 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh_CN/latest/api/generated/mmengine.dataset.pseudo_collate.html#mmengine.dataset.pseudo_collate">pseudo_collate</a>，这一点明显区别于
-PyTorch 默认的 <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.default_collate">default_collate</a>。因此，当你迁移
-PyTorch
-项目时，需要在配置文件中手动指明 <code>collate_fn</code> 以保持行为一致</li>
+</ul>
+</li>
+<li><code>collate_fn</code> 这一参数常常被使用者忽略，但在 MMEngine 中你需要额外注意：当你传入 <code>dict</code> 来构造数据加载器时，MMEngine 会默认使用内置的 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh_CN/latest/api/generated/mmengine.dataset.pseudo_collate.html#mmengine.dataset.pseudo_collate">pseudo_collate</a>，这一点明显区别于 PyTorch 默认的 <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/data.html#torch.utils.data.default_collate">default_collate</a>。因此，当你迁移 PyTorch 项目时，需要在配置文件中手动指明 <code>collate_fn</code> 以保持行为一致</li>
 <li>MMengine 中提供了 2 种内置的 <code>collate_fn</code>：
 <ul>
 <li><code>pseudo_collate</code>，缺省时的默认参数。它不会将数据沿着 <code>batch</code> 的维度合并。详细说明可以参考 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.dataset.pseudo_collate.html#mmengine.dataset.pseudo_collate">pseudo_collate</a></li>
-<li><code>default_collate</code>，与 PyTorch
-中的 <code>default_collate</code> 行为几乎完全一致，会将数据转化为 <code>Tensor</code> 并沿着 <code>batch</code> 维度合并。一些细微不同和详细说明可以参考 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.dataset.default_collate.html#mmengine.dataset.default_collate">default_collate</a></li>
-</ul></li>
+<li><code>default_collate</code>，与 PyTorch 中的 <code>default_collate</code> 行为几乎完全一致，会将数据转化为 <code>Tensor</code> 并沿着 <code>batch</code> 维度合并。一些细微不同和详细说明可以参考 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.dataset.default_collate.html#mmengine.dataset.default_collate">default_collate</a></li>
 </ul>
-<h3><span id="dataset">DATASET</span><a href="#dataset" class="header-anchor">#</a></h3>
+</li>
+</ul>
+<h3><span id="dataset"> DATASET</span><a href="#dataset" class="header-anchor">#</a></h3>
 <ul>
-<li><code>torchvision</code> 中提供了丰富的公开数据集，它们都可以在
-MMEngine 中直接使用</li>
+<li><code>torchvision</code> 中提供了丰富的公开数据集，它们都可以在 MMEngine 中直接使用</li>
 <li>但是，当需要将上述示例转换为配置文件时，你需要对 <code>torchvision</code> 中的数据集进行额外的注册。</li>
 <li>如果你同时用到了 <code>torchvision</code> 中的数据预处理模块，那么你也需要编写额外代码来对它们进行注册和构建。</li>
 </ul>
-<h3><span id="basedataset">BASEDATASET</span><a href="#basedataset" class="header-anchor">#</a></h3>
+<h3><span id="basedataset"> BASEDATASET</span><a href="#basedataset" class="header-anchor">#</a></h3>
 <ul>
-<li><p>因此 MMEngine 实现了一个数据集基类（<code>BaseDataset</code>）并定义了一些基本接口，且基于这套接口实现了一些数据集包装（<code>DatasetWrapper</code>）。<code>OpenMMLab</code>
-算法库中的大部分数据集都会满足这套数据集基类定义的接口，并使用统一的数据集包装。</p></li>
-<li><p><strong>数据集基类中包含的 <code>parse_data_info()</code> 方法用于将标注文件里的一个原始数据处理成一个或若干个训练/测试样本的方法。因此对于自定义数据集类，用户需要实现 <code>parse_data_info()</code> 方法。</strong></p></li>
-<li><p>与 <code>torch.utils.data.Dataset</code> 类似，数据集初始化后，支持 <code>__getitem__</code> 方法，用来索引数据，以及 <code>__len__</code> 操作获取数据集大小，除此之外，OpenMMLab
-的数据集基类主要提供了以下接口来访问具体信息：</p>
+<li>
+<p>因此 MMEngine 实现了一个数据集基类（<code>BaseDataset</code>）并定义了一些基本接口，且基于这套接口实现了一些数据集包装（<code>DatasetWrapper</code>）。<code>OpenMMLab</code> 算法库中的大部分数据集都会满足这套数据集基类定义的接口，并使用统一的数据集包装。</p>
+</li>
+<li>
+<p><strong>数据集基类中包含的 <code>parse_data_info()</code> 方法用于将标注文件里的一个原始数据处理成一个或若干个训练/测试样本的方法。因此对于自定义数据集类，用户需要实现 <code>parse_data_info()</code> 方法。</strong></p>
+</li>
+<li>
+<p>与 <code>torch.utils.data.Dataset</code> 类似，数据集初始化后，支持 <code>__getitem__</code> 方法，用来索引数据，以及 <code>__len__</code> 操作获取数据集大小，除此之外，OpenMMLab 的数据集基类主要提供了以下接口来访问具体信息：</p>
 <ul>
 <li><code>metainfo</code>：返回元信息，返回值为字典</li>
 <li><code>get_data_info(idx)</code>：返回指定 <code>idx</code> 的样本全量信息，返回值为字典</li>
-<li><code>__getitem__(idx)</code>：返回指定 <code>idx</code> 的样本经过
-pipeline 之后的结果（也就是送入模型的数据），返回值为字典</li>
+<li><code>__getitem__(idx)</code>：返回指定 <code>idx</code> 的样本经过 pipeline 之后的结果（也就是送入模型的数据），返回值为字典</li>
 <li><code>__len__()</code>：返回数据集长度，返回值为整数型</li>
-<li><code>get_subset_(indices)</code>：根据 <code>indices</code> 以
-inplace
-的方式修改原数据集类。如果 <code>indices</code> 为 <code>int</code>，则原数据集类只包含前若干个数据样本；如果 <code>indices</code> 为 <code>Sequence[int]</code>，则原数据集类包含根据 <code>Sequence[int]</code> 指定的数据样本。</li>
-<li><code>get_subset(indices)</code>：根据 <code>indices</code> 以非 inplace
-的方式返回子数据集类，即重新复制一份子数据集。如果 <code>indices</code> 为 <code>int</code>，则返回的子数据集类只包含前若干个数据样本；如果 <code>indices</code> 为 <code>Sequence[int]</code>，则返回的子数据集类包含根据 <code>Sequence[int]</code> 指定的数据样本。</li>
-</ul></li>
-<li><p>数据集基类的基本功能是加载数据集信息，这里我们将数据集信息分成两类</p>
+<li><code>get_subset_(indices)</code>：根据 <code>indices</code> 以 inplace 的方式修改原数据集类。如果 <code>indices</code> 为 <code>int</code>，则原数据集类只包含前若干个数据样本；如果 <code>indices</code> 为 <code>Sequence[int]</code>，则原数据集类包含根据 <code>Sequence[int]</code> 指定的数据样本。</li>
+<li><code>get_subset(indices)</code>：根据 <code>indices</code> 以非 inplace 的方式返回子数据集类，即重新复制一份子数据集。如果 <code>indices</code> 为 <code>int</code>，则返回的子数据集类只包含前若干个数据样本；如果 <code>indices</code> 为 <code>Sequence[int]</code>，则返回的子数据集类包含根据 <code>Sequence[int]</code> 指定的数据样本。</li>
+</ul>
+</li>
+<li>
+<p>数据集基类的基本功能是加载数据集信息，这里我们将数据集信息分成两类</p>
 <ul>
-<li>一种是元信息 (meta
-information)，代表数据集自身相关的信息，有时需要被模型或其他外部组件获取，比如在图像分类任务中，数据集的元信息一般包含类别信息 <code>classes</code>，因为分类模型 <code>model</code> 一般需要记录数据集的类别信息；</li>
-<li>另一种为数据信息 (data
-information)，在数据信息中，定义了具体样本的文件路径、对应标签等的信息。</li>
-</ul></li>
-<li><p>除此之外，数据集基类的另一个功能为不断地将数据送入数据流水线（data
-pipeline）中，进行数据预处理。</p></li>
-<li><p>数据集基类的初始化流程</p></li>
-<li><p><code>load metainfo</code>：获取数据集的元信息，元信息有三种来源，优先级从高到低为：</p>
+<li>一种是元信息 (meta information)，代表数据集自身相关的信息，有时需要被模型或其他外部组件获取，比如在图像分类任务中，数据集的元信息一般包含类别信息 <code>classes</code>，因为分类模型 <code>model</code> 一般需要记录数据集的类别信息；</li>
+<li>另一种为数据信息 (data information)，在数据信息中，定义了具体样本的文件路径、对应标签等的信息。</li>
+</ul>
+</li>
+<li>
+<p>除此之外，数据集基类的另一个功能为不断地将数据送入数据流水线（data pipeline）中，进行数据预处理。</p>
+</li>
+<li>
+<p>数据集基类的初始化流程</p>
+</li>
+<li>
+<p><code>load metainfo</code>：获取数据集的元信息，元信息有三种来源，优先级从高到低为：</p>
 <ul>
 <li><code>__init__()</code> 方法中用户传入的 <code>metainfo</code> 字典；改动频率最高，因为用户可以在实例化数据集时，传入该参数；</li>
 <li>类属性 <code>BaseDataset.METAINFO</code> 字典；改动频率中等，因为用户可以改动自定义数据集类中的类属性 <code>BaseDataset.METAINFO</code>；</li>
-<li>标注文件中包含的 <code>metainfo</code> 字典；改动频率最低，因为标注文件一般不做改动。如果三种来源中有相同的字段，优先级最高的来源决定该字段的值，这些字段的优先级比较是：用户传入的 <code>metainfo</code> 字典里的字段
-&gt; <code>BaseDataset.METAINFO</code> 字典里的字段 &gt;
-标注文件中 <code>metainfo</code> 字典里的字段。</li>
-</ul></li>
-<li><p><code>join path</code>：处理数据与标注文件的路径；</p></li>
-<li><p><code>build pipeline</code>：构建数据流水线（data
-pipeline），用于数据预处理与数据准备；</p></li>
-<li><p><code>full init</code>：完全初始化数据集类，该步骤主要包含以下操作：</p>
+<li>标注文件中包含的 <code>metainfo</code> 字典；改动频率最低，因为标注文件一般不做改动。如果三种来源中有相同的字段，优先级最高的来源决定该字段的值，这些字段的优先级比较是：用户传入的 <code>metainfo</code> 字典里的字段 &gt; <code>BaseDataset.METAINFO</code> 字典里的字段 &gt; 标注文件中 <code>metainfo</code> 字典里的字段。</li>
+</ul>
+</li>
+<li>
+<p><code>join path</code>：处理数据与标注文件的路径；</p>
+</li>
+<li>
+<p><code>build pipeline</code>：构建数据流水线（data pipeline），用于数据预处理与数据准备；</p>
+</li>
+<li>
+<p><code>full init</code>：完全初始化数据集类，该步骤主要包含以下操作：</p>
 <ul>
-<li><code>load data list</code>：读取与解析满足 OpenMMLab 2.0
-数据集格式规范的标注文件，该步骤中会调用 <code>parse_data_info()</code> 方法，该方法负责解析标注文件里的每个原始数据；</li>
+<li><code>load data list</code>：读取与解析满足 OpenMMLab 2.0 数据集格式规范的标注文件，该步骤中会调用 <code>parse_data_info()</code> 方法，该方法负责解析标注文件里的每个原始数据；</li>
 <li><code>filter data</code> (可选)：根据 <code>filter_cfg</code> 过滤无用数据，比如不包含标注的样本等；默认不做过滤操作，下游子类可以按自身所需对其进行重写；</li>
-<li><code>get subset</code> (可选)：根据给定的索引或整数值采样数据，比如只取前
-10 个样本参与训练/测试；默认不采样数据，即使用全部数据样本；</li>
+<li><code>get subset</code> (可选)：根据给定的索引或整数值采样数据，比如只取前 10 个样本参与训练/测试；默认不采样数据，即使用全部数据样本；</li>
 <li><code>serialize data</code> (可选)：序列化全部样本，以达到节省内存的效果，详情请参考<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/advanced_tutorials/basedataset.html#id10">节省内存</a>；默认操作为序列化全部样本。</li>
-</ul></li>
-<li><p>OpenMMLab 2.0 数据集格式规范规定:</p>
+</ul>
+</li>
+<li>
+<p>OpenMMLab 2.0 数据集格式规范规定:</p>
 <ul>
 <li>标注文件必须为 <code>json</code> 或 <code>yaml</code>，<code>yml</code> 或 <code>pickle</code>，<code>pkl</code> 格式；</li>
 <li>标注文件中存储的字典必须包含 <code>metainfo</code> 和 <code>data_list</code> 两个字段。</li>
 <li>其中 <code>metainfo</code> 是一个字典，里面包含数据集的元信息；</li>
-<li><code>data_list</code> 是一个列表，列表中每个元素是一个字典，该字典定义了一个原始数据（raw
-data），每个原始数据包含一个或若干个训练/测试样本。</li>
-</ul></li>
+<li><code>data_list</code> 是一个列表，列表中每个元素是一个字典，该字典定义了一个原始数据（raw data），每个原始数据包含一个或若干个训练/测试样本。</li>
 </ul>
-<h2><span id="model">MODEL</span><a href="#model" class="header-anchor">#</a></h2>
+</li>
+</ul>
+<h2><span id="model"> MODEL</span><a href="#model" class="header-anchor">#</a></h2>
 <ul>
-<li>在基于 MMEngine
-开发时，定义的模型由执行器(<code>runner</code>)管理，且需要实现 <code>train_step</code>、<code>val_step</code> 和 <code>test_step</code> 方法。</li>
-<li>对于检测、识别、分割一类的深度学习任务，上述方法通常为标准的流程，例如在 <code>train_step</code> 里更新参数，返回损失；<code>val_step</code> 和 <code>test_step</code> 返回预测结果。</li>
-<li><strong>因此 MMEngine 抽象出模型基类 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.model.BaseModel.html#mmengine.model.BaseModel">BaseModel</a>，实现了上述接口的标准流程</strong></li>
-<li>得益于 <code>BaseModel</code> 我们只需要让模型继承自模型基类，并按照一定的规范实现 <code>forward</code>，就能让模型在执行器中运行起来。</li>
-<li><code>forward</code>
+<li>
+<p>在基于 MMEngine 开发时，定义的模型由执行器(<code>runner</code>)管理，且需要实现 <code>train_step</code>、<code>val_step</code> 和 <code>test_step</code> 方法。</p>
+</li>
+<li>
+<p>对于检测、识别、分割一类的深度学习任务，上述方法通常为标准的流程，例如在 <code>train_step</code> 里更新参数，返回损失；<code>val_step</code> 和 <code>test_step</code> 返回预测结果。</p>
+</li>
+<li>
+<p><strong>因此 MMEngine 抽象出模型基类 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.model.BaseModel.html#mmengine.model.BaseModel">BaseModel</a>，实现了上述接口的标准流程</strong></p>
+</li>
+<li>
+<p>得益于 <code>BaseModel</code> 我们只需要让模型继承自模型基类，并按照一定的规范实现 <code>forward</code>，就能让模型在执行器中运行起来。</p>
+</li>
+<li>
+<p><code>forward</code></p>
 <ul>
-<li><code>forward</code> 的入参需通常需要和 <a target="_blank" rel="noopener" href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html">DataLoader</a> 的输出保持一致
-(自定义<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/tutorials/model.html#datapreprocessor">数据预处理器</a>除外)，
+<li><code>forward</code> 的入参需通常需要和 <a target="_blank" rel="noopener" href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html">DataLoader</a> 的输出保持一致 (自定义<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/tutorials/model.html#datapreprocessor">数据预处理器</a>除外)，
 <ul>
 <li><code>DataLoader</code> 返回元组类型的数据 <code>data</code>，<code>forward</code> 需要能够接受 <code>*data</code> 的解包后的参数；</li>
 <li>如果返回字典类型的数据 <code>data</code>，<code>forward</code> 需要能够接受 <code>**data</code> 解包后的参数。</li>
 <li><code>mode</code> 参数用于控制 forward 的返回结果
 <ul>
-<li><code>mode='loss'</code>：<code>loss</code> 模式通常在训练阶段启用，并返回一个损失字典。损失字典的
-key-value
-分别为损失名和可微的 <code>torch.Tensor</code>。字典中记录的损失会被用于更新参数和记录日志。模型基类会在 <code>train_step</code> 方法中调用该模式的 <code>forward</code>。</li>
-<li><code>mode='predict'</code>： <code>predict</code> 模式通常在验证、测试阶段启用，并返回列表/元组形式的预测结果，预测结果需要和 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.evaluator.Evaluator.html#mmengine.evaluator.Evaluator.process">process</a> 接口的参数相匹配。OpenMMLab
-系列算法对 <code>predict</code> 模式的输出有着更加严格的约定，需要输出列表形式的<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/advanced_tutorials/data_element.html">数据元素</a>。模型基类会在 <code>val_step</code>，<code>test_step</code> 方法中调用该模式的 <code>forward</code>。</li>
+<li><code>mode='loss'</code>：<code>loss</code> 模式通常在训练阶段启用，并返回一个损失字典。损失字典的 key-value 分别为损失名和可微的 <code>torch.Tensor</code>。字典中记录的损失会被用于更新参数和记录日志。模型基类会在 <code>train_step</code> 方法中调用该模式的 <code>forward</code>。</li>
+<li><code>mode='predict'</code>： <code>predict</code> 模式通常在验证、测试阶段启用，并返回列表/元组形式的预测结果，预测结果需要和 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.evaluator.Evaluator.html#mmengine.evaluator.Evaluator.process">process</a> 接口的参数相匹配。OpenMMLab 系列算法对 <code>predict</code> 模式的输出有着更加严格的约定，需要输出列表形式的<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/advanced_tutorials/data_element.html">数据元素</a>。模型基类会在 <code>val_step</code>，<code>test_step</code> 方法中调用该模式的 <code>forward</code>。</li>
 <li><code>mode='tensor'</code>：<code>tensor</code> 和 <code>predict</code> 模式均返回模型的前向推理结果，区别在于 <code>tensor</code> 模式下，<code>forward</code> 会返回未经后处理的张量，例如返回未经非极大值抑制（nms）处理的检测结果，返回未经 <code>argmax</code> 处理的分类结果。我们可以基于 <code>tensor</code> 模式的结果进行自定义的后处理。</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><code>train_step</code>:
-执行 <code>forward</code> 方法的 <code>loss</code> 分支，得到损失字典。模型基类基于<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/tutorials/optim_wrapper.html">优化器封装</a> 实现了标准的梯度计算、参数更新、梯度清零流程。其等效伪代码如下：</li>
-<li><code>val_step</code>:
-执行 <code>forward</code> 方法的 <code>predict</code> 分支，返回预测结果：**</li>
-<li><code>test_step</code>: 同 <code>val_step</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>train_step</code>: 执行 <code>forward</code> 方法的 <code>loss</code> 分支，得到损失字典。模型基类基于<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/tutorials/optim_wrapper.html">优化器封装</a> 实现了标准的梯度计算、参数更新、梯度清零流程。其等效伪代码如下：</p>
+</li>
+<li>
+<p><code>val_step</code>: 执行 <code>forward</code> 方法的 <code>predict</code> 分支，返回预测结果：**</p>
+</li>
+<li>
+<p><code>test_step</code>: 同 <code>val_step</code></p>
+</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">val_step</span>(<span class="params">self, data, optim_wrapper</span>):</span><br><span class="line">    data = <span class="variable language_">self</span>.data_preprocessor(data, training=<span class="literal">False</span>)</span><br><span class="line">    outputs = <span class="variable language_">self</span>(**data, mode=<span class="string">&#x27;predict&#x27;</span>) <span class="comment"># 预测模式，返回预测结果</span></span><br><span class="line">    <span class="keyword">return</span> outputs</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">train_step</span>(<span class="params">self, data, optim_wrapper</span>):</span><br><span class="line">    data = <span class="variable language_">self</span>.data_preprocessor(data, training=<span class="literal">True</span>)  <span class="comment"># 按下不表，详见数据与处理器一节</span></span><br><span class="line">    loss = <span class="variable language_">self</span>(**data, mode=<span class="string">&#x27;loss&#x27;</span>)  <span class="comment"># loss 模式，返回损失字典，假设 data 是字典，使用 ** 进行解析。事实上 train_step 兼容 tuple 和 dict 类型的输入。</span></span><br><span class="line">    parsed_losses, log_vars = <span class="variable language_">self</span>.parse_losses() <span class="comment"># 解析损失字典，返回可以 backward 的损失以及可以被日志记录的损失</span></span><br><span class="line">    optim_wrapper.update_params(parsed_losses)  <span class="comment"># 更新参数</span></span><br><span class="line">    <span class="keyword">return</span> log_vars</span><br></pre></td></tr></table></figure>
-<h2><span id="evaluation">EVALUATION</span><a href="#evaluation" class="header-anchor">#</a></h2>
+<h2><span id="evaluation"> EVALUATION</span><a href="#evaluation" class="header-anchor">#</a></h2>
 <ul>
 <li>在模型验证和模型测试中，通常需要对模型精度做定量评测。我们可以通过在配置文件中指定评测指标（<code>Metric</code>）来实现这一功能。</li>
-<li>在基于 MMEngine
-进行模型训练或测试时，用户只需要在配置文件中通过 <code>val_evaluator</code> 和 <code>test_evaluator</code> 2
-个字段分别指定模型验证和测试阶段的评测指标即可</li>
+<li>在基于 MMEngine 进行模型训练或测试时，用户只需要在配置文件中通过 <code>val_evaluator</code> 和 <code>test_evaluator</code> 2 个字段分别指定模型验证和测试阶段的评测指标即可</li>
 <li>如果需要同时评测多个指标，也可以将 <code>val_evaluator</code> 或 <code>test_evaluator</code> 设置为一个列表，其中每一项为一个评测指标的配置信息。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">test_evaluator = [</span><br><span class="line">    <span class="comment"># 目标检测指标</span></span><br><span class="line">    <span class="built_in">dict</span>(</span><br><span class="line">        <span class="built_in">type</span>=<span class="string">&#x27;CocoMetric&#x27;</span>,</span><br><span class="line">        metric=[<span class="string">&#x27;bbox&#x27;</span>, <span class="string">&#x27;segm&#x27;</span>],</span><br><span class="line">        ann_file=<span class="string">&#x27;annotations/instances_val2017.json&#x27;</span>,</span><br><span class="line">    ),</span><br><span class="line">    <span class="comment"># 全景分割指标</span></span><br><span class="line">    <span class="built_in">dict</span>(</span><br><span class="line">        <span class="built_in">type</span>=<span class="string">&#x27;CocoPanopticMetric&#x27;</span>,</span><br><span class="line">        ann_file=<span class="string">&#x27;annotations/panoptic_val2017.json&#x27;</span>,</span><br><span class="line">        seg_prefix=<span class="string">&#x27;annotations/panoptic_val2017&#x27;</span>,</span><br><span class="line">    )</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3><span id="zi-ding-yi-ping-ce-zhi-biao">自定义评测指标</span><a href="#zi-ding-yi-ping-ce-zhi-biao" class="header-anchor">#</a></h3>
+<h3><span id="zi-ding-yi-ping-ce-zhi-biao"> 自定义评测指标</span><a href="#zi-ding-yi-ping-ce-zhi-biao" class="header-anchor">#</a></h3>
 <ul>
 <li>需要继承基类 <a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.evaluator.BaseMetric.html#mmengine.evaluator.BaseMetric">BaseMetric</a></li>
 <li>此外，评测指标类需要用注册器 <code>METRICS</code> 进行注册</li>
-<li>实现 <code>process()</code> 方法。该方法有 2
-个输入参数，分别是一个批次的测试数据样本 <code>data_batch</code> 和模型预测结果 <code>data_samples</code>。我们从中分别取出样本类别标签和分类预测结果，并存放在 <code>self.results</code> 中。</li>
-<li>实现 <code>compute_metrics()</code> 方法。该方法有 1
-个输入参数 <code>results</code>，里面存放了所有批次测试数据经过 <code>process()</code> 方法处理后得到的结果。从中取出样本类别标签和分类预测结果，即可计算得到分类正确率 <code>acc</code>。最终，将计算得到的评测指标以字典的形式返回。</li>
-<li>（可选）可以为类属性 <code>default_prefix</code> 赋值。该属性会自动作为输出的评测指标名前缀（如 <code>defaut_prefix='my_metric'</code>,则实际输出的评测指标名为 <code>'my_metric/acc'</code>），用以进一步区分不同的评测指标。该前缀也可以在配置文件中通过 <code>prefix</code> 参数改写。我们建议在
-docstring
-中说明该评测指标类的 <code>default_prefix</code> 值以及所有的返回指标名称。</li>
+<li>实现 <code>process()</code> 方法。该方法有 2 个输入参数，分别是一个批次的测试数据样本 <code>data_batch</code> 和模型预测结果 <code>data_samples</code>。我们从中分别取出样本类别标签和分类预测结果，并存放在 <code>self.results</code> 中。</li>
+<li>实现 <code>compute_metrics()</code> 方法。该方法有 1 个输入参数 <code>results</code>，里面存放了所有批次测试数据经过 <code>process()</code> 方法处理后得到的结果。从中取出样本类别标签和分类预测结果，即可计算得到分类正确率 <code>acc</code>。最终，将计算得到的评测指标以字典的形式返回。</li>
+<li>（可选）可以为类属性 <code>default_prefix</code> 赋值。该属性会自动作为输出的评测指标名前缀（如 <code>defaut_prefix='my_metric'</code>,则实际输出的评测指标名为 <code>'my_metric/acc'</code>），用以进一步区分不同的评测指标。该前缀也可以在配置文件中通过 <code>prefix</code> 参数改写。我们建议在 docstring 中说明该评测指标类的 <code>default_prefix</code> 值以及所有的返回指标名称。</li>
 </ul>
-<h2><span id="optimwrapper">OPTIMWRAPPER</span><a href="#optimwrapper" class="header-anchor">#</a></h2>
+<h2><span id="optimwrapper"> OPTIMWRAPPER</span><a href="#optimwrapper" class="header-anchor">#</a></h2>
 <ul>
-<li>是 <code>Pytorch</code>
-原生优化器（<code>Optimizer</code>）高级抽象</li>
+<li>是 <code>Pytorch</code> 原生优化器（<code>Optimizer</code>）高级抽象</li>
 <li>它在增加了更多功能的同时，提供了一套统一的接口。</li>
 <li>优化器封装支持不同的训练策略，包括混合精度训练、梯度累加和梯度截断。我们可以根据需求选择合适的训练策略。</li>
 <li>优化器封装还定义了一套标准的参数更新流程，用户可以基于这一套流程，实现同一套代码，不同训练策略的切换。</li>
 <li><strong>优化器封装的 <code>update_params</code> 实现了标准的梯度计算(<code>loss.backward()</code>)、参数更新(<code>optimizer.step()</code>)和梯度清零(<code>optimizer.zero()</code>)流程，可以直接用来更新模型参数。</strong></li>
 </ul>
-<h2><span id="parameter-scheduler">PARAMETER SCHEDULER</span><a href="#parameter-scheduler" class="header-anchor">#</a></h2>
+<h2><span id="parameter-scheduler"> PARAMETER SCHEDULER</span><a href="#parameter-scheduler" class="header-anchor">#</a></h2>
 <ul>
 <li>在模型训练过程中，我们往往不是采用固定的优化参数，例如学习率等，会随着训练轮数的增加进行调整。</li>
 <li>最简单常见的学习率调整策略就是阶梯式下降，例如每隔一段时间将学习率降低为原来的几分之一。</li>
-<li>PyTorch 中有学习率调度器 <code>LRScheduler</code>
-来对各种不同的学习率调整方式进行抽象，但支持仍然比较有限，</li>
+<li>PyTorch 中有学习率调度器 <code>LRScheduler</code> 来对各种不同的学习率调整方式进行抽象，但支持仍然比较有限，</li>
 <li>在 MMEngine 中，我们对其进行了拓展，实现了更通用的<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh-cn/latest/api/generated/mmengine.optim._ParamScheduler.html#mmengine.optim._ParamScheduler">参数调度器</a>，可以对学习率、动量等优化器相关的参数进行调整，并且支持多个调度器进行组合，应用更复杂的调度策略。</li>
 </ul>
-<h2><span id="hook">HOOK</span><a href="#hook" class="header-anchor">#</a></h2>
+<h2><span id="hook"> HOOK</span><a href="#hook" class="header-anchor">#</a></h2>
 <ul>
 <li>钩子编程是一种编程模式，是指在程序的一个或者多个位置设置位点（挂载点），当程序运行至某个位点时，会自动调用运行时注册到位点的所有方法。钩子编程可以提高程序的灵活性和拓展性，用户将自定义的方法注册到位点便可被调用而无需修改程序中的代码。</li>
 <li></li>
 </ul>
-<h2><span id="runnder">Runnder</span><a href="#runnder" class="header-anchor">#</a></h2>
+<h2><span id="runnder"> Runnder</span><a href="#runnder" class="header-anchor">#</a></h2>
 <ul>
 <li>使用配置文件时，你通常不需要手动注册所有模块。例如，<code>torch.optim</code> 中的所有优化器（如 <code>Adam</code> <code>SGD</code>等）都已经在 <code>mmengine.optim</code> 中注册完成。使用时的经验法则是：尝试直接使用 <code>PyTorch</code> 中的组件，只有当出现报错时再手动注册。</li>
 <li>当使用配置文件写法时，你的自定义模块的实现代码通常存放在独立文件中，可能并未被正确注册，进而导致构建失败。我们推荐你阅读<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh_CN/latest/advanced_tutorials/config.html#python">配置</a>文档中 <code>custom_imports</code> 相关的内容以更好地使用配置文件系统。</li>
 </ul>
-<h2><span id="registry">REGISTRY</span><a href="#registry" class="header-anchor">#</a></h2>
+<h2><span id="registry"> REGISTRY</span><a href="#registry" class="header-anchor">#</a></h2>
 <ul>
-<li>MMEngine 实现的<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh_CN/latest/api/generated/mmengine.registry.Registry.html#mmengine.registry.Registry">注册器</a>可以看作一个映射表和模块构建方法（build
-function）的组合。
+<li>MMEngine 实现的<a target="_blank" rel="noopener" href="https://mmengine.readthedocs.io/zh_CN/latest/api/generated/mmengine.registry.Registry.html#mmengine.registry.Registry">注册器</a>可以看作一个映射表和模块构建方法（build function）的组合。
 <ul>
-<li>映射表维护了一个字符串到类或者函数的映射，使得用户可以借助字符串查找到相应的类或函数，例如维护字符串 <code>"ResNet"</code> 到 <code>ResNet</code> 类或函数的映射，使得用户可以通过 <code>"ResNet"</code> 找到 <code>ResNet</code> 类；</li>
-<li>而模块构建方法则定义了如何根据字符串查找到对应的类或函数以及如何实例化这个类或者调用这个函数，例如，通过字符串 <code>"bn"</code> 找到 <code>nn.BatchNorm2d</code> 并实例化 <code>BatchNorm2d</code> 模块；又或者通过字符串 <code>"build_batchnorm2d"</code> 找到 <code>build_batchnorm2d</code> 函数并返回该函数的调用结果</li>
+<li>映射表维护了一个字符串到类或者函数的映射，使得用户可以借助字符串查找到相应的类或函数，例如维护字符串 <code>&quot;ResNet&quot;</code> 到 <code>ResNet</code> 类或函数的映射，使得用户可以通过 <code>&quot;ResNet&quot;</code> 找到 <code>ResNet</code> 类；</li>
+<li>而模块构建方法则定义了如何根据字符串查找到对应的类或函数以及如何实例化这个类或者调用这个函数，例如，通过字符串 <code>&quot;bn&quot;</code> 找到 <code>nn.BatchNorm2d</code> 并实例化 <code>BatchNorm2d</code> 模块；又或者通过字符串 <code>&quot;build_batchnorm2d&quot;</code> 找到 <code>build_batchnorm2d</code> 函数并返回该函数的调用结果</li>
 <li>一个注册器管理的类或函数通常有相似的接口和功能，因此该注册器可以被视作这些类或函数的抽象。例如注册器 <code>MODELS</code> 可以被视作所有模型的抽象，管理了 <code>ResNet</code>，<code>SEResNet</code> 和 <code>RegNetX</code> 等分类网络的类以及 <code>build_ResNet</code>, <code>build_SEResNet</code> 和 <code>build_RegNetX</code> 等分类网络的构建函数。</li>
-</ul></li>
 </ul>
-<h2><span id="resume">RESUME</span><a href="#resume" class="header-anchor">#</a></h2>
+</li>
+</ul>
+<h2><span id="resume"> RESUME</span><a href="#resume" class="header-anchor">#</a></h2>
 <ul>
 <li>恢复的状态包括<strong>模型的权重、优化器和优化器参数调整策略的状态。</strong></li>
 </ul>
-<h3><span id="zi-dong-hui-fu-xun-lian"><strong>自动恢复训练</strong></span><a href="#zi-dong-hui-fu-xun-lian" class="header-anchor">#</a></h3>
+<h3><span id="zi-dong-hui-fu-xun-lian"> <strong>自动恢复训练</strong></span><a href="#zi-dong-hui-fu-xun-lian" class="header-anchor">#</a></h3>
 <ul>
-<li>设置 <code>Runner</code> 的 <code>resume</code> 等于 <code>True</code>，<code>Runner</code> 会从 <code>work_dir</code> 中加载最新的
-checkpoint。如果 <code>work_dir</code> 中有最新的
-checkpoint（例如该训练在上一次训练时被中断），则会从该 checkpoint
-恢复训练，否则（例如上一次训练还没来得及保存 checkpoint
-或者启动了新的训练任务）会重新开始训练。</li>
+<li>设置 <code>Runner</code> 的 <code>resume</code> 等于 <code>True</code>，<code>Runner</code> 会从 <code>work_dir</code> 中加载最新的 checkpoint。如果 <code>work_dir</code> 中有最新的 checkpoint（例如该训练在上一次训练时被中断），则会从该 checkpoint 恢复训练，否则（例如上一次训练还没来得及保存 checkpoint 或者启动了新的训练任务）会重新开始训练。</li>
 </ul>
-<h3><span id="zhi-ding-checkpoint-lu-jing"><strong>指定 checkpoint 路径</strong></span><a href="#zhi-ding-checkpoint-lu-jing" class="header-anchor">#</a></h3>
+<h3><span id="zhi-ding-checkpoint-lu-jing"> <strong>指定 checkpoint 路径</strong></span><a href="#zhi-ding-checkpoint-lu-jing" class="header-anchor">#</a></h3>
 <ul>
-<li>如果希望指定恢复训练的路径，除了设置 <code>resume=True</code>，还需要设置 <code>load_from</code> 参数。需要注意的是，如果只设置了 <code>load_from</code> 而没有设置 <code>resume=True</code>，则只会加载
-checkpoint 中的权重并重新开始训练，而不是接着之前的状态继续训练。</li>
+<li>如果希望指定恢复训练的路径，除了设置 <code>resume=True</code>，还需要设置 <code>load_from</code> 参数。需要注意的是，如果只设置了 <code>load_from</code> 而没有设置 <code>resume=True</code>，则只会加载 checkpoint 中的权重并重新开始训练，而不是接着之前的状态继续训练。</li>
 </ul>
 
       
@@ -1332,11 +1172,8 @@ checkpoint 中的权重并重新开始训练，而不是接着之前的状态继
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="amd-vi-event-logged-io-page-fault-domain-0x0015-address-0xffe00900"><code>amd_vi event logged io_page_fault domain=0x0015 address=0xffe00900</code></span><a href="#amd-vi-event-logged-io-page-fault-domain-0x0015-address-0xffe00900" class="header-anchor">#</a></h2>
-<p>解决方案: 在<code>/etc/default/grub</code> 的
-<code>GRUB_CMDLINE_LINUX_DEFAULT="quiet splash”</code>
-这一行最后添加<code>iommu=off</code>参数,
-然后执行<code>sudo update-grub</code></p>
+          <h2><span id="amd-vi-event-logged-io-page-fault-domain-0x0015-address-0xffe00900"> <code>amd_vi event logged io_page_fault domain=0x0015 address=0xffe00900</code></span><a href="#amd-vi-event-logged-io-page-fault-domain-0x0015-address-0xffe00900" class="header-anchor">#</a></h2>
+<p>解决方案: 在<code>/etc/default/grub</code> 的 <code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash”</code> 这一行最后添加<code>iommu=off</code>参数, 然后执行<code>sudo update-grub</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">&quot;quiet splash iommu=off&quot;</span></span><br></pre></td></tr></table></figure>
 
       
@@ -1412,7 +1249,6 @@ checkpoint 中的权重并重新开始训练，而不是接着之前的状态继
 
       
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新系统</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;更新系统包...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt upgrade -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 xrdp 和相关依赖</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;安装 xrdp 和依赖...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> apt install -y xrdp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 xrdp 用户到 ssl-cert 组</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;配置 xrdp 用户权限...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> adduser xrdp ssl-cert</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用并启动 xrdp 服务</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;启动并启用 xrdp 服务...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now xrdp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查桌面环境</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;检测桌面环境...&quot;</span></span><br><span class="line"><span class="keyword">if</span> ! <span class="built_in">command</span> -v gnome-session &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;未检测到 GNOME 桌面环境，安装中...&quot;</span></span><br><span class="line">    <span class="built_in">sudo</span> apt install -y ubuntu-desktop</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 xrdp 使用 GNOME 桌面</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;配置 GNOME 桌面环境为默认会话...&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;gnome-session&quot;</span> &gt;~/.xsession</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开防火墙端口（可选）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;检查并配置防火墙规则...&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">sudo</span> ufw status | grep -q <span class="string">&quot;inactive&quot;</span>; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;防火墙未激活，跳过配置。&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">sudo</span> ufw allow 3389/tcp</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;已打开 3389 端口。&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查服务状态</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;检查 xrdp 服务状态...&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl status xrdp --no-pager</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;配置完成！可以通过 RDP 客户端连接到此机器，使用当前系统用户登录。&quot;</span></span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -1479,9 +1315,9 @@ checkpoint 中的权重并重新开始训练，而不是接着之前的状态继
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="sentinel">Sentinel</span><a href="#sentinel" class="header-anchor">#</a></h2>
+          <h2><span id="sentinel"> Sentinel</span><a href="#sentinel" class="header-anchor">#</a></h2>
 <blockquote>
-<p>https://dataspace.copernicus.eu/</p>
+<p><a target="_blank" rel="noopener" href="https://dataspace.copernicus.eu/">https://dataspace.copernicus.eu/</a></p>
 </blockquote>
 
       
@@ -1556,10 +1392,9 @@ checkpoint 中的权重并重新开始训练，而不是接着之前的状态继
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1><span id="how-to-use-docker-in-synology-with-proxy">how to use docker in
-synology with proxy</span><a href="#how-to-use-docker-in-synology-with-proxy" class="header-anchor">#</a></h1>
+          <h1><span id="how-to-use-docker-in-synology-with-proxy"> how to use docker in synology with proxy</span><a href="#how-to-use-docker-in-synology-with-proxy" class="header-anchor">#</a></h1>
 <blockquote>
-<p>https://dockerproxy.link/</p>
+<p><a target="_blank" rel="noopener" href="https://dockerproxy.link/">https://dockerproxy.link/</a></p>
 </blockquote>
 <p>Take <code>stilleshan/frpc:latest</code> for example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull dockerproxy.net/stilleshan/frpc:latest <span class="comment">#代理拉取镜像</span></span><br><span class="line">docker tag dockerproxy.net/stilleshan/frpc:latest stilleshan/frpc:latest <span class="comment"># 重命名镜像</span></span><br><span class="line">docker rmi dockerproxy.net/stilleshan/frpc:latest <span class="comment"># 删除代理镜像</span></span><br></pre></td></tr></table></figure>
@@ -1630,9 +1465,7 @@ synology with proxy</span><a href="#how-to-use-docker-in-synology-with-proxy" cl
     <div class="post-body" itemprop="articleBody">
 
       
-          <div class="tocStart">
-
-</div>
+          <div class="toc">
 <!-- toc -->
 <ul>
 <li><a href="#python-base">Python base</a></li>
@@ -1649,413 +1482,228 @@ synology with proxy</span><a href="#how-to-use-docker-in-synology-with-proxy" cl
 <li><a href="#imports">imports</a></li>
 </ul>
 <!-- tocstop -->
-<div class="tocEnd">
-
 </div>
-<h2><span id="python-base">Python base</span><a href="#python-base" class="header-anchor">#</a></h2>
+<h2><span id="python-base"> Python base</span><a href="#python-base" class="header-anchor">#</a></h2>
 <ul>
-<li>When known to the interpreter, the script name and additional
-arguments thereafter are turned into a list of strings and assigned to
-the <code>argv</code> variable in the <code>sys</code> module.</li>
-<li>the built-in function <code>vars()</code>, which returns a
-dictionary containing all local variables.</li>
-<li><strong>multiple assignment</strong>: the expressions on the
-right-hand side are all evaluated first before any of the assignments
-take place. The right-hand side expressions are evaluated from the left
-to the right.</li>
-<li><strong>condition</strong>: The condition may also be a string or
-list value, in fact any sequence; anything with a non-zero length is
-true, empty sequences are false</li>
+<li>When known to the interpreter, the script name and additional arguments thereafter are turned into a list of strings and assigned to the <code>argv</code> variable in the <code>sys</code> module.</li>
+<li>the built-in function <code>vars()</code>, which returns a dictionary containing all local variables.</li>
+<li><strong>multiple assignment</strong>: the expressions on the right-hand side are all evaluated first before any of the assignments take place. The right-hand side expressions are evaluated from the left to the right.</li>
+<li><strong>condition</strong>: The condition may also be a string or list value, in fact any sequence; anything with a non-zero length is true, empty sequences are false</li>
 </ul>
-<h2><span id="control-flow">Control flow</span><a href="#control-flow" class="header-anchor">#</a></h2>
+<h2><span id="control-flow"> Control flow</span><a href="#control-flow" class="header-anchor">#</a></h2>
 <ul>
-<li><p>The <code>for</code> statement in Python differs a bit from what
-you may be used to in <code>C</code> or <code>Pascal</code>. Rather than
-<strong>always</strong> iterating over an arithmetic progression of
-numbers (like in <code>Pascal</code>), or giving the user the ability to
-define both the iteration step and halting condition (as
-<code>C</code>), Python’s <code>for</code> statement iterates over the
-items <strong>of any sequence</strong> (a list or a string), in the
-order that they appear in the sequence.</p>
+<li>
+<p>The <code>for</code> statement in Python differs a bit from what you may be used to in <code>C</code> or <code>Pascal</code>. Rather than <strong>always</strong> iterating over an arithmetic progression of numbers (like in <code>Pascal</code>), or giving the user the ability to define both the iteration step and halting condition (as <code>C</code>), Python’s <code>for</code> statement iterates over the items <strong>of any sequence</strong> (a list or a string), in the order that they appear in the sequence.</p>
 <ul>
-<li>Code that modifies a collection while iterating over that same
-collection can be tricky to get right. Instead, it is usually more
-straight-forward to loop <strong>over a copy</strong> of the collection
-or to create a new collection:</li>
+<li>Code that modifies a collection while iterating over that same collection can be tricky to get right. Instead, it is usually more straight-forward to loop <strong>over a copy</strong> of the collection or to create a new collection:</li>
 </ul>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> user, status <span class="keyword">in</span> users.copy.items():</span><br><span class="line">    <span class="keyword">if</span> status == <span class="string">&#x27;inactive&#x27;</span>:</span><br><span class="line">        <span class="keyword">del</span> users[user]</span><br></pre></td></tr></table></figure></p></li>
-<li><p>In many ways the object returned by <code>range()</code> behaves
-as if it is a <code>list</code>, but in fact it isn’t. It is an object
-which returns the successive items of the desired sequence when you
-iterate over it, but it doesn’t really make the <code>list</code>, thus
-saving space.</p></li>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> user, status <span class="keyword">in</span> users.copy.items():</span><br><span class="line">    <span class="keyword">if</span> status == <span class="string">&#x27;inactive&#x27;</span>:</span><br><span class="line">        <span class="keyword">del</span> users[user]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>In many ways the object returned by <code>range()</code> behaves as if it is a <code>list</code>, but in fact it isn’t. It is an object which returns the successive items of the desired sequence when you iterate over it, but it doesn’t really make the <code>list</code>, thus saving space.</p>
+</li>
 </ul>
-<h2><span id="functions">Functions</span><a href="#functions" class="header-anchor">#</a></h2>
+<h2><span id="functions"> Functions</span><a href="#functions" class="header-anchor">#</a></h2>
 <ul>
-<li>The <code>execution</code> of a function introduces a new symbol
-table used for the local variables of the function.
+<li>The <code>execution</code> of a function introduces a new symbol table used for the local variables of the function.
 <ul>
-<li>More precisely, all variable assignments in a function store the
-value in the local symbol table;</li>
-<li>whereas variable references first look in the local symbol table,
-then in the local symbol tables of enclosing functions, then in the
-global symbol table, and finally in the table of built-in names.</li>
-<li>Thus, <strong>global variables and variables of enclosing
-functions</strong> cannot be directly assigned a value within a function
-(unless, for global variables, named in a global statement, or, for
-variables of enclosing functions, named in a nonlocal statement),
-although they may be referenced.</li>
-<li>When a function calls another function, a new local symbol table is
-created for that call.</li>
-</ul></li>
-<li>thus, <strong>arguments</strong> are passed using call by value
-(<strong>where the value is always an object reference, not the value of
-the object</strong>).</li>
-<li>A function definition introduces the function name in the current
-symbol table. The value of the function name has a type that is
-recognized by the interpreter as a user-defined function. This value can
-be assigned to another name which can then also be used as a function.
-This serves as a general renaming mechanism</li>
-<li>By default, arguments may be passed to a Python function either
-<strong>by position</strong> or <strong>explicitly by
-keyword</strong>.</li>
-<li>The <code>default values</code> are evaluated at the point of
-<strong>function definition</strong> in the defining scope</li>
+<li>More precisely, all variable assignments in a function store the value in the local symbol table;</li>
+<li>whereas variable references first look in the local symbol table, then in the local symbol tables of enclosing functions, then in the global symbol table, and finally in the table of built-in names.</li>
+<li>Thus, <strong>global variables and variables of enclosing functions</strong> cannot be directly assigned a value within a function (unless, for global variables, named in a global statement, or, for variables of enclosing functions, named in a nonlocal statement), although they may be referenced.</li>
+<li>When a function calls another function, a new local symbol table is created for that call.</li>
+</ul>
+</li>
+<li>thus, <strong>arguments</strong> are passed using call by value (<strong>where the value is always an object reference, not the value of the object</strong>).</li>
+<li>A function definition introduces the function name in the current symbol table. The value of the function name has a type that is recognized by the interpreter as a user-defined function. This value can be assigned to another name which can then also be used as a function. This serves as a general renaming mechanism</li>
+<li>By default, arguments may be passed to a Python function either <strong>by position</strong> or <strong>explicitly by keyword</strong>.</li>
+<li>The <code>default values</code> are evaluated at the point of <strong>function definition</strong> in the defining scope</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">arg=i</span>):</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line">i = <span class="number">6</span></span><br><span class="line">f()</span><br><span class="line"><span class="number">5</span> <span class="comment"># output</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>Important warning: The <code>default value</code> is
-evaluated only once. This makes a difference when the default is a
-mutable object such as a list, dictionary, or instances of most classes.
-For example, the following function accumulates the arguments passed to
-it on subsequent calls</strong>:</li>
+<li><strong>Important warning: The <code>default value</code> is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls</strong>:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">a, L=[]</span>):</span><br><span class="line">    L.append(a)</span><br><span class="line">    <span class="keyword">return</span> L</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(f(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(f(<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(f(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
 <p>This will print</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-<p>If you don’t want the default to be shared between subsequent calls,
-you can write the function like this instead:</p>
+<p>If you don’t want the default to be shared between subsequent calls, you can write the function like this instead:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">a, L=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">if</span> L <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        L = []</span><br><span class="line">    L.append(a)</span><br><span class="line">    <span class="keyword">return</span> L</span><br></pre></td></tr></table></figure>
 <ul>
-<li>When a final formal parameter of the form <code>*name</code> is
-present, it receives a dictionary containing all keyword arguments
-except for those corresponding to a formal parameter. This may be
-combined with a formal parameter of the form <code>name</code> which
-receives a tuple containing the positional arguments beyond the formal
-parameter list. (<code>name</code> must occur before
-<code>*name</code>.)</li>
+<li>When a final formal parameter of the form <code>*name</code> is present, it receives a dictionary containing all keyword arguments except for those corresponding to a formal parameter. This may be combined with a formal parameter of the form <code>name</code> which receives a tuple containing the positional arguments beyond the formal parameter list. (<code>name</code> must occur before <code>*name</code>.)</li>
 </ul>
-<h2><span id="classes">classes</span><a href="#classes" class="header-anchor">#</a></h2>
+<h2><span id="classes"> classes</span><a href="#classes" class="header-anchor">#</a></h2>
 <ul>
-<li>Classes provide a means of bundling data and functionality
-together.</li>
-<li>Each class instance can have
-<strong><code>attributes</code></strong> attached to it for
-<code>maintaining</code> its <strong>state</strong>.</li>
-<li>Class instances can also have <code>methods</code> (defined by its
-class) for <code>modifying</code> its state.</li>
-<li>In practice, the statements inside a class definition will usually
-be function definitions, but other statements are allowed, and sometimes
-useful</li>
-<li>The function definitions inside a class normally have a peculiar
-form of argument list, dictated by the calling conventions for
-methods</li>
-<li>Class objects support two kinds of <strong>operations</strong>:
-<strong>attribute references</strong> and
-<strong>instantiation</strong>.
+<li>Classes provide a means of bundling data and functionality together.</li>
+<li>Each class instance can have <strong><code>attributes</code></strong> attached to it for <code>maintaining</code> its <strong>state</strong>.</li>
+<li>Class instances can also have <code>methods</code> (defined by its class) for <code>modifying</code> its state.</li>
+<li>In practice, the statements inside a class definition will usually be function definitions, but other statements are allowed, and sometimes useful</li>
+<li>The function definitions inside a class normally have a peculiar form of argument list, dictated by the calling conventions for methods</li>
+<li>Class objects support two kinds of <strong>operations</strong>: <strong>attribute references</strong> and <strong>instantiation</strong>.
 <ul>
-<li><strong>Attribute references</strong> use the standard syntax used
-for all attribute references in Python: <code>obj.name</code>. Valid
-attribute names are all the names that were in the class’s namespace
-when the class object was created.
+<li><strong>Attribute references</strong> use the standard syntax used for all attribute references in Python: <code>obj.name</code>. Valid attribute names are all the names that were in the class’s namespace when the class object was created.
 <ul>
-<li><code>__doc__</code> is also a valid attribute, returning the
-docstring belonging to the class</li>
-</ul></li>
+<li><code>__doc__</code> is also a valid attribute, returning the docstring belonging to the class</li>
+</ul>
+</li>
 <li><strong>A method is a function that “belongs to” an object.</strong>
 <ul>
-<li>(In Python, the term method is not unique to class instances: other
-object types can have methods as well. For example, list objects have
-methods called append, insert, remove, sort, and so on.</li>
-</ul></li>
-</ul></li>
-<li>In fact, nothing in Python makes it possible to enforce data hiding
-— it is all based upon convention.
-<ul>
-<li>(On the other hand, the Python implementation, written in C, can
-completely hide implementation details and control access to an object
-if necessary; this can be used by extensions to Python written in
-C.)</li>
-</ul></li>
+<li>(In Python, the term method is not unique to class instances: other object types can have methods as well. For example, list objects have methods called append, insert, remove, sort, and so on.</li>
 </ul>
-<h2><span id="modules">Modules</span><a href="#modules" class="header-anchor">#</a></h2>
+</li>
+</ul>
+</li>
+<li>In fact, nothing in Python makes it possible to enforce data hiding — it is all based upon convention.
+<ul>
+<li>(On the other hand, the Python implementation, written in C, can completely hide implementation details and control access to an object if necessary; this can be used by extensions to Python written in C.)</li>
+</ul>
+</li>
+</ul>
+<h2><span id="modules"> Modules</span><a href="#modules" class="header-anchor">#</a></h2>
 <blockquote>
-<p>An object that serves as an organizational unit of Python code.
-Modules have a namespace containing arbitrary Python objects. Modules
-are loaded into Python by the process of importing. (<a target="_blank" rel="noopener" href="https://docs.python.org/glossary.html#term-module">Source</a>)</p>
-<ul>
-<li><strong>In practice, a module usually corresponds to
-one <code>.py</code> file containing Python code.</strong></li>
-<li><strong>The true power of modules is that they can be imported and
-reused in other code.</strong></li>
-<li>Within a module, the module’s name (as a string) is available as the
-value of the global variable <code>__name__</code>.</li>
-<li>A module can contain <code>executable statements</code> as well as
-<strong>function definitions.</strong> These statements are
-<strong>intended to</strong> <code>initialize the module</code>. They
-are executed only the first time the module name is encountered in an
-import statement. (They are also run if the file is executed as a
-script.)</li>
-<li>Each module has its own <strong>private symbol table</strong>, which
-is used as the global symbol table by all functions defined in the
-module. Thus, the author of a module can use global variables in the
-module without worrying about accidental clashes with a user’s global
-variables. On the other hand, if you know what you are doing you can
-touch a module’s global variables with the same notation used to refer
-to its functions, <code>modname.itemname</code>.</li>
-<li>For efficiency reasons, each module is only imported once per
-interpreter session. Therefore, if you change your modules, you must
-restart the interpreter – or, if it’s just one module you want to test
-interactively, use <code>importlib.reload()</code>,
-e.g. <code>import importlib; importlib.reload(modulename)</code>.</li>
-<li>When a module named <code>spam</code> is imported, the interpreter
-first searches for a built-in module with that name. If not found, it
-then searches for a file named spam.py in a list of directories given by
-the variable <code>sys.path</code>. <code>sys.path</code> is initialized
-from these locations:</li>
-<li>After initialization, Python programs can modify
-<code>sys.path</code>. The directory containing the script being run is
-placed at the beginning of the search path, ahead of the standard
-library path. This means that scripts in that directory will be loaded
-instead of modules of the same name in the library directory. This is an
-error unless the replacement is intended.</li>
-<li>The built-in function <code>dir()</code> is used to find out which
-names a module defines <code>dir(foo)</code>. Without arguments,
-<code>dir()</code> lists the names you have defined currently:</li>
-<li><code>dir()</code> does not list the names of built-in functions and
-variables. If you want a list of those, they are defined in the standard
-module <code>builtins</code>:</li>
-</ul>
+<p>An object that serves as an organizational unit of Python code. Modules have a namespace containing arbitrary Python objects. Modules are loaded into Python by the process of importing. (<a target="_blank" rel="noopener" href="https://docs.python.org/glossary.html#term-module">Source</a>)</p>
 </blockquote>
-<h2><span id="packages">packages</span><a href="#packages" class="header-anchor">#</a></h2>
+<ul>
+<li><strong>In practice, a module usually corresponds to one <code>.py</code> file containing Python code.</strong></li>
+<li><strong>The true power of modules is that they can be imported and reused in other code.</strong></li>
+<li>Within a module, the module’s name (as a string) is available as the value of the global variable <code>__name__</code>.</li>
+<li>A module can contain <code>executable statements</code> as well as <strong>function definitions.</strong> These statements are <strong>intended to</strong> <code>initialize the module</code>. They are executed only the first time the module name is encountered in an import statement. (They are also run if the file is executed as a script.)</li>
+<li>Each module has its own <strong>private symbol table</strong>, which is used as the global symbol table by all functions defined in the module. Thus, the author of a module can use global variables in the module without worrying about accidental clashes with a user’s global variables. On the other hand, if you know what you are doing you can touch a module’s global variables with the same notation used to refer to its functions, <code>modname.itemname</code>.</li>
+<li>For efficiency reasons, each module is only imported once per interpreter session. Therefore, if you change your modules, you must restart the interpreter – or, if it’s just one module you want to test interactively, use <code>importlib.reload()</code>, e.g. <code>import importlib; importlib.reload(modulename)</code>.</li>
+<li>When a module named <code>spam</code> is imported, the interpreter first searches for a built-in module with that name. If not found, it then searches for a file named <a target="_blank" rel="noopener" href="http://spam.py">spam.py</a> in a list of directories given by the variable <code>sys.path</code>. <code>sys.path</code> is initialized from these locations:</li>
+<li>After initialization, Python programs can modify <code>sys.path</code>. The directory containing the script being run is placed at the beginning of the search path, ahead of the standard library path. This means that scripts in that directory will be loaded instead of modules of the same name in the library directory. This is an error unless the replacement is intended.</li>
+<li>The built-in function <code>dir()</code> is used to find out which names a module defines <code>dir(foo)</code>. Without arguments, <code>dir()</code> lists the names you have defined currently:</li>
+<li><code>dir()</code> does not list the names of built-in functions and variables. If you want a list of those, they are defined in the standard module <code>builtins</code>:</li>
+</ul>
+<h2><span id="packages"> packages</span><a href="#packages" class="header-anchor">#</a></h2>
 <blockquote>
-<p>A Python module which can contain submodules or recursively,
-subpackages. Technically, a package <strong>is a Python module with
-an <code>__path__</code> attribute</strong>.</p>
-<ul>
-<li>Note that a package is still a module. As a user, you usually don’t
-need to worry about whether you’re importing a module or a package.</li>
-<li>In practice, a package typically corresponds to a file directory
-containing Python files and other directories. To create a Python
-package yourself, you create a directory and a <a target="_blank" rel="noopener" href="https://docs.python.org/reference/import.html#regular-packages">file
-named <code>__init__.py</code></a> inside it.
-The <code>__init__.py</code> file contains the contents of the package
-when it’s treated as a module. It can be left empty.</li>
-<li>The <code>__init__.py</code> files are required to make Python treat
-directories containing the file as packages. This prevents directories
-with a common name, such as string, unintentionally hiding valid modules
-that occur later on the module search path. In the simplest case,
-<code>__init__.py</code> can just be an empty file, but it can also
-execute initialization code for the package or set the
-<code>__all__</code> variable, described later.</li>
-<li>Note that when using <code>from package import item</code>, the
-<code>item</code> can be either a <code>submodule (or subpackage)</code>
-of the package, or some other name defined in the package, like a
-function, class or variable.</li>
-<li>The import statement first tests whether the item is defined in the
-package; if not, it assumes it is a module and attempts to load it. If
-it fails to find it, an <code>ImportError</code> exception is
-raised.</li>
-<li>Contrarily, when using syntax like
-<code>import item.subitem.subsubitem</code>, each item except for the
-last must be a package; the last item can be a module or a package but
-can’t be a class or function or variable defined in the previous
-item.</li>
-</ul>
+<p>A Python module which can contain submodules or recursively, subpackages. Technically, a package <strong>is a Python module with an <code>__path__</code> attribute</strong>.</p>
 </blockquote>
-<h2><span id="input-and-output">Input and Output</span><a href="#input-and-output" class="header-anchor">#</a></h2>
 <ul>
-<li>It is good practice to use the <code>with</code> keyword when
-dealing with file objects. The advantage is that the file is properly
-closed after its suite finishes, even if an exception is raised at some
-point. Using with is also much shorter than writing equivalent
-try-finally blocks:</li>
-<li>For reading lines from a file, you can loop over the file object.
-This is memory efficient, fast, and leads to simple code:</li>
+<li>Note that a package is still a module. As a user, you usually don’t need to worry about whether you’re importing a module or a package.</li>
+<li>In practice, a package typically corresponds to a file directory containing Python files and other directories. To create a Python package yourself, you create a directory and a <a target="_blank" rel="noopener" href="https://docs.python.org/reference/import.html#regular-packages">file named <code>__init__.py</code></a> inside it. The <code>__init__.py</code> file contains the contents of the package when it’s treated as a module. It can be left empty.</li>
+<li>The <code>__init__.py</code> files are required to make Python treat directories containing the file as packages. This prevents directories with a common name, such as string, unintentionally hiding valid modules that occur later on the module search path. In the simplest case, <code>__init__.py</code> can just be an empty file, but it can also execute initialization code for the package or set the <code>__all__</code> variable, described later.</li>
+<li>Note that when using <code>from package import item</code>, the <code>item</code> can be either a <code>submodule (or subpackage)</code> of the package, or some other name defined in the package, like a function, class or variable.
+<ul>
+<li>The import statement first tests whether the item is defined in the package; if not, it assumes it is a module and attempts to load it. If it fails to find it, an <code>ImportError</code> exception is raised.</li>
+<li>Contrarily, when using syntax like <code>import item.subitem.subsubitem</code>, each item except for the last must be a package; the last item can be a module or a package but can’t be a class or function or variable defined in the previous item.</li>
+</ul>
+</li>
+</ul>
+<h2><span id="input-and-output"> Input and Output</span><a href="#input-and-output" class="header-anchor">#</a></h2>
+<ul>
+<li>It is good practice to use the <code>with</code> keyword when dealing with file objects. The advantage is that the file is properly closed after its suite finishes, even if an exception is raised at some point. Using with is also much shorter than writing equivalent try-finally blocks:</li>
+<li>For reading lines from a file, you can loop over the file object. This is memory efficient, fast, and leads to simple code:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(line, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">...</span><br><span class="line">This <span class="keyword">is</span> the first line of the file.</span><br><span class="line">Second line of the file</span><br></pre></td></tr></table></figure>
 <ul>
-<li>If you want to read all the lines of a file in a list you can also
-use <code>list(f)</code> or <code>f.readlines()</code>.</li>
-<li><code>f.write(string)</code> writes the contents of string to the
-file, returning the number of characters written.</li>
-<li>Contrary to <code>JSON</code>, <code>pickle</code> is a protocol
-which allows the serialization of arbitrarily complex Python objects. As
-such, it is specific to Python and cannot be used to communicate with
-applications written in other languages. It is also insecure by default:
-deserializing pickle data coming from an untrusted source can execute
-arbitrary code, if the data was crafted by a skilled attacker.</li>
+<li>If you want to read all the lines of a file in a list you can also use <code>list(f)</code> or <code>f.readlines()</code>.</li>
+<li><code>f.write(string)</code> writes the contents of string to the file, returning the number of characters written.</li>
+<li>Contrary to <code>JSON</code>, <code>pickle</code> is a protocol which allows the serialization of arbitrarily complex Python objects. As such, it is specific to Python and cannot be used to communicate with applications written in other languages. It is also insecure by default: deserializing pickle data coming from an untrusted source can execute arbitrary code, if the data was crafted by a skilled attacker.</li>
 </ul>
-<h2><span id="looping-techniques">Looping Techniques</span><a href="#looping-techniques" class="header-anchor">#</a></h2>
+<h2><span id="looping-techniques"> Looping Techniques</span><a href="#looping-techniques" class="header-anchor">#</a></h2>
 <ul>
-<li>When looping through dictionaries, the key and corresponding value
-can be retrieved at the same time using the <code>items()</code>
-method.</li>
-<li>When looping through a sequence, the position index and
-corresponding value can be retrieved at the same time using the
-<code>enumerate()</code> function.</li>
-<li>To loop over two or more sequences at the same time, the entries can
-be paired with the <code>zip()</code> function.</li>
-<li>To loop over a sequence in reverse, first specify the sequence in a
-forward direction and then call the <code>reversed()</code>
-function.</li>
-<li>To loop over a sequence in sorted order, use the
-<code>sorted()</code> function which returns a new sorted list while
-leaving the source unaltered.</li>
-<li>The <code>for</code> statement calls <code>iter()</code> on the
-container object. The function returns an iterator object that defines
-the method <code>__next__()</code> which accesses elements in the
-container one at a time. When there are no more elements,
-<code>__next__()</code> raises a <code>StopIteration</code> exception
-which tells the for loop to terminate. You can call the
-<code>__next__()</code> method using the <code>next()</code> built-in
-function;</li>
-<li>Define an <code>__iter__()</code> method which returns an object
-with a <code>__next__()</code> method. If the class defines
-<code>__next__()</code>, then <code>__iter__()</code> can just return
-self:</li>
+<li>When looping through dictionaries, the key and corresponding value can be retrieved at the same time using the <code>items()</code> method.</li>
+<li>When looping through a sequence, the position index and corresponding value can be retrieved at the same time using the <code>enumerate()</code> function.</li>
+<li>To loop over two or more sequences at the same time, the entries can be paired with the <code>zip()</code> function.</li>
+<li>To loop over a sequence in reverse, first specify the sequence in a forward direction and then call the <code>reversed()</code> function.</li>
+<li>To loop over a sequence in sorted order, use the <code>sorted()</code> function which returns a new sorted list while leaving the source unaltered.</li>
+<li>The <code>for</code> statement calls <code>iter()</code> on the container object. The function returns an iterator object that defines the method <code>__next__()</code> which accesses elements in the container one at a time. When there are no more elements, <code>__next__()</code> raises a <code>StopIteration</code> exception which tells the for loop to terminate. You can call the <code>__next__()</code> method using the <code>next()</code> built-in function;</li>
+<li>Define an <code>__iter__()</code> method which returns an object with a <code>__next__()</code> method. If the class defines <code>__next__()</code>, then <code>__iter__()</code> can just return self:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Reverse</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Iterator for looping over a sequence backwards.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="variable language_">self</span>.data = data</span><br><span class="line">        <span class="variable language_">self</span>.index = <span class="built_in">len</span>(data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.index == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        <span class="variable language_">self</span>.index = <span class="variable language_">self</span>.index - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.data[<span class="variable language_">self</span>.index]</span><br></pre></td></tr></table></figure>
-<h2><span id="data-struture">Data Struture</span><a href="#data-struture" class="header-anchor">#</a></h2>
+<h2><span id="data-struture"> Data Struture</span><a href="#data-struture" class="header-anchor">#</a></h2>
 <ul>
-<li><p><code>list.entend()</code></p></li>
-<li><p>Though <code>tuple</code>s may seem similar to
-<code>list</code>s, they are often used in different situations and for
-different purposes.</p>
+<li>
+<p><code>list.entend()</code></p>
+</li>
+<li>
+<p>Though <code>tuple</code>s may seem similar to <code>list</code>s, they are often used in different situations and for different purposes.</p>
 <ul>
-<li><code>tuple</code>s are immutable, and usually contain a
-<strong>heterogeneous</strong> sequence of elements that are accessed
-via unpacking or indexing (or even by attribute in the case of
-namedtuples).</li>
-<li><code>list</code>s are mutable, and their elements are usually
-homogeneous and are accessed by iterating over the list.</li>
-</ul></li>
-<li><p>Empty <code>tuples</code> are constructed by an empty pair of
-parentheses;</p></li>
-<li><p>a <code>tuple</code> with one item is constructed by following a
-value with a comma (it is not sufficient to enclose a single value in
-parentheses). Ugly, but effective.</p></li>
-<li><p>A <code>set</code> is an unordered collection with no duplicate
-elements.</p>
+<li><code>tuple</code>s are immutable, and usually contain a <strong>heterogeneous</strong> sequence of elements that are accessed via unpacking or indexing (or even by attribute in the case of namedtuples).</li>
+<li><code>list</code>s are mutable, and their elements are usually homogeneous and are accessed by iterating over the list.</li>
+</ul>
+</li>
+<li>
+<p>Empty <code>tuples</code> are constructed by an empty pair of parentheses;</p>
+</li>
+<li>
+<p>a <code>tuple</code> with one item is constructed by following a value with a comma (it is not sufficient to enclose a single value in parentheses). Ugly, but effective.</p>
+</li>
+<li>
+<p>A <code>set</code> is an unordered collection with no duplicate elements.</p>
 <ul>
-<li>Basic uses include membership testing and eliminating duplicate
-entries.</li>
-<li>Set objects also support mathematical operations like union,
-intersection, difference, and symmetric difference.</li>
-</ul></li>
-<li><p>Curly braces or the <code>set()</code> function can be used to
-create sets.</p>
+<li>Basic uses include membership testing and eliminating duplicate entries.</li>
+<li>Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.</li>
+</ul>
+</li>
+<li>
+<p>Curly braces or the <code>set()</code> function can be used to create sets.</p>
 <ul>
-<li>Note: to create an empty set you have to use <code>set()</code>, not
-<code>&#123;&#125;</code>; the latter creates an empty dictionary</li>
-</ul></li>
-<li><p>Similarly to list comprehensions, set comprehensions are also
-supported:</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;abracadabra&#x27;</span> <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">&#x27;abc&#x27;</span>&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>dictionaries are indexed by keys, which can be any
-<strong>immutable</strong> type;</p>
+<li>Note: to create an empty set you have to use <code>set()</code>, not <code>&#123;&#125;</code>; the latter creates an empty dictionary</li>
+</ul>
+</li>
+<li>
+<p>Similarly to list comprehensions, set comprehensions are also supported:</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;abracadabra&#x27;</span> <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">&#x27;abc&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>dictionaries are indexed by keys, which can be any <strong>immutable</strong> type;</p>
 <ul>
 <li>strings and numbers can always be keys.</li>
-<li>Tuples can be used as keys if they contain only strings, numbers, or
-tuples; if a tuple contains any mutable object either directly or
-indirectly, it cannot be used as a key.</li>
-<li><strong>You can’t use lists as keys</strong>, since lists can be
-modified in place using index assignments, slice assignments, or methods
-like <code>append()</code> and <code>extend()</code>.</li>
-</ul></li>
-<li><p>The main operations on a dictionary are storing a value with some
-key and extracting the value given the key.</p></li>
-<li><p>It is also possible to delete a <strong>key:value</strong> pair
-with <code>del</code>.</p></li>
-<li><p>dict comprehensions can be used to create dictionaries from
-arbitrary key and value expressions</p></li>
+<li>Tuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key.</li>
+<li><strong>You can’t use lists as keys</strong>, since lists can be modified in place using index assignments, slice assignments, or methods like <code>append()</code> and <code>extend()</code>.</li>
+</ul>
+</li>
+<li>
+<p>The main operations on a dictionary are storing a value with some key and extracting the value given the key.</p>
+</li>
+<li>
+<p>It is also possible to delete a <strong>key:value</strong> pair with <code>del</code>.</p>
+</li>
+<li>
+<p>dict comprehensions can be used to create dictionaries from arbitrary key and value expressions</p>
+</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;x: x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> (<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>)&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Lists might contain items of different types, but usually the items
-all have the same type.</li>
-<li>All slice operations return a <strong>new list</strong> containing
-the requested elements.</li>
-<li>Lists also support operations like concatenation: Unlike strings,
-which are immutable, lists are a <strong>mutable type</strong>, i.e. it
-is possible to change their content:</li>
-<li>You can also add new <strong>items</strong> at the end of the list,
-by using the <code>append()</code> method</li>
-<li>Assignment to slices is also possible, and this can <strong>even
-change the size of the list or clear it entirely</strong>:</li>
+<li>Lists might contain items of different types, but usually the items all have the same type.</li>
+<li>All slice operations return a <strong>new list</strong> containing the requested elements.</li>
+<li>Lists also support operations like concatenation: Unlike strings, which are immutable, lists are a <strong>mutable type</strong>, i.e. it is possible to change their content:</li>
+<li>You can also add new <strong>items</strong> at the end of the list, by using the <code>append()</code> method</li>
+<li>Assignment to slices is also possible, and this can <strong>even change the size of the list or clear it entirely</strong>:</li>
 <li>The built-in function <code>len()</code> also applies to lists:</li>
-<li>It is possible to nest lists (create lists containing other
-lists)</li>
+<li>It is possible to nest lists (create lists containing other lists)</li>
 </ul>
-<h2><span id="conditions">Conditions</span><a href="#conditions" class="header-anchor">#</a></h2>
+<h2><span id="conditions"> Conditions</span><a href="#conditions" class="header-anchor">#</a></h2>
 <ul>
-<li><code>in</code> and <code>not in</code> check whether a value occurs
-(does not occur) in a sequence.</li>
-<li>The operators <code>is</code> and <code>is not</code> compare
-whether two objects are really the <strong>same object</strong>; this
-only matters for mutable objects like lists.</li>
-<li>All comparison operators have the same priority, which is lower than
-that of all numerical operators.</li>
-<li>(<code>not and or</code>) have lower priorities than comparison
-operators; between them, <code>not</code> has the highest priority and
-<code>or</code> the lowest, so that <code>A and not B or C</code> is
-equivalent to <code>(A and (not B)) or C</code>.</li>
-<li>The Boolean operators and and or are so-called short-circuit
-operators: their arguments are evaluated from left to right, and
-evaluation stops as soon as the outcome is determined.</li>
+<li><code>in</code> and <code>not in</code> check whether a value occurs (does not occur) in a sequence.</li>
+<li>The operators <code>is</code> and <code>is not</code> compare whether two objects are really the <strong>same object</strong>; this only matters for mutable objects like lists.</li>
+<li>All comparison operators have the same priority, which is lower than that of all numerical operators.</li>
+<li>(<code>not and or</code>) have lower priorities than comparison operators; between them, <code>not</code> has the highest priority and <code>or</code> the lowest, so that <code>A and not B or C</code> is equivalent to <code>(A and (not B)) or C</code>.</li>
+<li>The Boolean operators and and or are so-called short-circuit operators: their arguments are evaluated from left to right, and evaluation stops as soon as the outcome is determined.</li>
 </ul>
-<h2><span id="strings">Strings</span><a href="#strings" class="header-anchor">#</a></h2>
+<h2><span id="strings"> Strings</span><a href="#strings" class="header-anchor">#</a></h2>
 <ul>
-<li>Strings can be concatenated (glued together) with the <code>+</code>
-operator, and repeated with <code>*</code>，</li>
-<li>Two or more string literals next to each other are automatically
-concatenated.This only works with two <strong>literals</strong> though,
-not with <strong>variables or expressions</strong>. If you want to
-concatenate variables or a variable and a literal, use
-<code>+</code></li>
+<li>Strings can be concatenated (glued together) with the <code>+</code> operator, and repeated with <code>*</code>，</li>
+<li>Two or more string literals next to each other are automatically concatenated.This only works with two <strong>literals</strong> though, not with <strong>variables or expressions</strong>. If you want to concatenate variables or a variable and a literal, use <code>+</code></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;abc&#x27;</span><span class="string">&#x27;efg&#x27;</span></span><br><span class="line"><span class="string">&#x27;abcefg&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str1 = <span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str2 = <span class="string">&#x27;efg&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str1 + str2</span><br><span class="line"><span class="string">&#x27;abcefg&#x27;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>Strings can be indexed (subscripted), with the first character
-having index 0. <strong>There is no separate character type</strong>; a
-character is simply a string of size one:</li>
-<li>Indices may also be negative numbers, to start counting from the
-right:</li>
-<li>Note that since -0 is the same as 0, negative indices start from
--1.</li>
-<li>Python strings cannot be changed — they are
-<strong>immutable</strong>. Therefore, assigning to an indexed position
-in the string results in an error: If you need a different string, you
-should create a new one:</li>
-<li>The built-in function <code>len()</code> returns the length of a
-string:</li>
+<li>Strings can be indexed (subscripted), with the first character having index 0. <strong>There is no separate character type</strong>; a character is simply a string of size one:</li>
+<li>Indices may also be negative numbers, to start counting from the right:</li>
+<li>Note that since -0 is the same as 0, negative indices start from -1.</li>
+<li>Python strings cannot be changed — they are <strong>immutable</strong>. Therefore, assigning to an indexed position in the string results in an error: If you need a different string, you should create a new one:</li>
+<li>The built-in function <code>len()</code> returns the length of a string:</li>
 </ul>
-<h2><span id="imports">imports</span><a href="#imports" class="header-anchor">#</a></h2>
+<h2><span id="imports"> imports</span><a href="#imports" class="header-anchor">#</a></h2>
 <ul>
-<li>A <strong>Python module</strong> is a file that has
-a <code>.py</code> extension, and a <strong>Python package</strong> is
-any folder that has modules inside it</li>
+<li>A <strong>Python module</strong> is a file that has a <code>.py</code> extension, and a <strong>Python package</strong> is any folder that has modules inside it</li>
 <li>You can import both packages and modules.</li>
-<li>Importing a package essentially imports the
-package’s <code>__init__.py</code>  file as a module</li>
+<li>Importing a package essentially imports the package’s <code>__init__.py</code><br>
+ file as a module</li>
 <li>You can also import specific objects from a package or module.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> abc</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="import_demo.png" alt="demo of package import process">
-<figcaption aria-hidden="true">demo of package import
-process</figcaption>
-</figure>
+<p><img src="import_demo.png" alt="demo of package import process"></p>
 
       
     </div>
